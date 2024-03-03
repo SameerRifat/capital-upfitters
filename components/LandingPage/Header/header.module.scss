@@ -1,0 +1,29 @@
+.header {
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo >img{
+    width: 80px;
+    height: auto;
+}
+
+.contact_us{
+    color: var(--secondary-text);
+}
+
+@media (max-width: 900px) {
+    .header{
+        height: 80px;
+    }
+}
+@media (max-width: 600px) {
+    .header{
+        height: 70px;
+    }
+    .logo >img{
+        width: 60px;
+    }
+}
