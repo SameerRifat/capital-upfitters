@@ -1,0 +1,36 @@
+.logo_section {
+    margin-top: 3rem;
+    overflow: hidden;
+}
+
+.slider_container {
+    width: 100%;
+}
+
+.slide {
+    >img {
+        width: 169px;
+        height: 34px;
+        object-fit: contain;
+        margin: 0 auto;
+    }
+
+    @media (max-width: 400px) {
+        >img {
+            width: 139px !important;
+            height: 28px !important;
+        }
+    }
+    @media (max-width: 350px) {
+        >img {
+            width: 119px !important;
+            height: 24px !important;
+        }
+    }
+    @media (max-width: 300px) {
+        >img {
+            width: 109px !important;
+            height: 22px !important;
+        }
+    }
+}

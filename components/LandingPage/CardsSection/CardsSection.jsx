@@ -20,7 +20,7 @@ const CardsSection = () => {
             />
             <Card
                 img='/industries.png'
-                title="Other Industies"
+                title="Other Industries"
                 desc={
                     <span>
                         Welcome to Capital Upfitters, the family-owned epicenter of top-tier auto

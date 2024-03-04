@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import '@/styles/typography.scss'
 import Image from "next/image";
 import Footer from "@/components/Shared/Footer/Footer";
 
@@ -14,13 +15,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="ellipse-bg">
+        <div className="top_ellipse_bg" />
+        {/* <div className="ellipse-bg">
           <Image
             src='/ellipse.png'
             alt="ellipse"
             fill
           />
-        </div>
+        </div> */}
         {children}
         <Footer />
       </body>

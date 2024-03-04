@@ -54,13 +54,7 @@ const Footer = () => {
                 </div>
 
             </div>
-            <div className={styles.ellipse_footer_bg}>
-                <Image
-                    src='/ellipse2.png'
-                    alt="ellipse"
-                    fill
-                />
-            </div>
+            <div className="bottom_ellipse_bg" />
         </footer>
     )
 }
