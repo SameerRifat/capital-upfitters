@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import css from './testimonials.module.scss'
 import cx from 'classnames'
 import Image from 'next/image'
@@ -11,6 +11,8 @@ import "slick-carousel/slick/slick-theme.css";
 import { CustomNextArrow, CustomPrevArrow } from './CustomArrows/CustomArrows'
 
 const Testimonials = () => {
+    const [activeIndex, setActiveIndex] = useState(0);
+
     const settings = {
         dots: true,
         dotsClass: "dots-style1",
@@ -33,7 +35,9 @@ const Testimonials = () => {
                 },
             },
         ],
+        beforeChange: (current, next) => setActiveIndex(next),
     };
+
     return (
         <section className={css.tetimonials_container}>
             <h2 className={cx("typoH2", "text_gradient", css.heading)}>
@@ -46,8 +50,8 @@ const Testimonials = () => {
                     <Slider {...settings} className={css.slider}>
                         {testimonialsData.map((item, ind) => {
                             return (
-                                <div className={css.slide}>
-                                    <div className={`${css.tetimonial} ${ind === 0 && css.tetimonial1}`}>
+                                <div className={css.slide} key={ind}>
+                                    <div className={`${css.tetimonial} ${activeIndex === ind && css.tetimonial1}`}>
                                         <Image
                                             src='/quote.svg'
                                             alt='quote'

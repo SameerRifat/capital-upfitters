@@ -1,7 +1,7 @@
 /* globals.css */
 
 :root {
-  --max-width: 1200px;
+  --max-width: 120rem;
 
   --primary-color: rgba(92, 225, 230, 1);
   --text: rgba(255, 255, 255, 0.79);
@@ -111,6 +111,7 @@ ul {
   background: rgba(84, 214, 255, 1);
   filter: blur(10rem);
 }
+
 .bottom_ellipse_bg {
   width: 70%;
   height: 80px;
@@ -124,14 +125,20 @@ ul {
 }
 
 .right_ellipse_bg {
-  width: 200px;
-  height: 422px;
+  width: 400px;
+  height: 900px;
   position: absolute;
   margin-top: 50rem;
   right: 0;
   z-index: -9999;
   background: rgba(5, 0, 255, 1);
-  filter: blur(15rem);
+  filter: blur(23rem);
+
+  @media (max-width: 2500px) {
+    width: 200px;
+    height: 422px;
+    filter: blur(15rem);
+  }
 
   @media (max-width: 900px) {
     width: 30%;
@@ -139,14 +146,21 @@ ul {
 }
 
 .left_ellipse_bg {
-  width: 150px;
-  height: 414px;
+  width: 20%;
+  height: 900px;
   position: absolute;
   margin-top: 95rem;
   left: 0;
   z-index: -9999;
   background: rgba(84, 214, 255, 1);
-  filter: blur(11rem);
+  filter: blur(30rem);
+
+  @media (max-width: 2500px) {
+    width: 150px;
+    height: 414px;
+    filter: blur(11rem);
+  }
+
   @media (max-width: 900px) {
     width: 20%;
   }
