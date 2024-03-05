@@ -13,7 +13,7 @@ const AutomotiveHero = () => {
                     <br />
                     got in Automotives
                 </h2>
-                <p className={cx("typoBody2", css.desc)}>
+                <p className={cx("typoBody1", css.desc)}>
                     Lorem ipsum dolor sit amet consectetur
                     <br />
                     adipisicing elit. Sunt molestias facilis praesentium
