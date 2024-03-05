@@ -1,6 +1,6 @@
 .wrapper {
     margin: auto;
-    min-width: 70rem;
+    max-width: 70rem;
 
     @media (max-width: 1300px) {
         min-width: 100%;

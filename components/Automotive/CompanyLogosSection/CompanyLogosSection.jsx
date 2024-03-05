@@ -13,7 +13,7 @@ const CompanyLogosSection = () => {
         dots: false,
         arrows: false,
         infinite: true,
-        slidesToShow: 3,
+        slidesToShow: 4,
         slidesToScroll: 1,
         autoplay: true,
         speed: 4000,
@@ -21,6 +21,12 @@ const CompanyLogosSection = () => {
         cssEase: "linear",
         pauseOnHover: false,
         responsive: [
+            {
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 3,
+                },
+            },
             {
                 breakpoint: 700,
                 settings: {

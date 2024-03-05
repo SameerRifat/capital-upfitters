@@ -1,10 +1,14 @@
+'use client'
+
 import React from 'react'
 import css from './automotiveHero.module.scss'
 import cx from 'classnames'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 
 const AutomotiveHero = () => {
+    const router = useRouter();
     return (
         <section className={css.hero}>
             <div className={css.hero_left}>
@@ -101,7 +105,7 @@ const AutomotiveHero = () => {
                         </div>
                     </div>
                     <div className={cx("border_gradient", css.card, css.card4)}>
-                        <div className={css.explore_more_btn}>
+                        <div className={css.explore_more_btn} onClick={() => router.push('/services')}>
                             Explore
                             <br />
                             more
