@@ -40,7 +40,9 @@ const Services = () => {
     return (
         <>
             <section className={css.services_container}>
-                <h3 className={cx('typoH3', 'text_gradient', css.heading)}>Our Services</h3>
+                <h2 className={cx("typoH2", "text_gradient", css.heading)}>
+                    Our Services
+                </h2>
                 <div className={css.search_wrapper}>
                     <input
                         type="text"

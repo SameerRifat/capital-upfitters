@@ -16,7 +16,7 @@ export const NavLinks = [
         route: "/quote",
     },
     {
-        label: "Portfolio",
-        route: "/portfolio",
+        label: "About Us",
+        route: "/about-us",
     },
 ];

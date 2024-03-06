@@ -6,9 +6,6 @@
 .heading {
     font-weight: 500;
     text-align: center;
-    @media (min-width: 900px) {
-        font-size: 2.3rem;
-    }
 }
 
 .search_wrapper {
@@ -34,6 +31,10 @@
             color: var(--text);
         }
     }
+
+    @media (max-width: 500px) {
+        margin-right: auto;
+    }
 }
 
 .services {
@@ -48,6 +49,7 @@
     position: relative;
     border: 2px solid transparent;
     transition: border-color 0.8s ease;
+
     &:hover {
         border-color: var(--primary-color);
     }
@@ -137,40 +139,20 @@
 }
 
 @media (max-width: 400px) {
-    .services_container{
+    .services_container {
         margin-top: 3rem;
     }
+
     .services {
         grid-template-columns: 1fr;
 
         .card {
             grid-column: span 1;
-        }
-        
-        .card:nth-child(1) {
-            order: 1;
-        }
-        
-        .card:nth-child(2) {
-            order: 2;
-        }
-        
-        .card:nth-child(3) {
-            order: 3;
-        }
-        .card:nth-child(4) {
-            order: 6;
-        }
-    
-        .card:nth-child(5) {
-            order: 4;
-        }
-    
-        .card:nth-child(6) {
-            order: 5;
-        }
-        .card:nth-child(7) {
-            order: 7;
+            order: initial;
+
+            .card_img_container {
+                padding-top: calc(185 / 198 * 100%);
+            }
         }
     }
 }
@@ -212,21 +194,9 @@
             font-size: 12px;
         }
     }
-
-    @media (max-width: 460px) {
-        padding: 0.5rem;
-    }
-
-    @media (max-width: 400px) {
-        padding-left: 1rem;
-        padding-top: 0.5rem;
-        .card_title{
-            line-height: 1;
-        }
-    }
 }
 
-.no_service{
+.no_service {
     color: var(--text);
     font-weight: 500;
 }
