@@ -14,7 +14,7 @@ const Automotive = () => {
       <CompanyLogosSection />
       <Testimonials />
       <StatesSection />
-        <GetStarted />
+      <GetStarted />
     </div>
   );
 };

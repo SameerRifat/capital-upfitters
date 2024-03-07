@@ -1,0 +1,122 @@
+.form {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.form_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    >h3 {
+        font-weight: 400;
+        font-family: League-Gothic;
+    }
+
+    >button {
+        border: none;
+        outline: none;
+        background-image: linear-gradient(to bottom, #33BBCF 0.93%, rgba(255, 255, 255, 0) 337.74%);
+        padding: 0.5rem 2rem;
+        font-weight: 600;
+        font-size: 14px;
+        color: var(--white);
+        border-radius: 4px;
+        cursor: pointer;
+    }
+}
+
+.form_caption {
+    color: rgba(255, 255, 255, 0.69);
+}
+
+.form_grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 8rem;
+    row-gap: 4rem;
+
+    input {
+        width: 100%;
+        background-color: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.56);
+        border-radius: var(--radius-sm);
+        outline: rgba(51, 187, 207, 1);
+        padding: 1rem;
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 14px;
+
+        &::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        &:focus {
+            border: 1px solid rgba(51, 187, 207, 1)
+        }
+    }
+
+    .error {
+        color: red;
+        margin-top: 5px;
+        padding-left: 5px;
+    }
+
+    @media (max-width: 900px) {
+        gap: 4rem;
+    }
+
+    @media (max-width: 700px) {
+        gap: 3rem;
+    }
+
+    @media (max-width: 600px) {
+        gap: 2rem;
+    }
+}
+
+.form_grid.contact_details_grid {
+    >div {
+        grid-column: span 3;
+    }
+    @media (max-width: 450px) {
+        >div{
+            grid-column: span 6;
+        }
+    }
+}
+
+.form_grid.vehicle_information_grid {
+
+    >:nth-child(1),
+    :nth-child(2),
+    :nth-child(3) {
+        grid-column: span 2;
+    }
+
+    >:nth-child(4),
+    :nth-child(5) {
+        grid-column: span 3;
+    }
+
+    @media (max-width: 1100px) {
+
+        >:nth-child(1),
+        :nth-child(2),
+        :nth-child(3) {
+            grid-column: span 3;
+        }
+    }
+
+    @media (max-width: 450px) {
+
+        >:nth-child(1),
+        :nth-child(2),
+        :nth-child(3),
+        :nth-child(4),
+        :nth-child(5) {
+            grid-column: span 6;
+        }
+    }
+}

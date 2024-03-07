@@ -40,7 +40,7 @@ const CompanyLogosSection = () => {
             <div className={css.slider_container}>
                 <Slider {...settings} className={css.slider}>
                     {logos.map((logo, ind) => (
-                        <div className={css.slide}>
+                        <div className={css.slide} key={ind}>
                             <Image
                                 key={ind}
                                 src={logo.logoImg}

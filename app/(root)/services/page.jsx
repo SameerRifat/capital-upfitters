@@ -4,7 +4,9 @@ import React from 'react'
 const page = () => {
   return (
     <>
-        <Services />
+      <div className="right_ellipse_bg services" />
+      <div className="left_ellipse_bg services" />
+      <Services />
     </>
   )
 }

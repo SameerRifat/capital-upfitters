@@ -1,4 +1,5 @@
 /* globals.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
   --max-width: 120rem;
@@ -10,6 +11,7 @@
   --white: #fff;
   ---background-color: #131313;
   /* border radius */
+  --radius-sm: 8px;
   --radius-md: 11px;
   --radius-lg: 18px;
   --radius-xl: 20px;
@@ -45,6 +47,7 @@
 
 body {
   background: var(---background-color);
+  font-family: 'inter', sans-serif;
 }
 
 .ellipse-bg {
@@ -128,7 +131,6 @@ ul {
   width: 400px;
   height: 900px;
   position: absolute;
-  margin-top: 50rem;
   right: 0;
   z-index: -9999;
   background: rgba(5, 0, 255, 1);
@@ -145,11 +147,26 @@ ul {
   }
 }
 
+.right_ellipse_bg.automotive {
+  margin-top: 35rem;
+}
+
+.right_ellipse_bg.services {
+  margin-top: 40rem;
+}
+
+.right_ellipse_bg.about {
+  margin-top: 35rem;
+}
+
+.right_ellipse_bg.quote {
+  margin-top: 33rem;
+}
+
 .left_ellipse_bg {
   width: 20%;
   height: 900px;
   position: absolute;
-  margin-top: 95rem;
   left: 0;
   z-index: -9999;
   background: rgba(84, 214, 255, 1);
@@ -165,6 +182,19 @@ ul {
     width: 20%;
   }
 }
+
+.left_ellipse_bg.automotive {
+  margin-top: 80rem;
+}
+
+.left_ellipse_bg.services {
+  margin-top: 82rem;
+}
+
+.left_ellipse_bg.about {
+  margin-top: 80rem;
+}
+
 
 /* testimonials dots */
 .dots-style1 {
@@ -192,4 +222,55 @@ ul {
 .dots-style1 li button {
   cursor: pointer;
   opacity: 0;
+}
+
+
+/* react-select customization */
+.react-select-container {
+  width: 100% !important;
+}
+
+.react-select__control {
+  width: 100% !important;
+  height: 50px !important;
+  background-color: transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0.56) !important;
+  border-radius: var(--radius-sm) !important;
+  padding-left: 5px !important;
+}
+
+.react-select__dropdown-indicator {
+  >svg {
+    color: rgba(255, 255, 255, 0.5) !important;
+  }
+}
+
+.react-select__indicator-separator {
+  width: 0 !important;
+}
+
+.react-select__control--is-focused {
+  border: 1px solid rgba(51, 187, 207, 1) !important;
+  box-shadow: none !important;
+}
+
+.react-select__single-value {
+  color: rgba(255, 255, 255, 0.5) !important;
+  font-size: 14px !important;
+}
+
+.react-select__menu {
+  background-color: #272727 !important;
+  border-radius: var(--radius-sm) !important;
+  margin-top: 0 !important;
+}
+
+.react-select__option--is-focused {
+  background-color: #1d1d1d !important;
+  color: var(--primary-color) !important;
+}
+
+.react-select__option--is-selected {
+  background-color: var(--black) !important;
+  color: var(--white) !important;
 }
