@@ -27,10 +27,10 @@ const AutomotiveHero = () => {
                     ducimus eius earum.
                 </p>
                 <div className={css.hero_left_btns}>
-                    <Link href="/quote" className={cx("primary_btn")}>
+                    <Link href="/quote-request" className={cx("primary_btn")}>
                         Get Quote
                     </Link>
-                    <Link href="/quote" className={cx("primary_btn", css.outiline_btn)}>
+                    <Link href="/contact-us" className={cx("primary_btn", css.outiline_btn)}>
                         Contact Us
                     </Link>
                 </div>
@@ -44,8 +44,6 @@ const AutomotiveHero = () => {
                                 src='/window-tint.png'
                                 alt='image'
                                 fill
-                                // width={222}
-                                // height={185}
                                 quality={100}
                                 priority={true}
                                 className={css.card_img}
@@ -66,8 +64,6 @@ const AutomotiveHero = () => {
                                 src='/ceramic-coating.png'
                                 alt='image'
                                 fill
-                                // width={222}
-                                // height={136}
                                 quality={100}
                                 priority={true}
                                 className={css.card_img}

@@ -38,6 +38,7 @@ const ContactDetailsForm = ({ onNextStep }) => {
                 type="text"
                 name="firstName"
                 placeholder='First name'
+                className={css.cutom_input}
               />
               <ErrorMessage
                 name="firstName"
@@ -51,6 +52,7 @@ const ContactDetailsForm = ({ onNextStep }) => {
                 type="text"
                 name="lastName"
                 placeholder='Last name'
+                className={css.cutom_input}
               />
               <ErrorMessage name="lastName" component="div" className={cx("typoCaption", css.error)}/>
             </div>
@@ -60,6 +62,7 @@ const ContactDetailsForm = ({ onNextStep }) => {
                 type="text"
                 name="phoneNumber"
                 placeholder='Phone number'
+                className={css.cutom_input}
               />
               <ErrorMessage name="phoneNumber" component="div" className={cx("typoCaption", css.error)}/>
             </div>
@@ -69,6 +72,7 @@ const ContactDetailsForm = ({ onNextStep }) => {
                 type="email"
                 name="email"
                 placeholder='Email address'
+                className={css.cutom_input}
               />
               <ErrorMessage name="email" component="div" className={cx("typoCaption", css.error)}/>
             </div>

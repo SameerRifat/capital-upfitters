@@ -274,3 +274,27 @@ ul {
   background-color: var(--black) !important;
   color: var(--white) !important;
 }
+
+input::-webkit-file-upload-button {
+  cursor: pointer;
+  width: 50%;
+  height: 100%;
+  border: none;
+  outline: none;
+  border-radius: var(--radius-sm);
+  background: #2a2a2a;
+  color: var(--white);
+  margin-right: 10px;
+  /* border: 2px solid blue */
+  /* cursor: 'pointer',
+  width: '100%',
+  border: 'none',
+  height: '33px',
+  zIndex: 2,
+  padding: '0 10px',
+  backgroundColor: colors.grey[200],
+  transition: 'all 0.4s' */
+}
+input::-webkit-file-upload-button:hover{
+  background: #424242;
+}

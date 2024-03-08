@@ -13,7 +13,7 @@ export const NavLinks = [
     },
     {
         label: "Quote",
-        route: "/quote",
+        route: "/quote-request",
     },
     {
         label: "About Us",

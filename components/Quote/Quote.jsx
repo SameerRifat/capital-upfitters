@@ -13,6 +13,9 @@ const Quote = () => {
   const handleNextStep = () => {
     setCurrentStep((prevStep) => prevStep + 1);
   };
+  const handlePrevStep = () => {
+    setCurrentStep((prevStep) => prevStep - 1);
+  };
 
   return (
     <div className={css.quote_container}>
@@ -34,10 +37,10 @@ const Quote = () => {
         <ContactDetailsForm onNextStep={handleNextStep} />
       )}
       {currentStep === 2 && (
-        <VehicleInformationForm onNextStep={handleNextStep} />
+        <VehicleInformationForm onNextStep={handleNextStep} onPrevStep={handlePrevStep}/>
       )}
       {currentStep === 3 && (
-        <SelectYourServicesForm />
+        <SelectYourServicesForm onPrevStep={handlePrevStep}/>
       )}
     </div>
   );

@@ -5,7 +5,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import Select from 'react-select'
 import { vehicleInformationSchema } from '@/lib/validations/formValidations';
 
-const VehicleInformationForm = ({ onNextStep }) => {
+const VehicleInformationForm = ({ onNextStep, onPrevStep }) => {
   const initialValues = {
     year: '',
     make: '',
@@ -61,6 +61,7 @@ const VehicleInformationForm = ({ onNextStep }) => {
                 type="text"
                 name="make"
                 placeholder='Make'
+                className={css.cutom_input}
               />
               <ErrorMessage
                 name="make"
@@ -74,6 +75,7 @@ const VehicleInformationForm = ({ onNextStep }) => {
                 type="text"
                 name="model"
                 placeholder='Model'
+                className={css.cutom_input}
               />
               <ErrorMessage name="model" component="div" className={cx("typoCaption", css.error)} />
             </div>
@@ -83,6 +85,7 @@ const VehicleInformationForm = ({ onNextStep }) => {
                 type="text"
                 name="licensePlate"
                 placeholder='License Plate'
+                className={css.cutom_input}
               />
               <ErrorMessage name="licensePlate" component="div" className={cx("typoCaption", css.error)} />
             </div>
