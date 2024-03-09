@@ -1,3 +1,31 @@
+export const vehicleInformation = {
+    makeData: [
+        { value: 'acura', label: 'Acura' },
+        { value: 'alfaRomeo', label: 'AlfaRomeo' },
+        { value: 'austonMartin', label: 'AustonMartin' },
+        { value: 'audi', label: 'Audi' },
+        { value: 'bmw', label: 'Bmw' },
+        { value: 'bentley', label: 'Bentley' },
+        { value: 'bugatti', label: 'Bugatti' },
+        { value: 'buick', label: 'Buick' },
+        { value: 'cadillac', label: 'Cadillac' },
+        { value: 'chrysler', label: 'Chrysler' },
+        { value: 'fiat', label: 'Fiat' },
+    ],
+    modelData: [
+        { value: 'DB11', label: 'DB11' },
+        { value: 'DB9', label: 'DB9' },
+        { value: 'DBS', label: 'DBS' },
+        { value: 'Vantage', label: 'Vantage' },
+        { value: 'Rapide', label: 'Rapide' },
+        { value: 'Valkyrie', label: 'Valkyrie' },
+        { value: 'Virage', label: 'Virage' },
+        { value: 'One-77', label: 'One-77' },
+        { value: 'Lagonda', label: 'Lagonda' },
+        { value: 'Cygent', label: 'Cygent' },
+    ],
+}
+
 export const services = [
     { value: 'trail-hitcher', label: 'Trail Hitcher', tooltipDesc: ["Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt molestias facilis praesentium vitae consectetur nemo dolorum facere quas qui ducimus eius earum.", "Lorem ipsum dolor sit amet consectetur adipisicing elite."] },
     { value: 'body-cover', label: 'Body Cover', tooltipDesc: ["Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt molestias facilis praesentium vitae consectetur nemo dolorum facere quas qui ducimus eius earum.", "Lorem ipsum dolor sit amet consectetur adipisicing elite."] },

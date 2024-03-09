@@ -8,33 +8,33 @@ import { servicesSchema } from '@/lib/validations/formValidations';
 import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css'
 import { services } from './data';
+import Iconify from "@/components/iconify/iconify";
 
-const SelectYourServicesForm = ({ onPrevStep }) => {
+const SelectYourServicesForm = ({ initialValues, onPrevStep, onNextStep, onFormSubmit }) => {
   const [images, setImages] = useState([]);
-
-  const initialValues = {
-    services: [],
-    message: ''
-  };
-
-  const imageChangeEvent = (e) => {
+  const imageChangeEvent = (e, setFieldValue) => {
     const files = Array.from(e.target.files);
-    setImages([]);
+    const newImages = [];
     files.forEach((file) => {
       const reader = new FileReader();
       reader.onload = () => {
         if (reader.readyState === 2) {
-          setImages((old) => [...old, reader.result]);
+          newImages.push(reader.result);
+          if (newImages.length === files.length) {
+            setFieldValue('images', newImages);
+          }
         }
-      }
+      };
       reader.readAsDataURL(file);
-    })
-  }
+    });
+  };
+
 
   const onSubmit = (values, { setSubmitting, resetForm }) => {
-    console.log("hello")
     console.log('values: ', values);
-    console.log('images: ', images);
+    // updateFormData(values);
+    onNextStep(values);
+    onFormSubmit();
     setSubmitting(false);
     resetForm();
   };
@@ -72,7 +72,7 @@ const SelectYourServicesForm = ({ onPrevStep }) => {
                   />
                   <label htmlFor={item.value} className={cx("typoBody2", css.custom_label, css.service_lable)}>{item.label}</label>
                   <Tooltip id={`tooltip-${ind}`} place='bottom' arrowColor="rgba(92, 225, 230, 1)" className={css.tooltip}>
-                    <TooltipContent title={item.label} desc={item.tooltipDesc} />
+                    <TooltipContent title={item.label} desc={item.tooltipDesc}/>
                   </Tooltip>
                 </div>
               ))}
@@ -97,11 +97,18 @@ const SelectYourServicesForm = ({ onPrevStep }) => {
             </div>
             <div className={css.input_container}>
               <label className={cx("typoBody2", css.custom_label)}>Upload File</label>
-              <input type="file" name="images" accept='image/*' multiple className={css.file_input} onChange={imageChangeEvent} />
+              <input type="file" name="images" accept='image/*' multiple className={css.file_input} onChange={(e) => imageChangeEvent(e, setFieldValue)} />
               <div className={css.images}>
-                {images.map((image, ind) => (
+                {values.images.map((image, ind) => (
                   <>
-                    <div className={css.image}>
+                    <div className={css.image} key={ind}>
+                      <span className={css.delete_icon} onClick={() => setFieldValue('images', values.images.filter((image, imageInd) => imageInd !== ind))}>
+                        <Iconify
+                          icon="uiw:delete"
+                          color="#ff0000"
+                          width={15}
+                        />
+                      </span>
                       <img src={image} alt="image" />
                     </div>
                   </>
@@ -122,7 +129,7 @@ export default SelectYourServicesForm;
 
 const TooltipContent = ({ title, desc }) => {
   return (
-    <div className={css.tooltip_content}>
+    <div className={cx(css.tooltip_content)}>
       <div className={css.ellipse} />
       <span className={cx("typoSubtitle2", "text_gradient", css.tooltip_title)}>
         {title}

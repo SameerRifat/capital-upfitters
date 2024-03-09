@@ -19,7 +19,6 @@
         border: none;
         outline: none;
         background-image: linear-gradient(to bottom, #33BBCF 0.93%, rgba(255, 255, 255, 0) 337.74%);
-        // padding: 0.5rem 2rem;
         width: 90px;
         height: 30px;
         font-weight: 600;
@@ -72,8 +71,66 @@
     }
 
     &:focus {
-        border: 1px solid rgba(51, 187, 207, 1)
+        border: 1px solid rgba(51, 187, 207, 1);
     }
+}
+
+.cutom_phone_input {
+    border-radius: var(--radius-sm);
+    width: 100%;
+    height: 50px;
+
+    >div {
+        height: 100% !important;
+
+        >button {
+            height: 100% !important;
+            background: transparent !important;
+            border: 1px solid rgba(255, 255, 255, 0.56) !important;
+            border-right: none !important;
+            border-top-left-radius: var(--radius-sm) !important;
+            border-bottom-left-radius: var(--radius-sm) !important;
+            width: 60px !important;
+        }
+
+        >ul {
+            max-width: 180px;
+            overflow: hidden;
+            background-color: #272727 !important;
+            border: 1px solid rgba(255, 255, 255, 0.219) !important;
+            box-shadow: none !important;
+            border-radius: var(--radius-sm);
+            margin-top: 7px;
+
+            >li {
+                color: var(--text) !important;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.199);
+            }
+        }
+    }
+
+    >input {
+        width: 100%;
+        height: 100% !important;
+        background: transparent !important;
+        color: var(--white) !important;
+        font-size: 14px !important;
+        border: 1px solid rgba(255, 255, 255, 0.56) !important;
+        border-top-right-radius: var(--radius-sm) !important;
+        border-bottom-right-radius: var(--radius-sm) !important;
+        outline: none !important;
+
+        &::placeholder {
+            color: rgba(255, 255, 255, 0.5) !important;
+        }
+
+        &:focus {
+            border: 1px solid rgba(51, 187, 207, 1) !important;
+        }
+    }
+}
+.countrySelectorStyleProps{
+    border: 4px solid red !important;
 }
 
 .cutom_input.cutom_textarea {
@@ -135,7 +192,6 @@
 .services_container {
     display: flex;
     flex-direction: column;
-    // gap: 2rem;
 }
 
 .services {
@@ -201,6 +257,7 @@
     color: var(--white);
     font-size: 14px;
 }
+
 .custom_label.service_lable {
     color: var(--white);
     font-size: 14px;
@@ -237,6 +294,23 @@
     padding: 0 !important;
     border: 1px solid var(--primary-color);
     border-radius: var(--radius-md) !important;
+    opacity: 1 !important;
+    // transition: opacity 1s ease-in-out;
+    pointer-events: auto !important;
+}
+
+.tooltip.show {
+    background: red !important;
+}
+
+.__react_component_tooltip {
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-out !important;
+    opacity: 0 !important;
+    visibility: visible !important;
+}
+
+.__react_component_tooltip.show {
+    visibility: visible !important;
     opacity: 1 !important;
 }
 
@@ -286,7 +360,6 @@
 }
 
 .images {
-    // border: 2px solid red;
     display: flex;
     gap: 5px;
     flex-wrap: wrap;
@@ -296,9 +369,27 @@
     .image {
         width: 80px;
         height: 80px;
-        // border: 2px solid blue;
         border-radius: 5px;
         box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.4);
+        position: relative;
+
+        .delete_icon{
+            width: 22px;
+            height: 22px;
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            background: var(--text);
+            // padding: 5px;
+            border-radius: 100%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &:hover{
+                background: rgba(255, 255, 255, 0.644);
+            }
+        }
 
         >img {
             width: 100%;

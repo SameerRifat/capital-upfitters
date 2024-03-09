@@ -4,20 +4,19 @@ import cx from 'classnames'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import Select from 'react-select'
 import { vehicleInformationSchema } from '@/lib/validations/formValidations';
+import { vehicleInformation } from './data';
+import { State } from 'country-state-city'
 
-const VehicleInformationForm = ({ onNextStep, onPrevStep }) => {
-  const initialValues = {
-    year: '',
-    make: '',
-    model: '',
-    licensePlate: '',
-    state: ''
-  };
+const years = [];
+for (let year = 2025; year >= 1980; year--) {
+  years.push({ value: year.toString(), label: year.toString() });
+}
 
+const VehicleInformationForm = ({ initialValues, onNextStep, onPrevStep }) => {
   const onSubmit = (values, { setSubmitting }) => {
-    console.log(values);
+    // console.log(values);
     setSubmitting(false);
-    onNextStep();
+    onNextStep(values);
   };
 
   return (
@@ -42,12 +41,8 @@ const VehicleInformationForm = ({ onNextStep, onPrevStep }) => {
                 {({ field }) => (
                   <Select
                     value={field.value ? { value: field.value, label: field.value } : null}
-                    options={[
-                      { value: '2024', label: '2024' },
-                      { value: '2023', label: '2023' },
-                      { value: '2022', label: '2022' }
-                    ]}
-                    placeholder='Year'
+                    options={years}
+                    placeholder='Choose year'
                     className="react-select-container"
                     classNamePrefix="react-select"
                     onChange={(option) => setFieldValue('year', option.value)}
@@ -58,11 +53,20 @@ const VehicleInformationForm = ({ onNextStep, onPrevStep }) => {
             </div>
             <div>
               <Field
-                type="text"
                 name="make"
-                placeholder='Make'
-                className={css.cutom_input}
-              />
+              >
+                {({ field }) => (
+                  <Select
+                    // value={field.value ? { value: field.value, label: field.value } : null}
+                    value={vehicleInformation.makeData.find(option => option.value === field.value)}
+                    options={vehicleInformation.makeData}
+                    placeholder='Choose your make'
+                    className="react-select-container"
+                    classNamePrefix="react-select"
+                    onChange={(option) => setFieldValue('make', option.value)}
+                  />
+                )}
+              </Field>
               <ErrorMessage
                 name="make"
                 component="div"
@@ -72,11 +76,19 @@ const VehicleInformationForm = ({ onNextStep, onPrevStep }) => {
 
             <div>
               <Field
-                type="text"
                 name="model"
-                placeholder='Model'
-                className={css.cutom_input}
-              />
+              >
+                {({ field }) => (
+                  <Select
+                    value={field.value ? { value: field.value, label: field.value } : null}
+                    options={vehicleInformation.modelData}
+                    placeholder='Choose model'
+                    className="react-select-container"
+                    classNamePrefix="react-select"
+                    onChange={(option) => setFieldValue('model', option.value)}
+                  />
+                )}
+              </Field>
               <ErrorMessage name="model" component="div" className={cx("typoCaption", css.error)} />
             </div>
 
@@ -96,19 +108,20 @@ const VehicleInformationForm = ({ onNextStep, onPrevStep }) => {
               >
                 {({ field }) => (
                   <Select
-                    value={field.value ? { value: field.value, label: field.value } : null}
-                    options={[
-                      { value: 'stat1', label: 'stat1' },
-                      { value: 'stat2', label: 'stat2' },
-                      { value: 'stat3', label: 'stat3' }
-                    ]}
-                    placeholder="State"
+                    value={State.getStatesOfCountry('US').find(item => item.value === field.value)}
+                    options={
+                      State && State.getStatesOfCountry('US').map((item) => (
+                        { value: item.isoCode, label: item.name }
+                      ))
+                    }
+                    placeholder='State'
                     className="react-select-container"
                     classNamePrefix="react-select"
                     onChange={(option) => setFieldValue('state', option.value)}
                   />
                 )}
               </Field>
+
               <ErrorMessage name="state" component="div" className={cx("typoCaption", css.error)} />
             </div>
           </div>
