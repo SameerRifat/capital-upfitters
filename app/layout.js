@@ -3,6 +3,7 @@ import "./globals.css";
 import '@/styles/typography.scss'
 import Image from "next/image";
 import Footer from "@/components/Shared/Footer/Footer";
+import ScrollToTop from "@/components/Shared/ScrollToTop";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,14 +17,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <div className="top_ellipse_bg" />
-        {/* <div className="ellipse-bg">
-          <Image
-            src='/ellipse.png'
-            alt="ellipse"
-            fill
-          />
-        </div> */}
-        {children}
+        <ScrollToTop>
+          {children}
+        </ScrollToTop>
         <Footer />
       </body>
     </html>

@@ -18,7 +18,7 @@
     >button {
         border: none;
         outline: none;
-        background-image: linear-gradient(to bottom, #33BBCF 0.93%, rgba(255, 255, 255, 0) 337.74%);
+        background-image: linear-gradient(to bottom, #33BBCF 0.93%, var(--transparent-white) 337.74%);
         width: 90px;
         height: 30px;
         font-weight: 600;
@@ -29,7 +29,7 @@
     }
 
     >button.submit_btn {
-        background: linear-gradient(178.91deg, #33CF84 0.93%, rgba(255, 255, 255, 0) 337.74%);
+        background: linear-gradient(178.91deg, #33CF84 0.93%, var(--transparent-white) 337.74%);
     }
 }
 
@@ -61,7 +61,7 @@
     background-color: transparent;
     border: 1px solid rgba(255, 255, 255, 0.56);
     border-radius: var(--radius-sm);
-    outline: rgba(51, 187, 207, 1);
+    outline: var(--primary-color2);
     padding: 1rem;
     color: var(--white);
     font-size: 14px;
@@ -71,7 +71,7 @@
     }
 
     &:focus {
-        border: 1px solid rgba(51, 187, 207, 1);
+        border: 1px solid var(--primary-color2);
     }
 }
 
@@ -125,7 +125,7 @@
         }
 
         &:focus {
-            border: 1px solid rgba(51, 187, 207, 1) !important;
+            border: 1px solid var(--primary-color2) !important;
         }
     }
 }
@@ -249,8 +249,8 @@
 }
 
 .checkbox_input:checked {
-    background: rgba(92, 225, 230, 1);
-    border: 3px solid rgba(51, 187, 207, 1);
+    background: var(--primary-color);
+    border: 3px solid var(--primary-color2);
 }
 
 .custom_label {

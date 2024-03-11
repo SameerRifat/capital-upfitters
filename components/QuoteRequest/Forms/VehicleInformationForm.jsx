@@ -43,6 +43,7 @@ const VehicleInformationForm = ({ initialValues, onNextStep, onPrevStep }) => {
                     value={field.value ? { value: field.value, label: field.value } : null}
                     options={years}
                     placeholder='Choose year'
+                    isSearchable={false}
                     className="react-select-container"
                     classNamePrefix="react-select"
                     onChange={(option) => setFieldValue('year', option.value)}
@@ -61,6 +62,7 @@ const VehicleInformationForm = ({ initialValues, onNextStep, onPrevStep }) => {
                     value={vehicleInformation.makeData.find(option => option.value === field.value)}
                     options={vehicleInformation.makeData}
                     placeholder='Choose your make'
+                    isSearchable={false}
                     className="react-select-container"
                     classNamePrefix="react-select"
                     onChange={(option) => setFieldValue('make', option.value)}
@@ -83,6 +85,7 @@ const VehicleInformationForm = ({ initialValues, onNextStep, onPrevStep }) => {
                     value={field.value ? { value: field.value, label: field.value } : null}
                     options={vehicleInformation.modelData}
                     placeholder='Choose model'
+                    isSearchable={false}
                     className="react-select-container"
                     classNamePrefix="react-select"
                     onChange={(option) => setFieldValue('model', option.value)}
@@ -115,6 +118,7 @@ const VehicleInformationForm = ({ initialValues, onNextStep, onPrevStep }) => {
                       ))
                     }
                     placeholder='State'
+                    isSearchable={false}
                     className="react-select-container"
                     classNamePrefix="react-select"
                     onChange={(option) => setFieldValue('state', option.value)}

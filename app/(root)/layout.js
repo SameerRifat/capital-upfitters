@@ -6,8 +6,6 @@ const layout = ({ children }) => {
   return (
     <>
       <div className='container'>
-        {/* <div className="right_ellipse_bg" />
-        <div className="left_ellipse_bg" /> */}
         <Navbar />
         {children}
       </div>

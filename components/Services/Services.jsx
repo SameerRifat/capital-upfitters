@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import css from './services.module.scss';
 import cx from 'classnames';
 import Image from 'next/image';
-import { servicesData } from './data';
+import { servicesData } from '@/mock/services';
 import GetStarted from '../Shared/GetStarted/GetStarted';
 import Iconify from '@/components/iconify/iconify';
 import Pagination from './Pagination/Pagination';
@@ -56,7 +56,7 @@ const Services = () => {
                     {visibleServices.length !== 0 ? (
                         visibleServices.map((service) => {
                             return (
-                                <div className={`${css.card}`} key={service.id} onClick={() => router.push(`/services/${service.id}`)}>
+                                <div className={`${css.card}`} key={service.id} onClick={() => router.push(`/services/${service.slug}`)}>
                                     <div className={css.card_img_container}>
                                         <Image
                                             src={service.imageSrc}

@@ -1,12 +1,13 @@
 import Services from '@/components/Services/Services'
+import PagesLayout from '@/layouts/PagesLayout'
 import React from 'react'
 
 const page = () => {
   return (
     <>
-      <div className="right_ellipse_bg services" />
-      <div className="left_ellipse_bg services" />
-      <Services />
+      <PagesLayout pageClass='services'>
+        <Services />
+      </PagesLayout>
     </>
   )
 }

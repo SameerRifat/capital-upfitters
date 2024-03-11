@@ -32,7 +32,7 @@
         position: absolute;
         height: 100%;
         border-radius: var(--radius-sm);
-        background-image: linear-gradient(to left, #5CE1E6 0%, rgba(255, 255, 255, 0) 101.96% );
+        background-image: linear-gradient(to left, #5CE1E6 0%, var(--transparent-white) 101.96% );
         transition: all 0.3s;
     }
     .progress_bar.active_step1{

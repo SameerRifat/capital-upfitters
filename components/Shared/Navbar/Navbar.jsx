@@ -24,9 +24,9 @@ const Navbar = () => {
                 </Link>
                 <div className={css.navlinks}>
                     {NavLinks.map((navlink) => {
-                        const isActive = pathname === navlink.route;
+                        const isActive = pathname === navlink.route || pathname.includes(navlink.route);
                         return (
-                            <Link key={navlink.label} href={navlink.route} className={`${css.navlink} ${isActive && css.active}`}>
+                            <Link key={navlink.label} href={navlink.route} className={`${css.navlink} ${isActive && 'boder_gradient_bottom'}`}>
                                 {navlink.label} {isActive}
                             </Link>
                         )
