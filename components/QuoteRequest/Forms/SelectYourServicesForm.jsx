@@ -59,7 +59,8 @@ const SelectYourServicesForm = ({ initialValues, onPrevStep, onNextStep, onFormS
                   <input
                     type="checkbox"
                     id={item.value}
-                    value={item.value}
+                    name='services'
+                    // value={item.value}
                     className={css.checkbox_input}
                     checked={values.services.includes(item.value)}
                     onChange={(e) => {
@@ -71,7 +72,7 @@ const SelectYourServicesForm = ({ initialValues, onPrevStep, onNextStep, onFormS
                     }}
                   />
                   <label htmlFor={item.value} className={cx("typoBody2", css.custom_label, css.service_lable)}>{item.label}</label>
-                  <Tooltip id={`tooltip-${ind}`} place='bottom' arrowColor="rgba(92, 225, 230, 1)" className={css.tooltip}>
+                  <Tooltip id={`tooltip-${ind}`} place='bottom' delayShow={300} delayHide={300} arrowColor="rgba(92, 225, 230, 1)" className={css.tooltip} >
                     <TooltipContent title={item.label} desc={item.tooltipDesc}/>
                   </Tooltip>
                 </div>

@@ -18,11 +18,13 @@
         background: var(--background-color2);
         padding: 1.3rem;
         padding-top: 1.72rem;
+        border-radius: var(--radius-sm);
     }
 
     @media (max-width: 450px) {
         width: 65%;
     }
+
     @media (max-width: 350px) {
         width: 80%;
     }

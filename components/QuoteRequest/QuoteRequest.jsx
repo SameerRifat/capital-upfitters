@@ -9,7 +9,7 @@ import SelectYourServicesForm from './Forms/SelectYourServicesForm';
 import { contactDetailInitialValues, servicesInitialValues, vehicleInformationInitialValues } from '@/lib/validations/formValidations';
 
 const QuoteRequest = () => {
-  const [currentStep, setCurrentStep] = useState(1);
+  const [currentStep, setCurrentStep] = useState(3);
   const [formData, setFormData] = useState({
     contactDetails: contactDetailInitialValues,
     vehicleInformation: vehicleInformationInitialValues,
