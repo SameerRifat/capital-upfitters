@@ -117,9 +117,6 @@ const SelectYourServicesForm = ({ initialValues, onPrevStep, onNextStep, onFormS
               </div>
             </div>
           </div>
-          <p className={cx("typoCaption", css.form_caption)}>
-            Please fill out the required information below and we will reach out to help schedule your service. Make sure to provide all neceserry detailr to erceive the proper quote. If you need amidiate accistance please give us a call at: 301-304-1419 Quote will be send from our internal ShopMonkey system. Pleas echekc your spam folder if quote is not received.
-          </p>
         </Form>
       )}
     </Formik>

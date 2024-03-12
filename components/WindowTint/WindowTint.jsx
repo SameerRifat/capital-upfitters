@@ -7,8 +7,8 @@ import Image from 'next/image'
 import Select from 'react-select'
 import { customStyles, customStyles2 } from './react-select-custom-styles'
 import { windowTintServiceOptions, windowTintServices } from '@/mock/services'
-import Iconify from "@/components/iconify/iconify";
-import GetStarted from '../Shared/GetStarted/GetStarted'
+import GetStarted from '@/components/Shared/GetStarted/GetStarted'
+import ServiceBenefits from '@/components/Shared/ServiceBenefits/ServiceBenefits'
 
 const WindowTint = () => {
     const [vehicleType, setVihicleType] = useState(windowTintServiceOptions.vehicleType[0].value || "");
@@ -88,39 +88,7 @@ const WindowTint = () => {
                         <span className={cx("text_gradient_blue")}>$</span>
                     </h2>
                 </div>
-                <div className={css.horizontal_divider}>
-                    <img
-                        src='/window-tint-divider3.png'
-                        alt='image'
-                    />
-                </div>
-                <div className={css.service_benefits_wrapper}>
-                    <h3 className={cx("typoH3", "text_gradient")}>
-                        What you gets
-                    </h3>
-                    <div className={css.benefits}>
-                        <div className={css.benefits_left}>
-                            {selectedService?.benefits.map((item, ind) => (
-                                <div key={ind}>
-                                    <span className={css.check_icon}>
-                                        <Iconify
-                                            icon="mdi:tick"
-                                        />
-                                    </span>
-                                    <p className={cx("typoBody2", css.benefit)} key={ind}>
-                                        {item}
-                                    </p>
-                                </div>
-                            ))}
-                        </div>
-                        <div className={css.gradient_divider} />
-                        <div className={css.benefits_right}>
-                            <p className={cx("typoBody1", css.service_description)}>
-                                {selectedService?.description}
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                <ServiceBenefits benefits={selectedService?.benefits} benefitsDescrption={selectedService?.description}/>
             </div >
             <GetStarted />
         </>

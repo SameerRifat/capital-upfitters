@@ -3,7 +3,6 @@ import css from './pagination.module.scss';
 import Iconify from '@/components/iconify';
 
 const Pagination = ({ currentPage, totalPages, setCurrentPage }) => {
-    console.log('totalPages: ', totalPages)
     const handleClick = (page) => {
         setCurrentPage(page);
     };

@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  --max-width: 120rem;
+  --max-width: 100rem;
 
   --primary-color: rgba(92, 225, 230, 1);
   --primary-color2: rgba(51, 187, 207, 1);
@@ -127,6 +127,10 @@ ul {
   transition: border-color 0.8s ease;
 }
 
+.border_gradient:hover {
+  border-color: var(--primary-color);
+}
+
 .boder_gradient_bottom {
   color: #e8f6fc;
   border-bottom: 1px solid;
@@ -135,9 +139,6 @@ ul {
   border-image-source: linear-gradient(to right, var(--primary-color), var(--transparent-white));
 }
 
-.border_gradient:hover {
-  border-color: var(--primary-color);
-}
 
 .primary_btn {
   padding: 8px 15px;
@@ -210,8 +211,12 @@ ul {
 .right_ellipse_bg.quote {
   margin-top: 33rem;
 }
+
 .right_ellipse_bg.window_tint {
   margin-top: 42rem;
+}
+.right_ellipse_bg.service_details {
+  margin-top: 35rem;
 }
 
 .left_ellipse_bg {
@@ -245,11 +250,16 @@ ul {
 .left_ellipse_bg.about {
   margin-top: 80rem;
 }
+
 .left_ellipse_bg.quote {
   display: none;
 }
+
 .left_ellipse_bg.window_tint {
   margin-top: 73rem;
+}
+.left_ellipse_bg.service_details {
+  margin-top: 87rem;
 }
 
 

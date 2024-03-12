@@ -129,9 +129,6 @@ const VehicleInformationForm = ({ initialValues, onNextStep, onPrevStep }) => {
               <ErrorMessage name="state" component="div" className={cx("typoCaption", css.error)} />
             </div>
           </div>
-          <p className={cx("typoCaption", css.form_caption)}>
-            Please fill out the required information below and we will reach out to help schedule your service. Make sure to provide all necessary details to receive the proper quote. If you need immediate assistance please give us a call at: 301-304-1419. Quote will be sent from our internal ShopMonkey system. Please check your spam folder if quote is not received.
-          </p>
         </Form>
       )}
     </Formik>
