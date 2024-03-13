@@ -10,7 +10,7 @@ import { contactDetailInitialValues, servicesInitialValues, vehicleInformationIn
 import Success from './Forms/Success';
 
 const QuoteRequest = () => {
-  const [currentStep, setCurrentStep] = useState(1);
+  const [currentStep, setCurrentStep] = useState(3);
   const [formData, setFormData] = useState({
     contactDetails: contactDetailInitialValues,
     vehicleInformation: vehicleInformationInitialValues,

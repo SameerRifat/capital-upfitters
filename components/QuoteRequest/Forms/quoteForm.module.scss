@@ -289,11 +289,13 @@
     max-width: 200px;
     min-width: 120px;
     padding: 0 !important;
-    // border: 1px solid var(--primary-color);
     border-radius: var(--radius-md) !important;
     opacity: 1;
     pointer-events: auto !important;
     animation: fadeIn 0.5s forwards;
+    @media (max-width: 700px) {
+        pointer-events: none !important;
+    }
 }
 
 @keyframes fadeIn {
@@ -314,6 +316,8 @@
     background: rgba(20, 20, 34, 1);
     position: relative;
     padding: 10px;
+    padding-top: 5px;
+    padding-right: 5px;
     overflow: hidden;
     border-radius: var(--radius-md);
     opacity: 1 !important;
@@ -328,22 +332,29 @@
         filter: blur(2rem);
         opacity: 1 !important;
     }
+    .close_icon{
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 20;
+        border: 2px solid red;
+    }
 }
 
 .tooltip_title {
     font-family: League-Gothic;
-    font-size: 1rem;
+    font-size: 1.5rem;
+    font-weight: 500;
 }
 
 .tooltip_desc {
-    margin-top: 5px;
+    // margin-top: 5px;
     display: flex;
     flex-direction: column;
     gap: 5px;
-    font-size: 9px;
 
     >p {
-        font-size: 9px;
+        font-size: 10px;
         color: rgba(255, 255, 255, 0.74);
     }
 }

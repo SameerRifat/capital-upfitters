@@ -74,6 +74,12 @@ const SelectYourServicesForm = ({ initialValues, onPrevStep, onNextStep, onFormS
                   <label htmlFor={item.value} className={cx("typoBody2", css.custom_label, css.service_lable)}>{item.label}</label>
                   <Tooltip id={`tooltip-${ind}`} place='bottom' delayShow={300} delayHide={300} arrowColor="rgba(92, 225, 230, 1)" className={css.tooltip} >
                     <TooltipContent title={item.label} desc={item.tooltipDesc}/>
+                    {/* {(props) => (
+                      <>
+                        <TooltipContent title={item.label} desc={item.tooltipDesc} onClose={() => props.hideTooltip()} />
+                        {props.tooltip}
+                      </>
+                    )} */}
                   </Tooltip>
                 </div>
               ))}

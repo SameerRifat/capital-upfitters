@@ -45,6 +45,7 @@ const generateCustomStyles = (width) => ({
       backgroundColor: state.isSelected ? 'var(--black)' : state.isFocused ? '#1d1d1d' : '#272727',
       color: state.isSelected && 'var(--white)',
       textAlign: 'left',
+      cursor: 'pointer',
       '&:active': {
         backgroundColor: '#1d1d1d',
       },
@@ -53,4 +54,5 @@ const generateCustomStyles = (width) => ({
   
   export const customStyles = generateCustomStyles('95px');
   export const customStyles2 = generateCustomStyles('100px');
+  export const customStyles3 = generateCustomStyles('180px');
   

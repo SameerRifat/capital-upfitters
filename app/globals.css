@@ -334,6 +334,9 @@ ul {
   color: var(--text);
 }
 
+.react-select__option {
+  cursor: pointer !important;
+}
 .react-select__option--is-focused {
   background-color: #1d1d1d !important;
   color: var(--primary-color) !important;

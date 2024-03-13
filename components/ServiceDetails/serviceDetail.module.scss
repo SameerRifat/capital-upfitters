@@ -61,11 +61,16 @@
         font-weight: 600;
         
     }
-    >:nth-child(2){
-        font-weight: 700;
-    }
+    // >:nth-child(2){
+    //     font-weight: 700;
+    // }
 }
 
+@media (max-width: 700px) {
+    .description.hero_description{
+        text-align: center;
+    }
+}
 @media (max-width: 550px) {
     .description{
         font-size: 14px;

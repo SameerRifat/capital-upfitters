@@ -3,7 +3,7 @@ import css from './serviceBenefits.module.scss'
 import cx from 'classnames'
 import Iconify from '@/components/iconify/iconify'
 
-const ServiceBenefits = ({ benefits, benefitsDescrption }) => {
+const ServiceBenefits = ({ benefits, befitsDescription }) => {
     return (
         <>
             <div className={css.horizontal_divider}>
@@ -34,7 +34,7 @@ const ServiceBenefits = ({ benefits, benefitsDescrption }) => {
                     <div className={css.gradient_divider} />
                     <div className={css.benefits_right}>
                         <p className={cx("typoBody1", css.service_description)}>
-                            {benefitsDescrption}
+                            {befitsDescription}
                         </p>
                     </div>
                 </div>

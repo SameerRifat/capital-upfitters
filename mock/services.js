@@ -375,3 +375,61 @@ export const windowTintServices = [
         tintType: 'ceramic+'
     },
 ];
+
+export const paintProtectionFilmData = [
+    {
+        imageSrc: '/service-detail2.png',
+        benefits: [
+            "Front Bumper",
+            "Headlights",
+            "Fog Lights",
+            "Full Hood",
+            "Full Front Fenders",
+            "Mirror Caps",
+        ],
+        befitsDescription: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat culpa vel earum in atque inventore natus nam ex, minima ab non omnis accusantium id fuga molestias suscipit quis quo, tempore cumque. Quae eius possimus culpa quos porro corrupti eveniet animi iusto aut excepturi consequatur officiis voluptates voluptas accusantium, cum nihil, eligendi, odio vitae id. Magni hic pariatur, magnam officiis assumenda, ea sint necessitatibus commodi totam ratione.",
+        package: 'DYNO Shield Front',
+        description: 'Welcome to the pinnacle of vehicle protection with our Full Front Package. Designed for those who demand comprehensive, state-of-the-art protection for their vehicle’s most vulnerable areas, this package is a high-quality solution that ensures your vehicle stays pristine, regardless of the road conditions. The Full Front Package meticulously covers the full front bumper, headlights, fog lights, full hood, full front fenders, and mirror caps. Our paint protection film seamlessly merges with your vehicle, preserving its aesthetic appeal while guarding against road debris, scratches, and the harsh effects of weather. Choose our Full Front Package today and feel confident knowing your vehicle’s front-end is protected by the best.'
+    },
+    {
+        imageSrc: '/service-detail2.png',
+        benefits: [
+            "Front Bumper",
+            "Entire Hood",
+            "Both Full Fenders",
+            "Headlights & Fog Lights",
+            "Mirror Caps",
+            "Rocker Panels",
+            "Quarter Panels",
+            "A-Pillars",
+        ],
+        befitsDescription: "Sunt molestias facilis praesentium vitae consectetur nemo dolorum facere quas qui ducimus eius earum. Lorem ipsum dolor sit amet consectetur adipisicing elit.  tenetur debitis ab autem mollitia quos eos consectetur deserunt beatae nisi at voluptatibus nam obcaecati, accusantium quidem! Itaque, illo, odit quo vero nam doloribus fugiat sed deleniti natus fuga earum praesentium voluptatum dolores! Doloremque.",
+        package: 'DYNO Shield Track Pack',
+        description: 'Drive with peace of mind with our Track Pack paint protection package. This offering is specifically crafted for high-performance car enthusiasts and those who appreciate an extra layer of defense for their vehicle. By adding to the comprehensive protection offered in our Full Front Package, the Track Pack extends coverage to the A-pillars, rocker panels, and quarter panels, areas that typically suffer the most during high-speed driving or off-roading. Our professionally installed paint protection film offers unparalleled resistance against chips, scratches, and stains, ensuring your vehicle remains in top-notch condition even under rigorous driving conditions. Embrace the thrill of the ride knowing your vehicle is shielded by our Track Pack.'
+    },
+    {
+        imageSrc: '/service-detail2.png',
+        benefits: [
+            "All Painted Exterior Surfaces",
+            "Headlights & Tail Lights",
+            "Fog Lights",
+        ],
+        befitsDescription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt molestias facilis praesentium vitae consectetur nemo dolorum facere quas qui ducimus eius earum.",
+        package: 'DYNO Shield Fully Body',
+        description: 'Indulge in our most luxurious, all-encompassing protective offering with the Full Body Package. This top-tier solution ensures complete protection for every inch of your vehicle, safeguarding it from everyday wear and tear, environmental factors, and unexpected road debris. Offering full coverage, this package envelops your vehicle in a virtually invisible shield, maintaining its pristine appearance and resplendent shine. Our high-quality paint protection film, professionally installed, guards against damage, ensuring the longevity of your vehicle’s appearance and resale value. With our Full Body Package, you’re investing in not just comprehensive protection, but also peace of mind, knowing your entire vehicle is protected. Trust in our Full Body Package for the ultimate protection solution.'
+    },
+    {
+        imageSrc: '/service-detail2.png',
+        benefits: [
+            "Full PPF & Ceramic Coating",
+            "Xpel Ultimate Plus film",
+            "Xpel Fusion Premium 8yr",
+            "All Painted Exterior Surfaces",
+            "Headlights & Tail Lights",
+            "Fog Lights",
+        ],
+        befitsDescription: "Sunt molestias facilis praesentium vitae consectetur nemo dolorum facere quas qui ducimus eius earum. Lorem ipsum dolor sit amet consectetur adipisicing elit.  tenetur debitis ab autem mollitia quos eos consectetur deserunt beatae nisi at voluptatibus nam obcaecati, accusantium quidem! Itaque, illo, odit quo vero nam doloribus fugiat sed deleniti natus fuga earum.",
+        package: 'Fashion Film / DYNOmight / DYNOmate',
+        description: 'Full body Xpel Ultimate plus 10 mil film, topped with Xpel Fusion Premium 8 year ceramic coating. You’d have better luck getting into Fort Knox, than into this paint. Say goodbye to rock chips, scratches, swirl marks, etchings, water spots and more with the strongest package of all time.'
+    },
+]
