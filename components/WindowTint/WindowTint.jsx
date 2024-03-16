@@ -9,6 +9,8 @@ import { customStyles, customStyles2 } from '@/components/Shared/react-select-cu
 import { windowTintServiceOptions, windowTintServices } from '@/mock/services'
 import GetStarted from '@/components/Shared/GetStarted/GetStarted'
 import ServiceBenefits from '@/components/Shared/ServiceBenefits/ServiceBenefits'
+import Specifications from '../Shared/Specifications/Specifications'
+import RecentWorks from '../Shared/RecentWorks/RecentWorks'
 
 const WindowTint = () => {
     const [vehicleType, setVihicleType] = useState(windowTintServiceOptions.vehicleType[0].value || "");
@@ -88,8 +90,12 @@ const WindowTint = () => {
                         <span className={cx("text_gradient_blue")}>$</span>
                     </h2>
                 </div>
-                <ServiceBenefits benefits={selectedService?.benefits} benefitsDescrption={selectedService?.description}/>
+                <ServiceBenefits benefits={selectedService?.benefits} befitsDescription={selectedService?.description} />
             </div >
+            <div>
+                <Specifications />
+            </div>
+            <RecentWorks />
             <GetStarted />
         </>
     )

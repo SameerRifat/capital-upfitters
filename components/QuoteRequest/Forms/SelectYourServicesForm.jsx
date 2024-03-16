@@ -9,8 +9,10 @@ import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css'
 import { services } from './data';
 import Iconify from "@/components/iconify/iconify";
+import { submitFormToTelegram } from '@/lib/utils/onSubmitTelegram';
+import { toast } from 'react-hot-toast';
 
-const SelectYourServicesForm = ({ initialValues, onPrevStep, onNextStep, onFormSubmit }) => {
+const SelectYourServicesForm = ({ initialValues, onPrevStep, formData, onFormSubmit }) => {
   const [images, setImages] = useState([]);
   const imageChangeEvent = (e, setFieldValue) => {
     const files = Array.from(e.target.files);
@@ -30,13 +32,20 @@ const SelectYourServicesForm = ({ initialValues, onPrevStep, onNextStep, onFormS
   };
 
 
-  const onSubmit = (values, { setSubmitting, resetForm }) => {
+  const onSubmit = async (values, { setSubmitting, resetForm }) => {
     console.log('values: ', values);
-    // updateFormData(values);
-    onNextStep(values);
-    onFormSubmit();
-    setSubmitting(false);
-    resetForm();
+    const data = { contactDetails: formData.contactDetails, vehicleInformation: formData.vehicleInformation, servicesInformation: values }
+    const textResponse = await submitFormToTelegram(data)
+    if(textResponse.error){
+      setSubmitting(false);
+      toast.error("Something went wrong")
+    }
+    if (textResponse.success) {
+      setSubmitting(false);
+      resetForm();
+      toast.success("Data sent successfully")
+      onFormSubmit()
+    }
   };
 
   return (
@@ -49,7 +58,7 @@ const SelectYourServicesForm = ({ initialValues, onPrevStep, onNextStep, onFormS
         <Form className={css.form}>
           <div className={css.form_header}>
             <h3 className={cx('typoH3', 'text_gradient')}>Select Your Services</h3>
-            <button type="submit" disabled={isSubmitting} className={css.submit_btn}>Submit</button>
+            <button type="submit" disabled={isSubmitting} className={css.submit_btn}>{isSubmitting ? <span className='loader'/> : 'Submit'}</button>
             {/* <button type="submit" onClick={onPrevStep} className={css.submit_btn}>Previous</button> */}
           </div>
           <div className={css.services_container}>
@@ -73,13 +82,7 @@ const SelectYourServicesForm = ({ initialValues, onPrevStep, onNextStep, onFormS
                   />
                   <label htmlFor={item.value} className={cx("typoBody2", css.custom_label, css.service_lable)}>{item.label}</label>
                   <Tooltip id={`tooltip-${ind}`} place='bottom' delayShow={300} delayHide={300} arrowColor="rgba(92, 225, 230, 1)" className={css.tooltip} >
-                    <TooltipContent title={item.label} desc={item.tooltipDesc}/>
-                    {/* {(props) => (
-                      <>
-                        <TooltipContent title={item.label} desc={item.tooltipDesc} onClose={() => props.hideTooltip()} />
-                        {props.tooltip}
-                      </>
-                    )} */}
+                    <TooltipContent title={item.label} desc={item.tooltipDesc} />
                   </Tooltip>
                 </div>
               ))}

@@ -18,14 +18,17 @@ const VehicleInformationForm = ({ initialValues, onNextStep, onPrevStep }) => {
     setSubmitting(false);
     onNextStep(values);
   };
+  console.log('initialValues: ', initialValues)
 
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={vehicleInformationSchema}
       onSubmit={onSubmit}
+      validateOnChange={true}
+      validateOnBlur={true}
     >
-      {({ isSubmitting, setFieldValue }) => (
+      {({ isSubmitting, setFieldValue, values}) => (
         <Form className={css.form}>
           <div className={css.form_header}>
             <h3 className={cx("typoH3", "text_gradient")}>
@@ -82,8 +85,9 @@ const VehicleInformationForm = ({ initialValues, onNextStep, onPrevStep }) => {
               >
                 {({ field }) => (
                   <Select
+                    {...field}
                     value={field.value ? { value: field.value, label: field.value } : null}
-                    options={vehicleInformation.modelData}
+                    options={values.make === '' ? [{value: '', label: 'Please first select the make'}] : vehicleInformation.modelsData[values.make] || []}
                     placeholder='Choose model'
                     isSearchable={false}
                     className="react-select-container"
@@ -94,7 +98,6 @@ const VehicleInformationForm = ({ initialValues, onNextStep, onPrevStep }) => {
               </Field>
               <ErrorMessage name="model" component="div" className={cx("typoCaption", css.error)} />
             </div>
-
             <div>
               <Field
                 type="text"

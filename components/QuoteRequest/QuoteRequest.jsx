@@ -18,22 +18,19 @@ const QuoteRequest = () => {
   });
 
   const handleNextStep = (step, data) => {
-    console.log('data: ', data)
+    console.log('handleNextStep data: ', data)
     setFormData((prevFormData) => ({ ...prevFormData, ...data }));
     setCurrentStep(step);
   };
-  // const handleFinaltStep = (data) => {
-  //   console.log('data: ', data)
-  //   setFormData((prevFormData) => ({ ...prevFormData, ...data }));
-  // };
+  
+
 
   const handlePrevStep = () => {
     setCurrentStep((prevStep) => prevStep - 1);
   };
-  const handleSubmit = () => {
-    // Submit formData to server
-    console.log("Submitting form data:", formData);
-  };
+  // const handleSubmit = async () => {
+  //   console.log("Submitting form data:", formData);
+  // };
 
   return (
     <div className={css.quote_container}>
@@ -68,10 +65,9 @@ const QuoteRequest = () => {
       {currentStep === 3 && (
         <SelectYourServicesForm
           initialValues={formData.servicesInformation}
-          // updateFormData={(data) => handleFinaltStep({ servicesInformation: data })}
-          onNextStep={(data) => handleNextStep(4, { servicesInformation: data })}
+          formData={formData}
           onPrevStep={() => handlePrevStep(2)}
-          onFormSubmit={() => handleSubmit()}
+          onFormSubmit={() => setCurrentStep(4)}
         />
       )}
 

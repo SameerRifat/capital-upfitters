@@ -1,8 +1,9 @@
+'use client'
+
 import React from 'react'
-import cx from 'classnames'
 import css from './header.module.scss'
 import Link from 'next/link'
-import Image from 'next/image'
+import toast from 'react-hot-toast'
 
 const Header = () => {
   return (

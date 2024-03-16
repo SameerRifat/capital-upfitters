@@ -30,6 +30,9 @@
 
     >button.submit_btn {
         background: linear-gradient(178.91deg, #33CF84 0.93%, var(--transparent-white) 337.74%);
+        &:disabled{
+            opacity: 0.5;
+        }
     }
 }
 

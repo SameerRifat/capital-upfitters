@@ -1,6 +1,5 @@
 import React from "react";
 import css from "./automotive.module.scss";
-import cx from "classnames";
 import AutomotiveHero from "./AutomotiveHero/AutomotiveHero";
 import CompanyLogosSection from "./CompanyLogosSection/CompanyLogosSection";
 import Testimonials from "../Shared/Testimonials/Testimonials";
