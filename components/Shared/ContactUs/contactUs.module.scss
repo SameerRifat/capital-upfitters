@@ -1,0 +1,120 @@
+.modal_content {
+    background: rgb(21, 21, 38);
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 2rem;
+    position: relative;
+
+    &::before {
+        content: '';
+        width: 200px;
+        height: 100px;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background: rgba(84, 214, 255, 1);
+        filter: blur(7rem);
+    }
+
+    &::after {
+        content: '';
+        width: 200px;
+        height: 100px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        background: rgba(5, 0, 255, 1);
+        filter: blur(10rem);
+    }
+
+    @media (max-width: 700px) {
+        padding: 1rem;
+    }
+
+    @media (max-width: 550px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+.heading {
+    font-weight: 500;
+}
+
+.description {
+    color: var(--text);
+    margin-top: 1rem;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 2.5rem 0;
+    color: var(--white);
+
+    .link {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        font-size: 12px;
+        color: var(--white);
+    }
+
+    a {
+        color: var(--white);
+    }
+}
+
+.social_links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+
+    .social_link {
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.17);
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+    }
+
+    @media (max-width: 700px) {
+        .social_link {
+            width: 30px;
+            height: 30px;
+
+            >svg {
+                width: 15px;
+            }
+        }
+    }
+}
+
+@media (max-width: 550px) {
+    .description {
+        >br {
+            display: none;
+        }
+    }
+
+    .content_right {
+        max-height: 200px;
+    }
+}
+
+@media (max-width: 350px) {
+    .links{
+        margin: 1.5rem 0;
+        .link {
+            font-size: 10px;
+        }
+    }
+}

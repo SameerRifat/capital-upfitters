@@ -9,6 +9,8 @@ import GetStarted from '../Shared/GetStarted/GetStarted';
 import Iconify from '@/components/iconify/iconify';
 import Pagination from './Pagination/Pagination';
 import { useRouter } from 'next/navigation';
+import SectionHeading from '../Shared/SectionHeading/SectionHeading';
+import Cards from '../Shared/Cards/Cards';
 
 const Services = () => {
     const router = useRouter();
@@ -40,9 +42,7 @@ const Services = () => {
     return (
         <>
             <section className={css.services_container}>
-                <h2 className={cx("typoH2", "text_gradient", css.heading)}>
-                    Our Services
-                </h2>
+                <SectionHeading>Our Services</SectionHeading>
                 <div className={css.search_wrapper}>
                     <input
                         type="text"
@@ -52,6 +52,8 @@ const Services = () => {
                     />
                     <Iconify icon="bitcoin-icons:search-outline" color="#fff" width={20} />
                 </div>
+                <Cards search={search} setSearch={setSearch} visibleCards={visibleServices} services />
+                {/*
                 <div className={css.services}>
                     {visibleServices.length !== 0 ? (
                         visibleServices.map((service) => {
@@ -77,7 +79,7 @@ const Services = () => {
                     ) : (
                         <p className={css.no_service}>No Service Found</p>
                     )}
-                </div>
+                </div> */}
                 <Pagination
                     currentPage={currentPage}
                     totalPages={search !== '' ? Math.ceil(visibleServices.length / itemsPerPage) : Math.ceil(servicesData.length / itemsPerPage)}

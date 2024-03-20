@@ -16,6 +16,10 @@ export const NavLinks = [
         route: "/quote-request",
     },
     {
+        label: "Portfolio",
+        route: "/portfolio",
+    },
+    {
         label: "About Us",
         route: "/about-us",
     },

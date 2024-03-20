@@ -13,6 +13,7 @@
     width: 40%;
     display: flex;
     flex-direction: column;
+    padding-right: 2.5rem;
 
     .title {
         font-weight: 500;
@@ -35,6 +36,7 @@
         background: transparent;
         border: 1px solid rgba(255, 255, 255, 0.9);
         color: var(--text);
+        cursor: pointer;
     }
 
     .gradient_line {
@@ -45,6 +47,7 @@
 
     @media (max-width: 1250px) {
         width: 60%;
+        padding-right: 0;
 
         .title {
             text-align: center;
@@ -107,6 +110,7 @@
     position: relative;
     border: 2px solid transparent;
     transition: border-color 0.8s ease;
+
     &:hover {
         border-color: var(--primary-color);
     }
@@ -175,22 +179,20 @@
         font-weight: 400;
         text-align: center;
         border-radius: var(--radius-md);
+        line-height: 1.5;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .hero_right,
+    .row1,
+    .row2 {
+        gap: 1rem;
     }
 }
 
 @media (max-width: 500px) {
-    .hero_right {
-        gap: 1rem;
-    }
-
-    .row1 {
-        gap: 1rem;
-    }
-
-    .row2 {
-        gap: 1rem;
-    }
-
     .card3 {
         grid-column: span 5;
     }
@@ -223,7 +225,8 @@
     top: 0;
     width: 100%;
     height: 100%;
-    padding: 2rem 1rem;
+    // padding: 2rem 1rem;
+    padding: 1rem;
     border-radius: var(--radius-md);
     background: rgba(0, 0, 0, 0.2);
 
@@ -231,20 +234,26 @@
         font-weight: 400;
         font-family: League-Gothic;
         color: var(--white);
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        text-overflow: ellipsis;
     }
 
     .card_caption {
         font-size: 14px;
         color: #BCC0BC;
-        margin-top: 0.5rem;
+        // margin-top: 0.5rem;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+        text-overflow: ellipsis;
     }
 
     @media (max-width: 800px) {
         padding: 1rem;
-
-        .card_caption br {
-            display: none;
-        }
     }
 
     @media (max-width: 550px) {
@@ -269,7 +278,7 @@
     }
 
     @media (max-width: 340px) {
-        padding-top: 0.2rem;
+        // padding-top: 0.2rem;
 
         .card_title {
             font-size: 1rem;

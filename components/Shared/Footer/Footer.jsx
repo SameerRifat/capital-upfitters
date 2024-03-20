@@ -20,7 +20,8 @@ const Footer = () => {
                     <div className={styles.company_info}>
                         <Link href='/' className={styles.logo}>
                             <img
-                                src='/logo.png'
+                                // src='/logo.png'
+                                src='/cu-logo.svg'
                                 alt='logo'
                             />
                         </Link>

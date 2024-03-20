@@ -8,17 +8,20 @@ import { usePathname } from 'next/navigation'
 import { NavLinks } from '@/constants'
 import Iconify from "@/components/iconify/iconify";
 import MobileSidebar from './MobileSidebar/MobileSidebar'
+import ContactUsModal from '../ContactUs/ContactUsModal'
 
 const Navbar = () => {
     const pathname = usePathname();
     const [openSidebar, setOpenSidebar] = useState(false)
+    const [open, setOpen] = useState(false);
 
     return (
         <>
             <header className={css.navbar}>
                 <Link href='/' className={css.logo}>
                     <img
-                        src='/logo.png'
+                        // src='/logo.png'
+                        src='/cu-logo.svg'
                         alt='logo'
                     />
                 </Link>
@@ -32,9 +35,9 @@ const Navbar = () => {
                         )
                     })}
                 </div>
-                <Link href='/contact-us' className={cx("primary_btn", "typoBody2", css.contact_btn)}>
+                <div className={cx("primary_btn", "typoBody2", css.contact_btn)} onClick={() => setOpen(true)}>
                     Contact Us
-                </Link>
+                </div>
                 <div className={css.menu_icon} onClick={() => setOpenSidebar((prevState) => !prevState)}>
                     <Iconify
                         icon="basil:menu-outline"
@@ -44,6 +47,7 @@ const Navbar = () => {
                 </div>
             </header>
             <MobileSidebar openSidebar={openSidebar} setOpenSidebar={setOpenSidebar} />
+            <ContactUsModal open={open} setOpen={setOpen}/>
         </>
     )
 }

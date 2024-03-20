@@ -5,12 +5,12 @@ import css from './windowTint.module.scss'
 import cx from 'classnames'
 import Image from 'next/image'
 import Select from 'react-select'
-import { customStyles, customStyles2 } from '@/components/Shared/react-select-custom-styles'
 import { windowTintServiceOptions, windowTintServices } from '@/mock/services'
 import GetStarted from '@/components/Shared/GetStarted/GetStarted'
 import ServiceBenefits from '@/components/Shared/ServiceBenefits/ServiceBenefits'
 import Specifications from '../Shared/Specifications/Specifications'
 import RecentWorks from '../Shared/RecentWorks/RecentWorks'
+import { generateCustomStyles } from '../Shared/react-select-custom-styles'
 
 const WindowTint = () => {
     const [vehicleType, setVihicleType] = useState(windowTintServiceOptions.vehicleType[0].value || "");
@@ -72,7 +72,7 @@ const WindowTint = () => {
                             isSearchable={false}
                             defaultValue={windowTintServiceOptions.vehicleType[0]}
                             onChange={(option) => setVihicleType(option.value)}
-                            styles={customStyles2}
+                            styles={generateCustomStyles('100px')}
                         />
                     </div>
                     <div className={css.dropdown_wrapper}>
@@ -82,7 +82,7 @@ const WindowTint = () => {
                             isSearchable={false}
                             defaultValue={windowTintServiceOptions.tintType[0]}
                             onChange={(option) => setTinType(option.value)}
-                            styles={customStyles}
+                            styles={generateCustomStyles('95px')}
                         />
                     </div>
                     <h2 className={cx("typoH2", css.service_charges)}>

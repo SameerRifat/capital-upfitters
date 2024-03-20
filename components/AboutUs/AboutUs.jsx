@@ -4,6 +4,7 @@ import cx from 'classnames';
 import Iconify from '@/components/iconify/iconify';
 import Testimonials from '../Shared/Testimonials/Testimonials';
 import GetStarted from '../Shared/GetStarted/GetStarted';
+import SectionHeading from '../Shared/SectionHeading/SectionHeading';
 
 const iconData = [
     { icon: 'ph:medal-fill', text: 'Quality' },
@@ -17,9 +18,7 @@ const AboutUs = () => {
         <>
             <div className={css.about_us_container}>
                 <div className={css.about_us}>
-                    <h2 className={cx("typoH2", "text_gradient", css.heading)}>
-                        About Us
-                    </h2>
+                    <SectionHeading>About Us</SectionHeading>
                     <p className={cx("typoBody1", css.description)}>
                         Welcome to Capital Upfitters, the family-owned epicenter of top-tier auto customization, vehicle preservation, and performance enhancements. With a heritage of over 35 years in the industry, we proudly deliver unparalleled fleet customization services and robust protection coatings to a diverse range of clients, from municipal to retail sectors. Our reputation as a trailblazer stems from our continuous commitment to superior craftsmanship, delivering innovative auto customization and performance solutions that truly redefine automotive excellence.
                     </p>

@@ -10,7 +10,8 @@ import Specifications from '../Shared/Specifications/Specifications'
 import RecentWorks from '../Shared/RecentWorks/RecentWorks'
 import GetStarted from '../Shared/GetStarted/GetStarted'
 import Select from 'react-select'
-import { customStyles3 } from '../Shared/react-select-custom-styles'
+import { generateCustomStyles } from '../Shared/react-select-custom-styles'
+// import { customStyles3 } from '../Shared/react-select-custom-styles'
 
 const packageOptions = [
     { value: 'DYNO Shield Front', label: 'DYNO Shield Front' },
@@ -71,7 +72,7 @@ const ServiceDetails = ({ serviceName }) => {
                     options={packageOptions}
                     isSearchable={false}
                     defaultValue={packageOptions[0]}
-                    styles={customStyles3}
+                    styles={generateCustomStyles('180px')}
                     onChange={(option) => setSelectedPackage(option.value)}
                 />
             </div>

@@ -11,9 +11,13 @@ const CardsSection = () => {
                 title="EXPLORE AUTOMOTIVE"
                 desc={
                     <span>
-                        Welcome to Capital Upfitters, the family-owned epicenter of top-tier auto
+                        Auto & Truck Accessories to fit your needs. As well as a comprehensive range of
                         <br />
-                        customization, vehicle preservation, and performance enhancements.
+                        advanced automotive treatments, including Patriot Liner, Waxoyl, Eco Clear, and PPF,
+                        <br />
+                        designed to enhance both the appearance and performance of your vehicle.
+                        <br />
+                        With us, you're fully covered.
                     </span>
                 }
                 route='/automotive'
@@ -23,9 +27,15 @@ const CardsSection = () => {
                 title="Other Industries"
                 desc={
                     <span>
-                        Welcome to Capital Upfitters, the family-owned epicenter of top-tier auto
+                        Our expertise in commercial solutions, particularly in rust mitigation and structural 
                         <br />
-                        customization, vehicle preservation, and performance enhancements.
+                        integrity, ensures your assets are protected, maintenance is simplified, and operations 
+                        <br />
+                        run smoothly. Trust us to safeguard your investments, providing a secure, unshakable 
+                        <br />
+                        foundation for your project. With us, your operations and assets are in capable hands, 
+                        <br />
+                        guaranteed to withstand the test of time.
                     </span>
                 }
                 route='/automotive'

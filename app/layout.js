@@ -5,6 +5,7 @@ import Image from "next/image";
 import Footer from "@/components/Shared/Footer/Footer";
 import ScrollToTop from "@/components/Shared/ScrollToTop";
 import { Toaster } from 'react-hot-toast'
+import ContactUsModal from "@/components/Shared/ContactUs/ContactUsModal";
 
 const inter = Inter({ subsets: ["latin"] });
 

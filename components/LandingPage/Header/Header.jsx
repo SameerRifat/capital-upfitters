@@ -1,23 +1,29 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import css from './header.module.scss'
 import Link from 'next/link'
-import toast from 'react-hot-toast'
+import ContactUsModal from '@/components/Shared/ContactUs/ContactUsModal'
 
 const Header = () => {
+  const [open, setOpen] = useState(false);
+
   return (
-    <header className={css.header}>
+    <>
+      <header className={css.header}>
         <Link href='/' className={css.logo}>
           <img
-            src='/logo.png'
+            // src='/logo.png'
+            src='/cu-logo.svg'
             alt='logo'
           />
         </Link>
-        <Link href='/contact-us' className={css.contact_us}>
-            Contact Us
-        </Link>
-    </header>
+        <div className={css.contact_us} onClick={() => setOpen(true)}>
+          Contact Us
+        </div>
+      </header>
+      <ContactUsModal open={open} setOpen={setOpen}/>
+    </>
   )
 }
 

@@ -1,25 +1,29 @@
 import React from 'react'
 import cx from 'classnames'
 import css from './heroSection.module.scss'
-import Image from 'next/image'
 
 const HeroSection = () => {
     return (
         <div className={css.hero}>
-            <div>
+            <h1 className={cx("text_gradient", css.hero_title)}>
+                Capital Auto Upfitters & Protective Coatings
+            </h1>
+            {/* <div>
                 <h1 className={cx("text_gradient", css.hero_title)}>
-                    Unleash the Upfitters
+                    Capital Auto Upfitters & Protective Coatings
                 </h1>
                 <Image
                     src='/logo3.png'
                     width={55}
                     height={52}
                 />
-            </div>
+            </div> */}
             <p className={css.hero_desc}>
-                Welcome to Capital Upfitters, the family-owned epicenter of top-tier auto
+                Where your journey to overcoming automotive and commercial challenges begins.
                 <br />
-                customization, vehicle preservation, and performance enhancements
+                Transform your vehicles and structures with our proven solutions, and experience peace of mind knowing you're prepared for anything.
+                <br />
+                Let Capital Upfitters be the hero in your story of success and longevity.
             </p>
         </div>
     )

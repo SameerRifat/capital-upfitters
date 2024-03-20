@@ -1,4 +1,4 @@
-const generateCustomStyles = (width) => ({
+export const generateCustomStyles = (width) => ({
     control: (provided, state) => ({
       ...provided,
       width: width,
@@ -38,7 +38,8 @@ const generateCustomStyles = (width) => ({
       marginTop: 0,
       color: 'var(--text)',
       width: 'fit-content',
-      fontSize: '12px'
+      fontSize: '12px',
+      zIndex: '20'
     }),
     option: (provided, state) => ({
       ...provided,
@@ -51,8 +52,4 @@ const generateCustomStyles = (width) => ({
       },
     }),
   });
-  
-  export const customStyles = generateCustomStyles('95px');
-  export const customStyles2 = generateCustomStyles('100px');
-  export const customStyles3 = generateCustomStyles('180px');
   

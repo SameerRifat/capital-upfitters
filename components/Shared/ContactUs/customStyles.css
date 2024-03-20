@@ -1,0 +1,25 @@
+/* .customOverlay {
+    background: rgba(36, 123, 160, 0.7);
+} */
+
+.customModal {
+    max-width: 700px;
+    width: 100%px;
+    height: 400px;
+    background: linear-gradient(to bottom, transparent, var(--primary-color)) border-box;
+    border-radius: 15px;
+    border: 2px solid transparent;
+    transition: border-color 0.8s ease;
+    padding: 0;
+}
+
+@media (max-width: 550px) {
+    .customModal{
+        height: auto;
+    }
+}
+
+.customButton{
+    border: none !important;
+    outline: none !important;
+}

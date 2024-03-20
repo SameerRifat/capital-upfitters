@@ -22,7 +22,8 @@ const MobileSidebar = ({ openSidebar, setOpenSidebar }) => {
                     <div className={styles.sidebar_header}>
                         <Link href='/' className={styles.logo}>
                             <img
-                                src='/logo.png'
+                                // src='/logo.png'
+                                src='/cu-logo.svg'
                                 alt='logo'
                             />
                         </Link>
