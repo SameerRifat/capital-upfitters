@@ -35,6 +35,11 @@
         color: var(--text);
         margin: 2rem 0 3rem;
         line-height: 2;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        text-overflow: ellipsis;
     }
 }
 

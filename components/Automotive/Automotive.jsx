@@ -5,13 +5,30 @@ import CompanyLogosSection from "./CompanyLogosSection/CompanyLogosSection";
 import Testimonials from "../Shared/Testimonials/Testimonials";
 import GetStarted from "../Shared/GetStarted/GetStarted";
 import StatesSection from "./StatesSection/StatesSection";
+import { getTestimonials } from "@/apis/testimonial";
 
-const Automotive = () => {
+export const revalidate = 30 // revalidate at most every 30 seconds
+
+const Automotive = async () => {
+  let data = []
+  let error = null
+  try {
+    data = await getTestimonials();
+    console.log("Hello")
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    error = <div className='error_message'>Error fetching data. Please try again later.</div>;
+  }
+  console.log('data: ', data)
   return (
     <div className={css.automotive_container}>
       <AutomotiveHero />
       <CompanyLogosSection />
-      <Testimonials />
+      {error ? (
+        error
+      ) : (
+        data.length > 0 && <Testimonials testimonialsData={data} />
+      )}
       <StatesSection />
       <GetStarted />
     </div>

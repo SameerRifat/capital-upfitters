@@ -8,26 +8,27 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { CustomNextArrow, CustomPrevArrow } from '@/components/Shared/SliderCustomArrows/SliderCustomArrows'
 import Image from 'next/image';
+import { urlFor } from '@/lib/client';
 
-const specificationsData = [
-    {
-        imgSrc: '/specification1.png',
-        title: 'STEK DYNO shield',
-        description: 'Ultra glossy hydrophobic, self healing and puncture resistant clear bra'
-    },
-    {
-        imgSrc: '/specification1.png',
-        title: 'STEK DYNO might',
-        description: 'Ultra glossy hydrophobic, self healing and puncture resistant clear bra Ultra glossy hydrophobic, self healing and puncture resistant clear bra'
-    },
-    {
-        imgSrc: '/specification1.png',
-        title: 'STEK DYNO matte',
-        description: 'Ultra glossy hydrophobic, self healing and puncture resistant clear bra'
-    },
-]
+// const specificationsData = [
+//     {
+//         imgSrc: '/specification1.png',
+//         title: 'STEK DYNO shield',
+//         description: 'Ultra glossy hydrophobic, self healing and puncture resistant clear bra'
+//     },
+//     {
+//         imgSrc: '/specification1.png',
+//         title: 'STEK DYNO might',
+//         description: 'Ultra glossy hydrophobic, self healing and puncture resistant clear bra Ultra glossy hydrophobic, self healing and puncture resistant clear bra'
+//     },
+//     {
+//         imgSrc: '/specification1.png',
+//         title: 'STEK DYNO matte',
+//         description: 'Ultra glossy hydrophobic, self healing and puncture resistant clear bra'
+//     },
+// ]
 
-const Specifications = () => {
+const Specifications = ({ specifications }) => {
     const settings = {
         dots: true,
         dotsClass: "dots-style1",
@@ -52,45 +53,47 @@ const Specifications = () => {
         ],
     };
     return (
-        <section className={css.specifications_container}>
-            <h3 className={cx("typoH3", "text_gradient", css.heading)}>
-                Specifications
-            </h3>
-            <div className={css.specifications}>
-                <div className={css.slider_container}>
-                    <Slider {...settings} className={css.slider}>
-                        {specificationsData.map((item, ind) => {
-                            return (
-                                <div className={css.slide} key={ind}>
-                                    <div className={cx("border_gradient", css.card_border)}>
-                                        <div className={cx(css.specification)}>
-                                            <div className={css.img_container}>
-                                                <Image
-                                                    src={item.imgSrc}
-                                                    alt='image'
-                                                    // fill
-                                                    width={289}
-                                                    height={155}
-                                                    quality={100}
-                                                    priority={true}
-                                                    className={css.img}
-                                                />
-                                            </div>
-                                            <div className={css.specification_text}>
-                                                <p className={cx("typoBody1", "text_gradient", css.title)}>Select your package</p>
-                                                <p className={cx("typoCaption", css.desc)}>
-                                                    {item.description}
-                                                </p>
+        specifications.length > 0 && (
+            <section className={css.specifications_container}>
+                <h3 className={cx("typoH3", "text_gradient", css.heading)}>
+                    Specifications
+                </h3>
+                <div className={css.specifications}>
+                    <div className={css.slider_container}>
+                        <Slider {...settings} className={css.slider}>
+                            {specifications.map((item, ind) => {
+                                return (
+                                    <div className={css.slide} key={item._id}>
+                                        <div className={cx("border_gradient", css.card_border)}>
+                                            <div className={cx(css.specification)}>
+                                                <div className={css.img_container}>
+                                                    <Image
+                                                        src={urlFor(item.image).url()}
+                                                        alt='image'
+                                                        // fill
+                                                        width={289}
+                                                        height={155}
+                                                        quality={100}
+                                                        priority={true}
+                                                        className={css.img}
+                                                    />
+                                                </div>
+                                                <div className={css.specification_text}>
+                                                    <p className={cx("typoH5", "text_gradient", css.title)}>{item.title}</p>
+                                                    <p className={cx("typoCaption", css.desc)}>
+                                                        {item.smallDescription}
+                                                    </p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            )
-                        })}
-                    </Slider>
+                                )
+                            })}
+                        </Slider>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        )
     )
 }
 

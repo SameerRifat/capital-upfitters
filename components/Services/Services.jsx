@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import css from './services.module.scss';
 import cx from 'classnames';
 import Image from 'next/image';
-import { servicesData } from '@/mock/services';
+// import { servicesData } from '@/mock/services';
 import GetStarted from '../Shared/GetStarted/GetStarted';
 import Iconify from '@/components/iconify/iconify';
 import Pagination from './Pagination/Pagination';
@@ -12,7 +12,7 @@ import { useRouter } from 'next/navigation';
 import SectionHeading from '../Shared/SectionHeading/SectionHeading';
 import Cards from '../Shared/Cards/Cards';
 
-const Services = () => {
+const Services = ({ servicesData }) => {
     const router = useRouter();
     const [search, setSearch] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
@@ -24,7 +24,7 @@ const Services = () => {
 
         if (search !== '') {
             filteredServices = services.filter((_service) =>
-                _service.serviceName.toLowerCase().includes(search.toLowerCase())
+                _service.serviceTitle.toLowerCase().includes(search.toLowerCase())
             );
         }
 
@@ -36,6 +36,7 @@ const Services = () => {
     };
 
     useEffect(() => {
+        setVisibleServices(getVisibleService(servicesData, search));
         setVisibleServices(getVisibleService(servicesData, search));
     }, [search, currentPage]);
 

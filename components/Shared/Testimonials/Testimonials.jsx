@@ -4,14 +4,15 @@ import React, { useState } from 'react'
 import css from './testimonials.module.scss'
 import cx from 'classnames'
 import Image from 'next/image'
-import { testimonialsData } from './data'
+// import { testimonialsData } from './data'
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { CustomNextArrow, CustomPrevArrow } from '@/components/Shared/SliderCustomArrows/SliderCustomArrows'
+import { urlFor } from '@/lib/client'
 // import { CustomNextArrow, CustomPrevArrow } from './CustomArrows/CustomArrows'
 
-const Testimonials = () => {
+const Testimonials = ({testimonialsData}) => {
     const [activeIndex, setActiveIndex] = useState(0);
 
     const settings = {
@@ -61,12 +62,12 @@ const Testimonials = () => {
                                             quality={100}
                                         />
                                         <p className={cx("typoBody2", css.desc)}>
-                                            {item.desc}
+                                            {item.comment}
                                         </p>
                                         <div className={css.client}>
                                             <div className={css.avatar}>
                                                 <Image
-                                                    src={item.avatar}
+                                                    src={urlFor(item.avatar).url()}
                                                     alt='avatar'
                                                     width={40}
                                                     height={40}

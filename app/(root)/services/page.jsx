@@ -1,12 +1,29 @@
 import Services from '@/components/Services/Services'
 import PagesLayout from '@/layouts/PagesLayout'
+import { client } from '@/lib/client'
 import React from 'react'
 
-const page = () => {
+export const revalidate = 30 // revalidate at most every 30 seconds
+
+async function getData() {
+  const query = `*[_type == 'service'] | order(_createdAt desc){
+    serviceTitle,
+    serviceImage,
+    smallDescription,
+    'slug': slug.current,
+    _id
+  }`
+
+  const data = await client.fetch(query);
+  return data;
+}
+
+const page = async () => {
+  const data = await getData();
   return (
     <>
       <PagesLayout pageClass='services'>
-        <Services />
+        <Services servicesData={data}/>
       </PagesLayout>
     </>
   )

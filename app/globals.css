@@ -410,3 +410,7 @@ input::-webkit-file-upload-button:hover {
     transform: rotate(360deg);
   }
 }
+.error_message{
+  color: var(--white);
+  margin: 3rem 0;
+}

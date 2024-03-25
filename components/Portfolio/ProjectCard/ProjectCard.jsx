@@ -6,23 +6,24 @@ import cx from 'classnames'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import { urlFor } from '@/lib/client'
 
-const ProjectCard = ({ img, title, slug, id, gallery=false, onClick }) => {
+const ProjectCard = ({ img, title, slug, brandSlug, id, gallery=false, onClick }) => {
     const router = useRouter()
     const handleClick = () => {
         if (gallery) {
-            // router.push(`/portfolio/${slug}/${brand}`)
-            // console.log("gallery clicked")
             onClick();
         } else {
-            router.push(`/portfolio/${slug}/${id}`)
+            router.push(`/portfolio/${slug}/${brandSlug}`)
         }
     }
+    const imageUrl = img && img.asset ? urlFor(img).url() : '';
     return (
         <div className={`${css.card}`} onClick={handleClick}>
             <div className={css.card_img_container}>
                 <Image
-                    src={img}
+                    // src={img}
+                    src={imageUrl}
                     alt={title}
                     fill
                     quality={100}

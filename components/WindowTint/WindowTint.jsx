@@ -11,9 +11,16 @@ import ServiceBenefits from '@/components/Shared/ServiceBenefits/ServiceBenefits
 import Specifications from '../Shared/Specifications/Specifications'
 import RecentWorks from '../Shared/RecentWorks/RecentWorks'
 import { generateCustomStyles } from '../Shared/react-select-custom-styles'
+import { urlFor } from '@/lib/client'
 
-const WindowTint = () => {
-    const [vehicleType, setVihicleType] = useState(windowTintServiceOptions.vehicleType[0].value || "");
+const WindowTint = ({ data, vehicleTypes, specifications }) => {
+    console.log('data: ', data)
+    console.log('vehicleTypes: ', vehicleTypes)
+    const vehicleTypesOptions = vehicleTypes.map((item) => {
+        return { value: item.vehicleName, label: item.vehicleName }
+    })
+    console.log('vehicleTypesOptions: ', vehicleTypesOptions)
+    const [vehicleType, setVihicleType] = useState(vehicleTypesOptions[0].value || "");
     const [tintType, setTinType] = useState(windowTintServiceOptions.tintType[0].value || "");
 
     const [selectedService, setSelectedService] = useState(null);
@@ -23,7 +30,7 @@ const WindowTint = () => {
 
         if (vehicleType !== '') {
             filteredService = filteredService.filter((_service) =>
-                _service.vehicleType.toLowerCase() === vehicleType.toLowerCase()
+                _service.vehicleType.vehicleName.toLowerCase() === vehicleType.toLowerCase()
             );
         }
         if (tintType !== '') {
@@ -36,7 +43,7 @@ const WindowTint = () => {
     };
 
     useEffect(() => {
-        setSelectedService(getSelectedService(windowTintServices, vehicleType, tintType));
+        setSelectedService(getSelectedService(data, vehicleType, tintType));
     }, [vehicleType, tintType]);
 
     return (
@@ -54,23 +61,43 @@ const WindowTint = () => {
                         className={css.svg_img}
                     />
                     <div className={css.service_img_container}>
-                        <Image
+                        {selectedService ? (
+                            <Image
+                                src={urlFor(selectedService.vehicleImage).url()}
+                                alt='image'
+                                fill
+                                quality={100}
+                                priority={true}
+                                className={css.service_img}
+                            />
+                        ) : (
+                            <div className={css.placeholder}>
+                                <div
+                                    className={css.empty_frame}
+                                    style={{
+                                        width: '100%', // Set the width to match the image container
+                                        paddingBottom: '66.66%', // For a 3:2 aspect ratio (2 / 3 = 0.6666), adjust as needed
+                                    }}
+                                />
+                            </div>
+                        )}
+                        {/* <Image
                             src={selectedService?.imageSrc}
                             alt='image'
                             fill
                             quality={100}
                             priority={true}
                             className={css.service_img}
-                        />
+                        /> */}
                     </div>
                 </div>
                 <div className={css.service_options}>
                     <div className={css.dropdown_wrapper}>
                         <label className={cx("typoBody2", "boder_gradient_bottom", css.label)}>Vehilcle Type</label>
                         <Select
-                            options={windowTintServiceOptions.vehicleType}
+                            options={vehicleTypesOptions}
                             isSearchable={false}
-                            defaultValue={windowTintServiceOptions.vehicleType[0]}
+                            defaultValue={vehicleTypesOptions[0]}
                             onChange={(option) => setVihicleType(option.value)}
                             styles={generateCustomStyles('100px')}
                         />
@@ -90,10 +117,10 @@ const WindowTint = () => {
                         <span className={cx("text_gradient_blue")}>$</span>
                     </h2>
                 </div>
-                <ServiceBenefits benefits={selectedService?.benefits} befitsDescription={selectedService?.description} />
+                <ServiceBenefits benefits={selectedService?.benefits} befitsDescription={selectedService?.benefitsDescription} />
             </div >
             <div>
-                <Specifications />
+                <Specifications specifications={specifications}/>
             </div>
             <RecentWorks />
             <GetStarted />
