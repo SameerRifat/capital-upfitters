@@ -43,7 +43,7 @@ const AutomotiveHero = () => {
                 </div>
                 <div className={css.hero_right}>
                     <div className={css.row1}>
-                        <div className={`${css.card} ${css.card1}`} onClick={() => router.push(`/services/styling/window-tint`)}>
+                        <div className={`${css.card} ${css.card1}`} >
                             <div className={css.card_img_container}>
                                 <Image
                                     src='/services/service1.png'
@@ -61,7 +61,7 @@ const AutomotiveHero = () => {
                                 </p>
                             </div>
                         </div>
-                        <div className={`${css.card} ${css.card2}`} onClick={() => router.push(`/services/ceramic-coating`)}>
+                        <div className={`${css.card} ${css.card2}`} >
                             <div className={css.card_img_container}>
                                 <Image
                                     src='/services/service6.png'
@@ -81,7 +81,7 @@ const AutomotiveHero = () => {
                         </div>
                     </div>
                     <div className={css.row2}>
-                        <div className={`${css.card} ${css.card3}`} onClick={() => router.push(`/services/wheels-tires`)}>
+                        <div className={`${css.card} ${css.card3}`} >
                             <div className={css.card_img_container}>
                                 <Image
                                     src='/services/service4.png'

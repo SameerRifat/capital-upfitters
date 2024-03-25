@@ -5,6 +5,7 @@ import Iconify from '@/components/iconify/iconify';
 import Testimonials from '../Shared/Testimonials/Testimonials';
 import GetStarted from '../Shared/GetStarted/GetStarted';
 import SectionHeading from '../Shared/SectionHeading/SectionHeading';
+import { getTestimonials } from '@/apis/testimonial';
 
 const iconData = [
     { icon: 'ph:medal-fill', text: 'Quality' },
@@ -13,7 +14,15 @@ const iconData = [
     { icon: 'mdi:thumb-up', text: 'Experience' }
 ];
 
-const AboutUs = () => {
+const AboutUs = async () => {
+    let data = []
+    let error = null
+    try {
+        data = await getTestimonials();
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        error = <div className='error_message'>Error fetching data. Please try again later.</div>;
+    }
     return (
         <>
             <div className={css.about_us_container}>
@@ -39,9 +48,15 @@ const AboutUs = () => {
                         We're not just about personal vehicles, our commitment to deliver exceptional service spans across government, commercial, and residential projects. Every vehicle that rolls into our shop receives the same degree of attention and commitment to quality. For additional information about our services at Capital Upfitters or to discuss your specific customization and performance enhancement needs, we welcome you to reach us at 301-304-1419 or explore our webpage. Choose Capital Upfitters for an automotive experience that goes beyond service to deliver a transformation, redefining your ride.
                     </p>
                 </div>
-                <div className={css.testimonials}>
-                    <Testimonials />
-                </div>
+                {error ? (
+                    error
+                ) : (
+                    data.length > 0 && (
+                        <div className={css.testimonials}>
+                            <Testimonials testimonialsData={data}/>
+                        </div>
+                    )
+                )}
                 <GetStarted />
             </div>
         </>

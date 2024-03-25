@@ -14,12 +14,10 @@ const Automotive = async () => {
   let error = null
   try {
     data = await getTestimonials();
-    console.log("Hello")
   } catch (error) {
     console.error('Error fetching data:', error);
     error = <div className='error_message'>Error fetching data. Please try again later.</div>;
   }
-  console.log('data: ', data)
   return (
     <div className={css.automotive_container}>
       <AutomotiveHero />
