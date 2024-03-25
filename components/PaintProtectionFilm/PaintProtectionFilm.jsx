@@ -44,8 +44,6 @@ const PaintProtectionFilm = ({ data, specifications }) => {
     useEffect(() => {
         setFilteredPackage(getSelectedPackage(data, selectedPackage));
     }, [selectedPackage]);
-    console.log('data: ', data)
-    console.log('filteredPackage: ', filteredPackage)
     return (
         <div className={css.service_details_container}>
             <h2 className={cx("typoH2", "text_gradient", css.heading)}>

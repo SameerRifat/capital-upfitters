@@ -18,3 +18,19 @@ export async function getTestimonials(brandSlug) {
         throw new Error("Failed to fetch testimonials");
     }
 }
+export async function getCompanyLogos() {
+    try {
+        const query = `*[_type == 'companyLogo']{
+            _id,
+            companyName,
+            image,
+          }
+          `
+
+        const data = await client.fetch(query, { cache: 'no-cache' });
+        return data;
+    } catch (error) {
+        console.log(error);
+        throw new Error("Failed to fetch company logos");
+    }
+}

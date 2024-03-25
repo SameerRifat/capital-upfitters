@@ -18,7 +18,6 @@ const VehicleInformationForm = ({ initialValues, onNextStep, onPrevStep }) => {
     setSubmitting(false);
     onNextStep(values);
   };
-  console.log('initialValues: ', initialValues)
 
   return (
     <Formik

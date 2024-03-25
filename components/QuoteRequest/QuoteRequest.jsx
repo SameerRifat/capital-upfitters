@@ -18,7 +18,6 @@ const QuoteRequest = () => {
   });
 
   const handleNextStep = (step, data) => {
-    console.log('handleNextStep data: ', data)
     setFormData((prevFormData) => ({ ...prevFormData, ...data }));
     setCurrentStep(step);
   };

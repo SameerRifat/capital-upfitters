@@ -15,7 +15,6 @@ const page = async () => {
     return <div className='error_message'>Error fetching data. Please try again later.</div>;
   }
 
-  // console.log('data: ', data)
 
   return (
     <PagesLayout pageClass='portfolio'>

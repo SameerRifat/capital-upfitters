@@ -44,7 +44,6 @@ const Portfolio = ({ data }) => {
         setVisiblePortfolios(getVisiblePortfolios(data, search));
     }, [selectedPortfolio]);
 
-    console.log('visiblePortfolios: ', visiblePortfolios)
 
     return (
         <div className={css.portfolio_container}>

@@ -42,54 +42,42 @@ const Services = ({ servicesData }) => {
 
     return (
         <>
-            <section className={css.services_container}>
-                <SectionHeading>Our Services</SectionHeading>
-                <div className={css.search_wrapper}>
-                    <input
-                        type="text"
-                        placeholder="Browse Services"
-                        value={search}
-                        onChange={(e) => setSearch(e.target.value)}
+            <ScrollToTop currentPage={currentPage}>
+                <section className={css.services_container}>
+                    <SectionHeading>Our Services</SectionHeading>
+                    <div className={css.search_wrapper}>
+                        <input
+                            type="text"
+                            placeholder="Browse Services"
+                            value={search}
+                            onChange={(e) => setSearch(e.target.value)}
+                        />
+                        <Iconify icon="bitcoin-icons:search-outline" color="#fff" width={20} />
+                    </div>
+                    <Cards search={search} setSearch={setSearch} visibleCards={visibleServices} services />
+                    <Pagination
+                        currentPage={currentPage}
+                        totalPages={search !== '' ? Math.ceil(visibleServices.length / itemsPerPage) : Math.ceil(servicesData.length / itemsPerPage)}
+                        setCurrentPage={setCurrentPage}
                     />
-                    <Iconify icon="bitcoin-icons:search-outline" color="#fff" width={20} />
-                </div>
-                <Cards search={search} setSearch={setSearch} visibleCards={visibleServices} services />
-                {/*
-                <div className={css.services}>
-                    {visibleServices.length !== 0 ? (
-                        visibleServices.map((service) => {
-                            return (
-                                <div className={`${css.card}`} key={service.id} onClick={() => router.push(`/services/${service.slug}`)}>
-                                    <div className={css.card_img_container}>
-                                        <Image
-                                            src={service.imageSrc}
-                                            alt={service.serviceName}
-                                            fill
-                                            quality={100}
-                                            priority={true}
-                                            className={css.card_img}
-                                        />
-                                    </div>
-                                    <div className={css.card_text}>
-                                        <h3 className={cx('typoH3', css.card_title)}>{service.serviceName}</h3>
-                                        <p className={cx('typoCaption', css.card_caption)}>{service.serviceDesc}</p>
-                                    </div>
-                                </div>
-                            );
-                        })
-                    ) : (
-                        <p className={css.no_service}>No Service Found</p>
-                    )}
-                </div> */}
-                <Pagination
-                    currentPage={currentPage}
-                    totalPages={search !== '' ? Math.ceil(visibleServices.length / itemsPerPage) : Math.ceil(servicesData.length / itemsPerPage)}
-                    setCurrentPage={setCurrentPage}
-                />
-            </section>
-            <GetStarted />
+                </section>
+                <GetStarted />
+            </ScrollToTop>
         </>
     );
 };
 
 export default Services;
+
+function ScrollToTop({ children, currentPage }) {
+
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth',
+        });
+    }, [currentPage]);
+
+    return children || null;
+}

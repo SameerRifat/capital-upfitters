@@ -14,12 +14,9 @@ import { generateCustomStyles } from '../Shared/react-select-custom-styles'
 import { urlFor } from '@/lib/client'
 
 const WindowTint = ({ data, vehicleTypes, specifications }) => {
-    console.log('data: ', data)
-    console.log('vehicleTypes: ', vehicleTypes)
     const vehicleTypesOptions = vehicleTypes.map((item) => {
         return { value: item.vehicleName, label: item.vehicleName }
     })
-    console.log('vehicleTypesOptions: ', vehicleTypesOptions)
     const [vehicleType, setVihicleType] = useState(vehicleTypesOptions[0].value || "");
     const [tintType, setTinType] = useState(windowTintServiceOptions.tintType[0].value || "");
 
@@ -71,14 +68,14 @@ const WindowTint = ({ data, vehicleTypes, specifications }) => {
                                 className={css.service_img}
                             />
                         ) : (
-                            <div className={css.placeholder}>
-                                <div
+                            <div className={css.service_img}>
+                                {/* <div
                                     className={css.empty_frame}
                                     style={{
-                                        width: '100%', // Set the width to match the image container
-                                        paddingBottom: '66.66%', // For a 3:2 aspect ratio (2 / 3 = 0.6666), adjust as needed
+                                        width: '100%', 
+                                        paddingBottom: '66.66%',  
                                     }}
-                                />
+                                /> */}
                             </div>
                         )}
                         {/* <Image

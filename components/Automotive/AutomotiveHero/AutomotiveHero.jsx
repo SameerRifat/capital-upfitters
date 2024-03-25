@@ -23,13 +23,6 @@ const AutomotiveHero = () => {
                     </h2>
                     <p className={cx("typoBody1", css.desc)}>
                         Located in the heart of DMV, family-owned epicenter of top-tier auto customization, vehicle preservation, performance enhancements, and protective coatings. With a heritage of over 35 years in the industry, we proudly deliver unparalleled fleet customization services and robust protection coatings to a diverse range of clients, from municipal to retail sectors.
-                        {/* Lorem ipsum dolor sit amet consectetur
-                    <br />
-                    adipisicing elit. Sunt molestias facilis praesentium
-                    <br />
-                    vitae consectetur nemo dolorum facere quas qui
-                    <br />
-                    ducimus eius earum. */}
                     </p>
                     <div className={css.hero_left_btns}>
                         <Link href="/quote-request" className={cx("primary_btn")}>

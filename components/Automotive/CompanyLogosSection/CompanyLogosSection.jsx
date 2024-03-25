@@ -7,8 +7,9 @@ import { logos } from './data';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { urlFor } from '@/lib/client';
 
-const CompanyLogosSection = () => {
+const CompanyLogosSection = ({ logosData }) => {
     const settings = {
         dots: false,
         arrows: false,
@@ -39,12 +40,11 @@ const CompanyLogosSection = () => {
         <section className={css.logo_section}>
             <div className={css.slider_container}>
                 <Slider {...settings} className={css.slider}>
-                    {logos.map((logo, ind) => (
-                        <div className={css.slide} key={ind}>
+                    {logosData.map((item) => (
+                        <div className={css.slide} key={item._id}>
                             <Image
-                                key={ind}
-                                src={logo.logoImg}
-                                alt='airbnb'
+                                src={urlFor(item.image).url()}
+                                alt='logo'
                                 width={169}
                                 height={34}
                                 priority={true}

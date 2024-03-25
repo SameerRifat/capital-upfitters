@@ -4,13 +4,15 @@ export const generateCustomStyles = (width) => ({
       width: width,
       height: 'auto',
       backgroundColor: 'transparent',
-      border: 'none',
       borderRadius: 'var(--radius-sm)',
       paddingLeft: '5px',
       boxShadow: state.isFocused ? 'none' : provided.boxShadow,
-      borderColor: state.isFocused ? 'var(--primary-color2)' : provided.borderColor,
+      // borderColor: state.isFocused ? 'var(--primary-color2)' : provided.borderColor,
       color: 'var(--white)',
-      padding: '0'
+      padding: '0',
+      border: '1px solid transparent',
+      borderColor: state.isFocused ? 'var(--primary-color2)' : 'none',
+      cursor: 'pointer'
     }),
     dropdownIndicator: (provided) => ({
       ...provided,
@@ -37,9 +39,10 @@ export const generateCustomStyles = (width) => ({
       borderRadius: 'var(--radius-sm)',
       marginTop: 0,
       color: 'var(--text)',
-      width: 'fit-content',
+      // width: 'fit-content',
+      width: '100%',
       fontSize: '12px',
-      zIndex: '20'
+      zIndex: '20',
     }),
     option: (provided, state) => ({
       ...provided,
