@@ -29,11 +29,37 @@ const service = defineType({
             },
             validation: Rule => Rule.required(),
         }),
+        // {
+        //     name: 'gallery',
+        //     type: 'array',
+        //     of: [
+        //         { type: 'image', options: { hotspot: true } },
+        //         { type: 'file', title: 'Video', accept: 'video/*' }, // Allow video uploads
+        //     ],
+        //     options: {
+        //         layout: 'grid',
+        //         hotspot: true,
+        //     },
+        // },
         defineField({
             name: 'smallDescription',
             title: 'Small Description',
             type: 'text',
             validation: Rule => Rule.required(),
+        }),
+        defineField({
+            name: 'isPublished',
+            title: 'Published',
+            type: 'boolean',
+            description: 'Toggle to publish or unpublish the service on the frontend.',
+            initialValue: () => true,
+        }),
+        defineField({
+            name: 'showPortfolio',
+            title: 'Show Portfolio',
+            type: 'boolean',
+            description: 'Toggle to hide the service portfolio.',
+            initialValue: () => true,
         }),
     ],
     preview: {

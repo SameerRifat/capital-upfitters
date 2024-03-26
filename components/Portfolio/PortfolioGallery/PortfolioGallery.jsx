@@ -3,13 +3,14 @@
 import React from 'react'
 import css from './portfolioGallery.module.scss'
 import cx from 'classnames'
-import ProjectCard from '../ProjectCard/ProjectCard';
+// import ProjectCard from '../../Shared/ProjectCard/ProjectCard';
 import SectionHeading from '@/components/Shared/SectionHeading/SectionHeading';
 import Breadcrumb from '@/components/Shared/BreadCrumbs/BreadCrumb';
 import Slides from './Slides';
 import PortfolioDetails from './PortfolioDetails/PortfolioDetails';
 import { CustomNextArrow, CustomPrevArrow } from '@/components/Shared/SliderCustomArrows/SliderCustomArrows';
 import Slider from 'react-slick';
+import ProjectCard from '@/components/Shared/ProjectCard/ProjectCard';
 
 const PortfolioGallery = ({ data }) => {
     const { brand, portfolio, details, techniques, gallery, brandSlug } = data
@@ -49,29 +50,26 @@ const PortfolioGallery = ({ data }) => {
         <>
             <div className={css.gallery_container}>
                 <Breadcrumb items={items} />
-                {gallery && gallery.length > 0 ? (
-                    <>
-                        <SectionHeading>{brand}</SectionHeading>
-                        <div className={css.slider_container}>
-                            <Slider {...settings} className={css.slider}>
-                                {gallery.map((item, index) => {
-                                    return (
-                                        <div className={css.slide} key={index}>
-                                            <ProjectCard img={item} gallery onClick={() => setOpen(true)} />
-                                        </div>
-                                    )
-                                })}
-                            </Slider>
-                        </div>
-                        {/* <div className={css.cards}>
-                            {gallery.map((item, index) => (
-                                <ProjectCard key={index} img={item} gallery onClick={() => setOpen(true)} />
-                            ))}
-                        </div> */}
-                    </>
-                ) : (
-                    <p className={css.no_project}>No Project Found</p>
-                )}
+                <div className={css.slides}>
+                    {gallery && gallery.length > 0 ? (
+                        <>
+                            <SectionHeading>{brand}</SectionHeading>
+                            <div className={css.slider_container}>
+                                <Slider {...settings} className={css.slider}>
+                                    {gallery.map((item, index) => {
+                                        return (
+                                            <div className={css.slide} key={index}>
+                                                <ProjectCard img={item} gallery onClick={() => setOpen(true)} />
+                                            </div>
+                                        )
+                                    })}
+                                </Slider>
+                            </div>
+                        </>
+                    ) : (
+                        <p className={css.no_project}>No Project Found</p>
+                    )}
+                </div>
                 <PortfolioDetails data={data} />
             </div>
             <Slides open={open} setOpen={setOpen} gallery={gallery} />

@@ -1,24 +1,16 @@
+'use client'
+
 import React from 'react'
 import css from './recentWorks.module.scss'
 import cx from 'classnames'
 import Image from 'next/image'
+import { urlFor } from '@/lib/client'
+import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 
-const recentWorksData = [
-    {
-        imgSrc: '/recent-works1.png',
-        title: 'Mercedes BENZ 2020'
-    },
-    {
-        imgSrc: '/recent-works2.png',
-        title: 'GMC Truck'
-    },
-    {
-        imgSrc: '/recent-works3.png',
-        title: 'Tesla car'
-    },
-]
+const RecentWorks = ({ portfoliosData }) => {
+    const router = useRouter();
 
-const RecentWorks = () => {
     return (
         <div className={css.recent_works_container}>
             <h3 className={cx("typoH3", "text_gradient", css.heading)}>
@@ -30,13 +22,13 @@ const RecentWorks = () => {
                 demand comprehensive, state-of-the-art protection for their vehicle’s most vulnerable areas.
             </p>
             <div className={css.recent_works}>
-                {recentWorksData.map((recentWork, ind) => {
+                {portfoliosData.slice(0, 3).map((item) => {
                     return (
-                        <div className={`${css.card}`} key={ind}>
+                        <div className={`${css.card}`} key={item.service._id} onClick={() => router.push(`/portfolio/${item.service.slug}`)}>
                             <div className={css.card_img_container}>
                                 <Image
-                                    src={recentWork.imgSrc}
-                                    alt={recentWork.title}
+                                    src={urlFor(item.portfolioImage).url()}
+                                    alt={item.service.serviceTitle}
                                     fill
                                     quality={100}
                                     priority={true}
@@ -44,11 +36,14 @@ const RecentWorks = () => {
                                 />
                             </div>
                             <div className={css.card_text}>
-                                <h4 className={cx('typoH4', css.card_title)}>{recentWork.title}</h4>
+                                <h4 className={cx('typoH4', css.card_title)}>{item.service.serviceTitle}</h4>
                             </div>
                         </div>
                     );
                 })}
+            </div>
+            <div className={css.see_more}>
+                <Link href='/portfolio'>See more</Link>
             </div>
         </div>
     )

@@ -9,7 +9,8 @@ export async function getServicesData(slug) {
             serviceImage,
             smallDescription,
             'slug': slug.current,
-            _id
+            _id,
+            showPortfolio
         }`
 
         const data = await client.fetch(query, { cache: 'no-cache' });

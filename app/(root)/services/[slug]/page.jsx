@@ -1,3 +1,4 @@
+import { getAllPortfolios } from '@/apis/portfolio'
 import { getServicesData, getSpecifications, getVehicleTypes, getWindowTintData, getpaintProtectionData } from '@/apis/services'
 import PaintProtectionFilm from '@/components/PaintProtectionFilm/PaintProtectionFilm'
 import ServiceDetails from '@/components/ServiceDetails/ServiceDetails'
@@ -30,11 +31,12 @@ const page = async ({ params }) => {
       {specificPageData && specificPageData.length > 0 ? (
         params.slug == 'paint-protection-film' ? (
           <PagesLayout pageClass='service_details'>
-            <PaintProtectionFilm data={specificPageData} specifications={specifications} />
+            <PaintProtectionFilm data={specificPageData} specifications={specifications} slug={params.slug} showPortfolio={data.showPortfolio}/>
+            {/* Paint Protections */}
           </PagesLayout>
         ) : (
           <PagesLayout pageClass='window_tint'>
-            <WindowTint data={specificPageData} vehicleTypes={vehicleTypes} specifications={specifications} />
+            <WindowTint data={specificPageData} vehicleTypes={vehicleTypes} specifications={specifications} slug={params.slug} showPortfolio={data.showPortfolio}/>
           </PagesLayout>
         )
       ) : (

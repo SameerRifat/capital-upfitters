@@ -5,11 +5,12 @@ import React from 'react'
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
+import Video from "yet-another-react-lightbox/plugins/video";
 import { urlFor } from '@/lib/client';
 
 const Slides = ({ open, setOpen, gallery }) => {
     const images = gallery.map((item) => {
-        return {src: urlFor(item).url(), width: 3840, height: 5120}
+        return { src: urlFor(item).url(), width: 3840, height: 5120 }
     })
 
     const imageSizes = [16, 32, 48, 64, 96, 128, 256, 384];
@@ -34,6 +35,26 @@ const Slides = ({ open, setOpen, gallery }) => {
     }));
 
     return (
+        // <Lightbox
+        //     open={open}
+        //     close={() => setOpen(false)}
+        //     slides={[
+        //         {
+        //             type: "video",
+        //             width: 1280,
+        //             height: 720,
+        //             poster: "/recent-works1.png",
+        //             sources: [
+        //                 {
+        //                     src: "/video.mov",
+        //                     type: "video/mp4",
+        //                 },
+        //             ],
+        //         },
+        //         ...slides
+        //     ]}
+        //     plugins={[Video, Zoom]}
+        // />
         <Lightbox
             open={open}
             close={() => setOpen(false)}

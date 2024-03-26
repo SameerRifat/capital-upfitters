@@ -1,0 +1,171 @@
+.extra_container{
+    overflow: hidden;
+}
+
+.service_detail_container {
+    padding-top: 9rem;
+    margin-bottom: 8rem;
+}
+
+.serive_hero {
+    max-width: 35rem;
+    margin: 0 auto;
+    position: relative;
+}
+
+.service_img_container {
+    width: 100%;
+    padding-top: calc(209 / 313 * 100%);
+    // padding-top: calc(960 / 1280 * 100%);
+    position: relative;
+
+    .service_img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.hero_bg_title {
+    font-family: League-Gothic;
+    color: rgba(255, 255, 255, 0.08);
+    font-weight: 400;
+    font-size: 5rem;
+    letter-spacing: 20px;
+    position: absolute;
+    top: 0rem;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    // border: 2px solid white;
+
+    @media (max-width: 640px) {
+        font-size: 4rem;
+        letter-spacing: 18px;
+        line-height: 1;
+    }
+
+    @media (max-width: 580px) {
+        font-size: 3.5rem;
+    }
+
+    @media (max-width: 500px) {
+        font-size: 3rem;
+    }
+
+    @media (max-width: 460px) {
+        letter-spacing: 15px;
+    }
+
+    @media (max-width: 400px) {
+        letter-spacing: 12px;
+        font-size: 2.7rem;
+    }
+
+    @media (max-width: 350px) {
+        letter-spacing: 10px;
+        top: -0.5rem;
+    }
+
+    @media (max-width: 300px) {
+        font-size: 2.2rem;
+    }
+}
+
+.hero_title {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: -3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-family: League-Gothic;
+    letter-spacing: 5px;
+    font-weight: 500;
+    white-space: nowrap;
+    z-index: 10;
+
+    @media (max-width: 350px) {
+        top: -3.5rem;
+    }
+
+    @media (max-width: 300px) {
+        top: -3.7rem;
+    }
+}
+
+.svg_img {
+    width: 85%;
+    height: auto;
+    position: absolute;
+    top: -5rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.svg_stars_circle {
+    width: 100%;
+
+    border: 2px solid green;
+    position: absolute;
+    top: -5rem;
+    left: 0;
+}
+
+.svg_container {
+    width: 100%;
+    padding-top: calc(278 / 281 * 100%);
+    position: relative;
+    top: 0;
+    left: 0;
+
+    .svg_img {
+        border: 2px solid red;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.service_options {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: center;
+    text-align: center;
+    column-gap: 5rem;
+    row-gap: 1.5rem;
+
+    .dropdown_wrapper {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .label {
+        color: var(--white);
+        font-size: 14px;
+        white-space: nowrap;
+        font-weight: 500;
+        padding-bottom: 4px;
+    }
+
+    .service_charges {
+        font-weight: 400;
+        font-family: League-Gothic;
+        line-height: 1;
+    }
+
+    @media (max-width: 700px) {
+        align-items: center;
+    }
+    @media (max-width: 550px) {
+        flex-direction: column;
+        align-items: center;
+    }
+}

@@ -2,8 +2,9 @@ import SectionHeading from '@/components/Shared/SectionHeading/SectionHeading'
 import { projectsData } from '@/mock/portfolio';
 import React from 'react'
 import css from './portfolioProjects.module.scss'
-import ProjectCard from '../ProjectCard/ProjectCard';
+// import ProjectCard fro../../Shared/ProjectCard/ProjectCardard';
 import Breadcrumb from '@/components/Shared/BreadCrumbs/BreadCrumb';
+import ProjectCard from '@/components/Shared/ProjectCard/ProjectCard';
 
 const PortfolioProjects = ({ projects }) => {
     // const project = projectsData.find((p) => p.slug === params.slug);

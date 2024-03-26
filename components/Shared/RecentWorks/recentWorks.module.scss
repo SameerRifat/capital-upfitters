@@ -1,4 +1,6 @@
 .recent_works_container {
+    max-width: 70rem;
+    margin: 0 auto;
     margin-bottom: 7rem;
 }
 
@@ -34,7 +36,8 @@
         width: 100%;
         height: 100%;
         position: relative;
-        padding-top: calc(185 / 198 * 100%);
+        // padding-top: calc(185 / 198 * 100%);
+        padding-top: calc(1400 / 1920 * 100%);
     }
 
     .card_img {
@@ -110,5 +113,18 @@
     }
     .description{
         font-size: 13px;
+    }
+}
+
+.see_more{
+    // border: 2px solid red;
+    margin-top: 0.7rem;
+    display: flex;
+    justify-content: flex-end;
+    >a{
+        color: rgb(51, 187, 207);
+        &:hover{
+            text-decoration: underline;
+        }
     }
 }

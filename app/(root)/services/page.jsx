@@ -6,13 +6,14 @@ import React from 'react'
 export const revalidate = 30 // revalidate at most every 30 seconds
 
 async function getData() {
-  const query = `*[_type == 'service'] | order(_createdAt desc){
+  const query = `*[_type == 'service' && isPublished] | order(_createdAt desc){
     serviceTitle,
     serviceImage,
     smallDescription,
     'slug': slug.current,
-    _id
-  }`
+    _id,
+    isPublished
+}`
 
   const data = await client.fetch(query);
   return data;
@@ -23,7 +24,7 @@ const page = async () => {
   return (
     <>
       <PagesLayout pageClass='services'>
-        <Services servicesData={data}/>
+        <Services servicesData={data} />
       </PagesLayout>
     </>
   )

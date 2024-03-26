@@ -61,9 +61,9 @@
     }
 }
 
-.card:nth-child(1),
 .card:nth-child(2),
 .card:nth-child(3),
+.card:nth-child(4),
 .card:nth-child(5),
 .card:nth-child(6) {
     grid-column: span 1;
@@ -73,7 +73,7 @@
     }
 }
 
-.card:nth-child(4),
+.card:nth-child(1),
 .card:nth-child(7) {
     grid-column: span 2;
 }
@@ -91,7 +91,7 @@
         }
     }
 
-    .card:nth-child(4),
+    .card:nth-child(1),
     .card:nth-child(7) {
         grid-column: span 1;
 
