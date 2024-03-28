@@ -45,6 +45,8 @@ const SpecificationDetailsModal = ({ open, setOpen, item }) => {
                                 alt='image'
                                 width={400}
                                 height={400}
+                                priority
+                                quality={100}
                             />
                         )}
                     </div>
