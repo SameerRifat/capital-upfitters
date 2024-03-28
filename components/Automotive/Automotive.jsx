@@ -4,8 +4,9 @@ import AutomotiveHero from "./AutomotiveHero/AutomotiveHero";
 import CompanyLogosSection from "./CompanyLogosSection/CompanyLogosSection";
 import Testimonials from "../Shared/Testimonials/Testimonials";
 import GetStarted from "../Shared/GetStarted/GetStarted";
-import StatesSection from "./StatesSection/StatesSection";
+import StatsSection from "./StatsSection/StatsSection";
 import { getCompanyLogos, getTestimonials } from "@/apis/testimonial";
+import { getStats } from "@/apis/settings";
 
 export const revalidate = 30 // revalidate at most every 30 seconds
 
@@ -26,6 +27,15 @@ const Automotive = async () => {
     console.error('Error fetching data:', error);
     logosError = <div className='error_message'>Error fetching logos. Please try again later.</div>;
   }
+  let statsData = {}
+  let statsError = null
+  try {
+    statsData = await getStats();
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    statsError = <div className='error_message'>Error fetching stats. Please try again later.</div>;
+  }
+
 
   return (
     <div className={css.automotive_container}>
@@ -36,7 +46,7 @@ const Automotive = async () => {
       ) : (
         testimonialsData.length > 0 && <Testimonials testimonialsData={testimonialsData} />
       )}
-      <StatesSection />
+      <StatsSection statsData={statsData}/>
       <GetStarted />
     </div>
   );

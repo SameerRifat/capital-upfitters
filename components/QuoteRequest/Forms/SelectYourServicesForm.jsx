@@ -11,6 +11,7 @@ import { services } from './data';
 import Iconify from "@/components/iconify/iconify";
 import { submitFormToTelegram } from '@/lib/utils/onSubmitTelegram';
 import { toast } from 'react-hot-toast';
+import { sendEmail } from '@/lib/actions/sendEmail';
 
 const SelectYourServicesForm = ({ initialValues, onPrevStep, formData, onFormSubmit }) => {
   const [images, setImages] = useState([]);
@@ -31,20 +32,30 @@ const SelectYourServicesForm = ({ initialValues, onPrevStep, formData, onFormSub
     });
   };
 
-
   const onSubmit = async (values, { setSubmitting, resetForm }) => {
-    console.log('values: ', values);
-    const data = { contactDetails: formData.contactDetails, vehicleInformation: formData.vehicleInformation, servicesInformation: values }
-    const textResponse = await submitFormToTelegram(data)
-    if(textResponse.error){
+    const dataToSubmit = { contactDetails: formData.contactDetails, vehicleInformation: formData.vehicleInformation, servicesInformation: values }
+    // const textResponse = await submitFormToTelegram(data)
+    // if(textResponse.error){
+    //   setSubmitting(false);
+    //   toast.error("Something went wrong")
+    // }
+    // if (textResponse.success) {
+    //   setSubmitting(false);
+    //   resetForm();
+    //   toast.success("Data sent successfully")
+    //   onFormSubmit()
+    // }
+    try {
+      const { data, error } = await sendEmail(dataToSubmit);
+      if (error) {
+        toast.error(error.message)
+      }else{
+        toast.success("Email sent successfully")
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
       setSubmitting(false);
-      toast.error("Something went wrong")
-    }
-    if (textResponse.success) {
-      setSubmitting(false);
-      resetForm();
-      toast.success("Data sent successfully")
-      onFormSubmit()
     }
   };
 
@@ -58,7 +69,7 @@ const SelectYourServicesForm = ({ initialValues, onPrevStep, formData, onFormSub
         <Form className={css.form}>
           <div className={css.form_header}>
             <h3 className={cx('typoH3', 'text_gradient')}>Select Your Services</h3>
-            <button type="submit" disabled={isSubmitting} className={css.submit_btn}>{isSubmitting ? <span className='loader'/> : 'Submit'}</button>
+            <button type="submit" disabled={isSubmitting} className={css.submit_btn}>{isSubmitting ? <span className='loader' /> : 'Submit'}</button>
             {/* <button type="submit" onClick={onPrevStep} className={css.submit_btn}>Previous</button> */}
           </div>
           <div className={css.services_container}>

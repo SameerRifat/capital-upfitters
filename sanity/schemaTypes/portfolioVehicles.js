@@ -67,12 +67,13 @@ const portfolioVehicles = defineType({
         select: {
             brand: 'brand',
             portfolio: 'portfolio.service.serviceTitle',
-            image: 'portfolio.service.serviceImage',
+            // image: 'portfolio.service.serviceImage',
+            images: 'gallery',
         },
         prepare(selection) {
-            const { portfolio, brand, image } = selection
+            const { portfolio, brand, images } = selection
             const title = `${portfolio ? portfolio : ''} ${portfolio ? '-' : ''} ${brand ? brand : ''} ${brand ? '-' : ''} Vehicles`;
-            return { ...selection, title, media: image };
+            return { ...selection, title, media: images[0] };
         },
     },
 })

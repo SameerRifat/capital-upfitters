@@ -10,6 +10,8 @@ import Slides from './Slides';
 import PortfolioDetails from './PortfolioDetails/PortfolioDetails';
 import { CustomNextArrow, CustomPrevArrow } from '@/components/Shared/SliderCustomArrows/SliderCustomArrows';
 import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import ProjectCard from '@/components/Shared/ProjectCard/ProjectCard';
 
 const PortfolioGallery = ({ data }) => {
@@ -50,7 +52,19 @@ const PortfolioGallery = ({ data }) => {
         <>
             <div className={css.gallery_container}>
                 <Breadcrumb items={items} />
-                <div className={css.slides}>
+                <SectionHeading>{brand}</SectionHeading>
+                <div className={css.slider_container}>
+                    <Slider {...settings} className={css.slider}>
+                        {gallery.map((item, ind) => {
+                            return (
+                                <div className={css.slide} key={ind}>
+                                    <ProjectCard img={item} gallery onClick={() => setOpen(true)} />
+                                </div>
+                            )
+                        })}
+                    </Slider>
+                </div>
+                {/* <div className={css.slides}>
                     {gallery && gallery.length > 0 ? (
                         <>
                             <SectionHeading>{brand}</SectionHeading>
@@ -69,7 +83,7 @@ const PortfolioGallery = ({ data }) => {
                     ) : (
                         <p className={css.no_project}>No Project Found</p>
                     )}
-                </div>
+                </div> */}
                 <PortfolioDetails data={data} />
             </div>
             <Slides open={open} setOpen={setOpen} gallery={gallery} />

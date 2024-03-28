@@ -76,6 +76,7 @@ export async function getVehicleTypes(id) {
 export async function getSpecifications(id) {
     try {
         const query = `*[_type == 'specification' && service._ref == '${id}']{
+            _id,
             title,
             service->{serviceTitle, _id},
             smallDescription,

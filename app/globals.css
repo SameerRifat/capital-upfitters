@@ -219,9 +219,11 @@ ul {
 .right_ellipse_bg.service_details {
   margin-top: 35rem;
 }
+
 .right_ellipse_bg.portfolio {
   margin-top: 28rem;
 }
+
 .right_ellipse_bg.portfolio_slug {
   margin-top: 20rem;
 }
@@ -269,9 +271,11 @@ ul {
 .left_ellipse_bg.service_details {
   margin-top: 87rem;
 }
+
 .left_ellipse_bg.portfolio {
   margin-top: 50rem;
 }
+
 .left_ellipse_bg.portfolio_slug {
   margin-top: 30rem;
 }
@@ -410,7 +414,77 @@ input::-webkit-file-upload-button:hover {
     transform: rotate(360deg);
   }
 }
-.error_message{
+
+.error_message {
   color: var(--white);
   margin: 3rem 0;
+}
+
+/* Portable Text Styling */
+.portableTextWrapper {
+  color: var(--text);
+
+  p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+  }
+
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--white);
+    margin-top: 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  h5 {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  h6 {
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  ul,
+  ol {
+    list-style: circle;
+    font-size: 14px;
+    margin-top: 0.5rem;
+    padding-left: 1.1rem;
+
+    li {
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+  }
+
+  ol {
+    list-style: decimal;
+  }
 }

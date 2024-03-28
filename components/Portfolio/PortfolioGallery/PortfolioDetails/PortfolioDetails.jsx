@@ -24,7 +24,7 @@ const PortfolioDetails = ({ data }) => {
                     <h3 className={cx("typoH3", "text_gradient", css.heading)}>
                         Methods & Techniques
                     </h3>
-                    <div className={css.techniques}>
+                    <div className={cx("portableTextWrapper")}>
                         <PortableText value={techniques} />
                     </div>
                 </div>
@@ -33,7 +33,7 @@ const PortfolioDetails = ({ data }) => {
                 <h3 className={cx("typoH3", "text_gradient", css.heading)}>
                     Quick Overview
                 </h3>
-                <div className={css.details}>
+                <div className={cx("portableTextWrapper")}>
                     <PortableText value={details} />
                 </div>
             </div>

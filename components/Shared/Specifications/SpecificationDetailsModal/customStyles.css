@@ -1,0 +1,22 @@
+.customModal {
+    max-width: 800px;
+    width: 90%;
+    /* height: 400px; */
+    height: auto;
+    background: linear-gradient(to bottom, transparent, var(--primary-color)) border-box;
+    border-radius: 15px;
+    border: 2px solid transparent;
+    transition: border-color 0.8s ease;
+    padding: 0;
+}
+
+@media (max-width: 550px) {
+    .customModal{
+        height: auto;
+    }
+}
+
+.customButton{
+    border: none !important;
+    outline: none !important;
+}

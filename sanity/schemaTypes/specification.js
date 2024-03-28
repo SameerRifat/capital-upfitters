@@ -2,7 +2,7 @@ import { defineField, defineType } from 'sanity'
 
 const specification = defineType({
     name: 'specification',
-    title: 'Service Sepcificaion',
+    title: 'Service Sepcification',
     type: 'document',
     fields: [
         defineField({

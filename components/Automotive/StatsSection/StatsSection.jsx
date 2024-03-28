@@ -1,13 +1,16 @@
 import React from 'react'
-import css from './statesSection.module.scss'
+import css from './statsSection.module.scss'
 import cx from 'classnames'
 
-const StatesSection = () => {
+export const revalidate = 30 // revalidate at most every 30 seconds
+
+const StatsSection = ({ statsData }) => {
+    const {customers, services, years} = statsData
     return (
         <section className={css.states_container}>
             <div className={css.state}>
                 <h3 className={cx("typoH3", css.state_number)}>
-                    3800+
+                    {customers}+
                 </h3>
                 <p className={cx("typoBody1", css.state_category)}>
                     Customers
@@ -16,7 +19,7 @@ const StatesSection = () => {
             <div className={css.divider} />
             <div className={css.state}>
                 <h3 className={cx("typoH3", css.state_number)}>
-                    230+
+                {services}+
                 </h3>
                 <p className={cx("typoBody1", css.state_category)}>
                     Services
@@ -25,7 +28,7 @@ const StatesSection = () => {
             <div className={css.divider} />
             <div className={css.state}>
                 <h3 className={cx("typoH3", css.state_number)}>
-                    3 Years
+                {years}+ Years
                 </h3>
                 <p className={cx("typoBody1", css.state_category)}>
                     OF SUCCEsS
@@ -35,4 +38,4 @@ const StatesSection = () => {
     )
 }
 
-export default StatesSection
+export default StatsSection
