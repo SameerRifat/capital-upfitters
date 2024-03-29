@@ -10,7 +10,7 @@ import { getStats } from "@/apis/settings";
 
 export const revalidate = 30 // revalidate at most every 30 seconds
 
-const Automotive = async () => {
+const Automotive = async ({ heroData }) => {
   let testimonialsData = []
   let testimonialError = null
   try {
@@ -39,14 +39,14 @@ const Automotive = async () => {
 
   return (
     <div className={css.automotive_container}>
-      <AutomotiveHero />
-      {logosError ? (logosError) : <CompanyLogosSection logosData={logosData}/>}
+      <AutomotiveHero heroData={heroData}/>
+      {logosError ? (logosError) : <CompanyLogosSection logosData={logosData} />}
       {testimonialError ? (
         testimonialError
       ) : (
         testimonialsData.length > 0 && <Testimonials testimonialsData={testimonialsData} />
       )}
-      <StatsSection statsData={statsData}/>
+      <StatsSection statsData={statsData} />
       <GetStarted />
     </div>
   );

@@ -9,7 +9,7 @@ export const NavLinks = [
     },
     {
         label: "Other Industries",
-        route: "/industries",
+        route: "/commercial",
     },
     {
         label: "Quote",

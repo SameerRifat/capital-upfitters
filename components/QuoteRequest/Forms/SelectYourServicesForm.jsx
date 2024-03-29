@@ -32,32 +32,59 @@ const SelectYourServicesForm = ({ initialValues, onPrevStep, formData, onFormSub
     });
   };
 
+  // const onSubmit = async (values, { setSubmitting, resetForm }) => {
+  //   const dataToSubmit = { contactDetails: formData.contactDetails, vehicleInformation: formData.vehicleInformation, servicesInformation: values }
+  //   const textResponse = await submitFormToTelegram(data)
+  //   if(textResponse.error){
+  //     setSubmitting(false);
+  //     toast.error("Something went wrong")
+  //   }
+  //   if (textResponse.success) {
+  //     setSubmitting(false);
+  //     resetForm();
+  //     toast.success("Data sent successfully")
+  //     onFormSubmit()
+  //   }
+  //   try {
+  //     const { data, error } = await sendEmail(dataToSubmit);
+  //     if (error) {
+  //       toast.error(error.message)
+  //     }else{
+  //       toast.success("Email sent successfully")
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   } finally {
+  //     setSubmitting(false);
+  //   }
+  // };
+
   const onSubmit = async (values, { setSubmitting, resetForm }) => {
-    const dataToSubmit = { contactDetails: formData.contactDetails, vehicleInformation: formData.vehicleInformation, servicesInformation: values }
-    // const textResponse = await submitFormToTelegram(data)
-    // if(textResponse.error){
-    //   setSubmitting(false);
-    //   toast.error("Something went wrong")
-    // }
-    // if (textResponse.success) {
-    //   setSubmitting(false);
-    //   resetForm();
-    //   toast.success("Data sent successfully")
-    //   onFormSubmit()
-    // }
+    const dataToSubmit = {
+      contactDetails: formData.contactDetails,
+      vehicleInformation: formData.vehicleInformation,
+      servicesInformation: values
+    };
+
     try {
+      const textResponse = await submitFormToTelegram(dataToSubmit);
       const { data, error } = await sendEmail(dataToSubmit);
-      if (error) {
-        toast.error(error.message)
-      }else{
-        toast.success("Email sent successfully")
+
+      if (!textResponse.error && !error) {
+        resetForm();
+        toast.success("Request sent successfully");
+        onFormSubmit();
+      } else {
+        throw new Error("Failed to send request");
       }
     } catch (error) {
-      console.log(error);
+      toast.error(error.message || "Something went wrong");
     } finally {
       setSubmitting(false);
     }
   };
+
+
 
   return (
     <Formik
@@ -135,6 +162,11 @@ const SelectYourServicesForm = ({ initialValues, onPrevStep, formData, onFormSub
                   </>
                 ))}
               </div>
+              <ErrorMessage
+                name="images"
+                component="div"
+                className={cx("typoCaption", css.error)}
+              />
             </div>
           </div>
         </Form>

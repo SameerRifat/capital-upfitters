@@ -38,7 +38,7 @@ const CardsSection = () => {
                         guaranteed to withstand the test of time.
                     </span>
                 }
-                route='/automotive'
+                route='/commercial'
             />
         </div>
     )
