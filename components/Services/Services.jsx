@@ -2,15 +2,12 @@
 
 import React, { useEffect, useState } from 'react';
 import css from './services.module.scss';
-import cx from 'classnames';
-import Image from 'next/image';
-// import { servicesData } from '@/mock/services';
-import GetStarted from '../Shared/GetStarted/GetStarted';
+import GetStarted from '@/components/Shared/GetStarted/GetStarted';
 import Iconify from '@/components/iconify/iconify';
-import Pagination from './Pagination/Pagination';
+import Pagination from '@/components/Shared/Pagination/Pagination';
 import { useRouter } from 'next/navigation';
-import SectionHeading from '../Shared/SectionHeading/SectionHeading';
-import Cards from '../Shared/Cards/Cards';
+import SectionHeading from '@/components/Shared/SectionHeading/SectionHeading';
+import Cards from '@/components/Shared/Cards/Cards';
 
 const Services = ({ servicesData }) => {
     const router = useRouter();
@@ -32,12 +29,12 @@ const Services = ({ servicesData }) => {
         const startIndex = (currentPage - 1) * itemsPerPage;
         const endIndex = startIndex + itemsPerPage;
 
-        return filteredServices.slice(startIndex, endIndex);
+        return filteredServices.slice(search !== '' ? 0 : startIndex, endIndex);
     };
 
     useEffect(() => {
         setVisibleServices(getVisibleService(servicesData, search));
-        setVisibleServices(getVisibleService(servicesData, search));
+        // setVisibleServices(getVisibleService(servicesData, search));
     }, [search, currentPage]);
 
     return (

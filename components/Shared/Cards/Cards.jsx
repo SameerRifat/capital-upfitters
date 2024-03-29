@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { urlFor } from '@/lib/client';
 
-const Cards = ({visibleCards, services=false}) => {
+const Cards = ({visibleCards, services=false, search}) => {
     const router = useRouter();
     const handleClick = (item) => {
         if(services){
@@ -15,10 +15,11 @@ const Cards = ({visibleCards, services=false}) => {
             router.push(`/portfolio/${item.service.slug}`)
         }
     }
+    console.log('search: ', search)
 
     return (
         <>
-            <div className={css.cards}>
+            <div className={`${css.cards} ${search !== '' && css.search}`}>
                 {visibleCards.length !== 0 ? (
                     visibleCards.map((item) => {
                         return (
