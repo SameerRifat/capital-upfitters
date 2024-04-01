@@ -10,7 +10,6 @@ export const revalidate = 30; // revalidate at most every 30 seconds
 
 const WindowTint = async ({ data, vehicleTypes, specifications, slug, showPortfolio }) => {
     const { portfoliosData, portfolioError } = await fetchPortfolioData(slug, showPortfolio);
-    console.log('specifications', specifications)
 
     return (
         <>

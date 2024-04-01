@@ -34,7 +34,7 @@ const AutomotivePage = () => {
   return (
     <>
       <PagesLayout pageClass='automotive'>
-        <Automotive heroData={automotiveHeroData} />
+        <Automotive />
       </PagesLayout>
     </>
   )

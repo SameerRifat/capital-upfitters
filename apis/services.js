@@ -2,6 +2,24 @@ import { client } from "@/lib/client";
 
 // export const revalidate = 30 // revalidate at most every 30 seconds
 
+export async function getAllServices() {
+    try {
+        const query = `*[_type == 'service' && isPublished] | order(_createdAt desc){
+            serviceTitle,
+            serviceImage,
+            smallDescription,
+            'slug': slug.current,
+            _id,
+            isPublished
+        }`
+
+        const data = await client.fetch(query, { cache: 'no-cache' });
+        return data;
+    } catch (error) {
+        console.log(error);
+        throw new Error("Failed to fetch services");
+    }
+}
 export async function getServicesData(slug) {
     try {
         const query = `*[_type == 'service' && slug.current == '${slug}'][0]{

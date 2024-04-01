@@ -136,7 +136,7 @@
     height: 100%;
     padding: 1rem;
     border-radius: var(--radius-md);
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.3);
 
     .card_title {
         font-weight: 400;
@@ -146,7 +146,8 @@
 
     .card_caption {
         font-size: 14px;
-        color: #BCC0BC;
+        // color: #BCC0BC;
+        color: #dddfdd;
         margin-top: 0.5rem;
     }
 
