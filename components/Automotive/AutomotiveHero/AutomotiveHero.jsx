@@ -8,7 +8,7 @@ import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import ContactUsModal from '@/components/Shared/ContactUs/ContactUsModal'
 import { urlFor } from '@/lib/client'
-import { motion } from "framer-motion"
+import { AnimatePresence, motion } from "framer-motion"
 
 const AutomotiveHero = ({ heroData }) => {
     const router = useRouter();
@@ -23,12 +23,10 @@ const AutomotiveHero = ({ heroData }) => {
                 const nextIndex = prevVisibleCards[2] + 3;
                 return [(nextIndex - 2 + heroData.length) % heroData.length, (nextIndex - 1 + heroData.length) % heroData.length, nextIndex % heroData.length];
             });
-        }, 5000); 
+        }, 5000);
 
         return () => clearInterval(interval);
     }, []);
-
-    console.log('visibleCards[0]: ', visibleCards[0])
 
     return (
         <>
@@ -54,113 +52,109 @@ const AutomotiveHero = ({ heroData }) => {
                 </div>
                 <div className={css.hero_right}>
                     <div className={css.row1}>
-                        <div className={`${css.card} ${css.card1}`} key={visibleCards[0]} onClick={() => router.push(`/services/${heroData[visibleCards[0]].slug}`)}>
-                            <motion.div
-                                initial={{ x: -100, opacity: 0 }}
-                                animate={{ x: 0, opacity: 1 }}
-                                exit={{ x: 100, opacity: 0 }}
-                                transition={{ duration: 0.5 }}
-                                className={css.card_img_container}
-                            >
-                                <Image
-                                    src={urlFor(heroData[visibleCards[0]].serviceImage).url()}
-                                    alt='image'
-                                    fill
-                                    quality={100}
-                                    priority={true}
-                                    className={css.card_img}
-                                />
-                            </motion.div>
-                            <motion.div
-                                initial={{ x: -100, opacity: 0 }}
-                                animate={{ x: 0, opacity: 1 }}
-                                exit={{ x: 100, opacity: 0 }}
-                                transition={{ duration: 0.5 }}
-                                className={css.card_text}
-                            >
-                                <h3 className={cx("typoH3", css.card_title)}>{heroData[visibleCards[0]].serviceTitle}</h3>
-                                <p className={cx("typoCaption", css.card_caption)}>
-                                    {heroData[visibleCards[0]].smallDescription}
-                                </p>
-                            </motion.div>
+                        <div className={`${css.card} ${css.card1}`} onClick={() => router.push(`/services/${heroData[visibleCards[0]].slug}`)}>
+                            <AnimatePresence>
+                                <motion.div
+                                    key={visibleCards[0]}
+                                    initial={{ x: -100, opacity: 0 }}
+                                    animate={{ x: 0, y: 0, opacity: 1 }}
+                                    transition={{ duration: 0.3 }}
+                                    exit={{ x: 100, opacity: 0, transition: { duration: 0.3 } }}
+                                    className={css.card_content}
+                                >
+                                    <div
+                                        className={css.card_img_container}
+                                    >
+                                        <Image
+                                            src={urlFor(heroData[visibleCards[0]].serviceImage).url()}
+                                            alt='image'
+                                            fill
+                                            quality={100}
+                                            priority={true}
+                                            className={css.card_img}
+                                        />
+                                    </div>
+                                    <div
+                                        className={css.card_text}
+                                    >
+                                        <h3 className={cx("typoH3", css.card_title)}>{heroData[visibleCards[0]].serviceTitle}</h3>
+                                        <p className={cx("typoCaption", css.card_caption)}>
+                                            {heroData[visibleCards[0]].smallDescription}
+                                        </p>
+                                    </div>
+                                </motion.div>
+                            </AnimatePresence>
                         </div>
-                        <div className={`${css.card} ${css.card2}`} key={visibleCards[1]} onClick={() => router.push(`/services/${heroData[visibleCards[1]].slug}`)}>
-                            <motion.div
-                                initial={{ x: -100, opacity: 0 }}
-                                animate={{ x: 0, opacity: 1 }}
-                                exit={{ x: 100, opacity: 0 }}
-                                transition={{ duration: 0.5, delay: 0.15 }}
-                                className={css.card_img_container}
-                            >
-                                <Image
-                                    src={urlFor(heroData[visibleCards[1]].serviceImage).url()}
-                                    alt='image'
-                                    fill
-                                    quality={100}
-                                    priority={true}
-                                    className={css.card_img}
-                                />
-                            </motion.div>
-                            <motion.div
-                                initial={{ x: -100, opacity: 0 }}
-                                animate={{ x: 0, opacity: 1 }}
-                                exit={{ x: 100, opacity: 0 }}
-                                transition={{ duration: 0.5, delay: 0.15 }}
-                                className={css.card_text}
-                            >
-                                <h3 className={cx("typoH3", css.card_title)}>{heroData[visibleCards[1]].serviceTitle}</h3>
-                                <p className={cx("typoCaption", css.card_caption)}>
-                                    {heroData[visibleCards[1]].smallDescription}
-                                </p>
-                            </motion.div>
+                        <div className={`${css.card} ${css.card2}`} onClick={() => router.push(`/services/${heroData[visibleCards[1]].slug}`)}>
+                            <AnimatePresence>
+                                <motion.div
+                                    key={visibleCards[1]}
+                                    initial={{ x: -100, opacity: 0 }}
+                                    animate={{ x: 0, y: 0, opacity: 1 }}
+                                    transition={{ duration: 0.3, delay: 0.15 }}
+                                    exit={{ x: 100, opacity: 0, transition: { duration: 0.3 } }}
+                                    className={css.card_content}
+                                >
+                                    <div
+                                        className={css.card_img_container}
+                                    >
+                                        <Image
+                                            src={urlFor(heroData[visibleCards[1]].serviceImage).url()}
+                                            alt='image'
+                                            fill
+                                            quality={100}
+                                            priority={true}
+                                            className={css.card_img}
+                                        />
+                                    </div>
+                                    <div
+                                        className={css.card_text}
+                                    >
+                                        <h3 className={cx("typoH3", css.card_title)}>{heroData[visibleCards[1]].serviceTitle}</h3>
+                                        <p className={cx("typoCaption", css.card_caption)}>
+                                            {heroData[visibleCards[1]].smallDescription}
+                                        </p>
+                                    </div>
+                                </motion.div>
+                            </AnimatePresence>
                         </div>
                     </div>
                     <div className={css.row2}>
-                        <div className={`${css.card} ${css.card3}`} key={visibleCards[2]} onClick={() => router.push(`/services/${heroData[visibleCards[2]].slug}`)}>
-                            <motion.div
-                                initial={{ x: -100, opacity: 0 }}
-                                animate={{ x: 0, opacity: 1 }}
-                                exit={{ x: 100, opacity: 0 }}
-                                transition={{ duration: 0.5, delay: 0.3 }}
-                                className={css.card_img_container}
-                            >
-                                <Image
-                                    src={urlFor(heroData[visibleCards[2]].serviceImage).url()}
-                                    alt='image'
-                                    fill
-                                    quality={100}
-                                    priority={true}
-                                    className={css.card_img}
-                                />
-                            </motion.div>
-                            <motion.div
-                                initial={{ x: -100, opacity: 0 }}
-                                animate={{ x: 0, opacity: 1 }}
-                                exit={{ x: 100, opacity: 0 }}
-                                transition={{ duration: 0.5, delay: 0.3 }}
-                                className={css.card_text}
-                            >
-                                <h3 className={cx("typoH3", css.card_title)}>{heroData[visibleCards[2]].serviceTitle}</h3>
-                                <p className={cx("typoCaption", css.card_caption)}>
-                                    {heroData[visibleCards[2]].smallDescription}
-                                </p>
-                            </motion.div>
-                            {/* <div className={css.card_img_container}>
-                                <Image
-                                    src={urlFor(heroData[visibleCards[2]].serviceImage).url()}
-                                    alt='image'
-                                    fill
-                                    quality={100}
-                                    priority={true}
-                                    className={css.card_img}
-                                />
-                            </div>
-                            <div className={css.card_text}>
-                                <h3 className={cx("typoH3", css.card_title)}>{heroData[visibleCards[1]].serviceTitle}</h3>
-                                <p className={cx("typoCaption", css.card_caption)}>
-                                    {heroData[visibleCards[1]].smallDescription}
-                                </p>
-                            </div> */}
+                        <div className={`${css.card} ${css.card3}`} onClick={() => router.push(`/services/${heroData[visibleCards[2]].slug}`)}>
+                            <AnimatePresence>
+                                <motion.div
+                                    key={visibleCards[2]}
+                                    // animate={{ x: [-100, 0], opacity: [0, 1] }} 
+                                    // transition={{ duration: 0.5 }}
+                                    // exit={{ x: 100, opacity: 0, transition: { duration: 0.5 } }}
+                                    initial={{ x: -100, opacity: 0 }}
+                                    animate={{ x: 0, opacity: 1 }}
+                                    transition={{ duration: 0.3, delay: 0.3 }}
+                                    exit={{ x: 100, opacity: 0, transition: { duration: 0.3 } }}
+                                    className={css.card_content}
+                                >
+                                    <div
+                                        className={css.card_img_container}
+                                    >
+                                        <Image
+                                            src={urlFor(heroData[visibleCards[2]].serviceImage).url()}
+                                            alt='image'
+                                            fill
+                                            quality={100}
+                                            priority={true}
+                                            className={css.card_img}
+                                        />
+                                    </div>
+                                    <div
+                                        className={css.card_text}
+                                    >
+                                        <h3 className={cx("typoH3", css.card_title)}>{heroData[visibleCards[2]].serviceTitle}</h3>
+                                        <p className={cx("typoCaption", css.card_caption)}>
+                                            {heroData[visibleCards[2]].smallDescription}
+                                        </p>
+                                    </div>
+                                </motion.div>
+                            </AnimatePresence>
                         </div>
                         <div className={cx("border_gradient", css.card, css.card4)}>
                             <div className={css.explore_more_btn} onClick={() => router.push(`${heroData.explore_more_link}`)}>

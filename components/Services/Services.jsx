@@ -34,7 +34,6 @@ const Services = ({ servicesData }) => {
 
     useEffect(() => {
         setVisibleServices(getVisibleService(servicesData, search));
-        // setVisibleServices(getVisibleService(servicesData, search));
     }, [search, currentPage]);
 
     return (

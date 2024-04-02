@@ -15,7 +15,6 @@ const Cards = ({visibleCards, services=false, search}) => {
             router.push(`/portfolio/${item.service.slug}`)
         }
     }
-    console.log('search: ', search)
 
     return (
         <>

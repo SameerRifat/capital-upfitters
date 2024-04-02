@@ -52,7 +52,6 @@ const Automotive = async () => {
   return (
     <div className={css.automotive_container}>
       {heroError ? (heroError) : <AutomotiveHero heroData={servicesData} />}
-      {/* <AutomotiveHero heroData={servicesData} /> */}
       {logosError ? (logosError) : <CompanyLogosSection logosData={logosData} />}
       {testimonialError ? (
         testimonialError
