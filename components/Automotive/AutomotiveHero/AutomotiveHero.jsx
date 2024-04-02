@@ -35,7 +35,7 @@ const AutomotiveHero = ({ heroData, commercial = false }) => {
                     <h2 className={cx("typoH2", "text_gradient", css.title)}>
                         Explore what we
                         <br />
-                        got in Automotives
+                        got in {commercial ? "Commercial" : "Automotives"}
                     </h2>
                     <p className={cx("typoBody1", css.desc)}>
                         Located in the heart of DMV, family-owned epicenter of top-tier auto customization, vehicle preservation, performance enhancements, and protective coatings. With a heritage of over 35 years in the industry, we proudly deliver unparalleled fleet customization services and robust protection coatings to a diverse range of clients, from municipal to retail sectors.
