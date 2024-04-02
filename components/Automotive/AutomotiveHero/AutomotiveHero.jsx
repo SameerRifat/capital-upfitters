@@ -62,13 +62,15 @@ const AutomotiveHero = ({ heroData, commercial = false }) => {
                                     initial={{ x: -100, opacity: 0 }}
                                     animate={{ x: 0, y: 0, opacity: 1 }}
                                     transition={{ duration: 0.3 }}
-                                    exit={{ x: 100, opacity: 0, transition: { duration: 0.3 } }}
+                                    // exit={{ x: 100, opacity: 0, transition: { duration: 0.3 } }}
+                                    exit={{ x: 100, opacity: 0 }}
                                     className={css.card_content}
                                 >
                                     <div
                                         className={css.card_img_container}
                                     >
                                         <Image
+                                            // src={urlFor(heroData[visibleCards[0]].serviceImage).url()}
                                             src={commercial ? heroData[visibleCards[0]].serviceImage : urlFor(heroData[visibleCards[0]].serviceImage).url()}
                                             alt='image'
                                             fill
@@ -98,7 +100,8 @@ const AutomotiveHero = ({ heroData, commercial = false }) => {
                                     initial={{ x: -100, opacity: 0 }}
                                     animate={{ x: 0, y: 0, opacity: 1 }}
                                     transition={{ duration: 0.3, delay: 0.15 }}
-                                    exit={{ x: 100, opacity: 0, transition: { duration: 0.3 } }}
+                                    // exit={{ x: 100, opacity: 0, transition: { duration: 0.3 } }}
+                                    exit={{ x: 100, opacity: 0 }}
                                     className={css.card_content}
                                 >
                                     <div
@@ -140,7 +143,8 @@ const AutomotiveHero = ({ heroData, commercial = false }) => {
                                     initial={{ x: -100, opacity: 0 }}
                                     animate={{ x: 0, opacity: 1 }}
                                     transition={{ duration: 0.3, delay: 0.3 }}
-                                    exit={{ x: 100, opacity: 0, transition: { duration: 0.3 } }}
+                                    // exit={{ x: 100, opacity: 0, transition: { duration: 0.3 } }}
+                                    exit={{ x: 100, opacity: 0 }}
                                     className={css.card_content}
                                 >
                                     <div

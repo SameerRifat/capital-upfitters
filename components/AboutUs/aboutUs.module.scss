@@ -13,6 +13,19 @@
     font-weight: 500;
     text-align: center;
 }
+.image_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .img{
+        border-radius: var(--radius-md);
+        width: 100%;
+        max-width: 70rem;
+        height: auto;
+        max-height: 400px;
+        object-fit: cover;
+    }
+}
 
 .description {
     color: var(--text);

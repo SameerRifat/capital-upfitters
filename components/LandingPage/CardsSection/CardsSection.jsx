@@ -23,7 +23,7 @@ const CardsSection = () => {
                 route='/automotive'
             />
             <Card
-                img='/industries.png'
+                img='/other-industries/Equipment-rental.jpg'
                 title="Other Industries"
                 desc={
                     <span>

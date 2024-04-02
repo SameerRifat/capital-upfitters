@@ -7,6 +7,8 @@ import GetStarted from '../Shared/GetStarted/GetStarted';
 import SectionHeading from '../Shared/SectionHeading/SectionHeading';
 import { getTestimonials } from '@/apis/testimonial';
 import { getAboutUsData } from '@/apis/settings';
+import Image from 'next/image';
+import { urlFor } from '@/lib/client';
 
 const iconData = [
     { icon: 'ph:medal-fill', text: 'Quality' },
@@ -37,6 +39,15 @@ const AboutUs = async () => {
             <div className={css.about_us_container}>
                 <div className={css.about_us}>
                     <SectionHeading>About Us</SectionHeading>
+                    <div className={css.image_container}>
+                        <Image
+                            src={urlFor(aboutUsData?.image).url()}
+                            alt='team'
+                            width={612}
+                            height={183}
+                            className={css.img}
+                        />
+                    </div>
                     {aboutUsError ? (
                         aboutUsError
                     ) : (

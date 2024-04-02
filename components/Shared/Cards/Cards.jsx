@@ -1,7 +1,6 @@
 import React from 'react'
 import css from './cards.module.scss'
 import cx from 'classnames'
-import Iconify from '@/components/iconify/iconify';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { urlFor } from '@/lib/client';
@@ -25,12 +24,11 @@ const Cards = ({visibleCards, services=false, search}) => {
                             <div className={`${css.card}`} key={item._id} onClick={() => handleClick(item)}>
                                 <div className={css.card_img_container}>
                                     <Image
-                                        // src={item.imageSrc}
                                         src={services ? urlFor(item.serviceImage).url() : urlFor(item.portfolioImage).url()}
                                         alt={item.serviceTitle}
                                         fill
                                         quality={100}
-                                        priority={true}
+                                        priority
                                         className={css.card_img}
                                     />
                                 </div>

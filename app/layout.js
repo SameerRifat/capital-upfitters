@@ -8,6 +8,7 @@ import { Toaster } from 'react-hot-toast'
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
+  metadataBase: new URL('https://capital-upfitters-gray.vercel.app/'),
   title: "Capital Upfitters: Capital Auto Upfitters & Protective Coatings",
   description: "Where your journey to overcoming automotive and commercial challenges begins. Transform your vehicles and structures with our proven solutions, and experience peace of mind knowing you're prepared for anything. Let Capital Upfitters be the hero in your story of success and longevity.",
   keywords: [

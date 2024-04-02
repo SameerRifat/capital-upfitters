@@ -3,11 +3,9 @@ import PortfolioGallery from '@/components/Portfolio/PortfolioGallery/PortfolioG
 import { projectsData } from '@/mock/portfolio';
 import React from 'react'
 
-export const revalidate = 30 // revalidate at most every 30 seconds
+export const revalidate = 30 
 
 const Gallery = async ({ params }) => {
-  // const project = projectsData.find((p) => p.slug === params.slug);
-  // const car = project.cars.find((c) => c.id === Number(params.id))
   let data
 
   try {
