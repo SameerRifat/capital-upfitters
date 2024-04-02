@@ -45,6 +45,8 @@ const AboutUs = async () => {
                             alt='team'
                             width={612}
                             height={183}
+                            priority
+                            quality={100}
                             className={css.img}
                         />
                     </div>
