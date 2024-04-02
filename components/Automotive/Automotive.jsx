@@ -11,7 +11,7 @@ import { getAllServices } from "@/apis/services";
 
 export const revalidate = 30 // revalidate at most every 30 seconds
 
-const Automotive = async () => {
+const Automotive = async ({heroData, commercial=false}) => {
 
   let servicesData
   let heroError = null
@@ -51,7 +51,7 @@ const Automotive = async () => {
 
   return (
     <div className={css.automotive_container}>
-      {heroError ? (heroError) : <AutomotiveHero heroData={servicesData} />}
+      {heroError ? (heroError) : <AutomotiveHero heroData={commercial ? heroData : servicesData} commercial={commercial && true}/>}
       {logosError ? (logosError) : <CompanyLogosSection logosData={logosData} />}
       {testimonialError ? (
         testimonialError
