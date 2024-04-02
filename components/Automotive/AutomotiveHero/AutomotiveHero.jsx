@@ -157,7 +157,7 @@ const AutomotiveHero = ({ heroData }) => {
                             </AnimatePresence>
                         </div>
                         <div className={cx("border_gradient", css.card, css.card4)}>
-                            <div className={css.explore_more_btn} onClick={() => router.push(`${heroData.explore_more_link}`)}>
+                            <div className={css.explore_more_btn} onClick={() => router.push('/services')}>
                                 Explore All
                                 <br />
                                 Services
