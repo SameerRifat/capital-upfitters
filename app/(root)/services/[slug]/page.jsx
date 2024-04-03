@@ -32,7 +32,7 @@ export async function generateMetadata({ params }) {
           },
         ],
         type: "website",
-        // url: "https://example.com/services",
+        url: "https://capitalupfitters.com/services",
       },
     };
   }
@@ -55,7 +55,7 @@ export async function generateMetadata({ params }) {
         }
       ],
       type: "website",
-      // url: `https://capital-upfitters.com/services/${params.slug}`
+      url: `https://capitalupfitters.com/services/${params.slug}`
     },
   };
 }

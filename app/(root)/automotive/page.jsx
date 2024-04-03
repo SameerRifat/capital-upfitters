@@ -4,6 +4,10 @@ import PagesLayout from '@/layouts/PagesLayout'
 
 export const revalidate = 30 
 
+export const metadata = {
+  title: "Capital Upfitters: Automotive",
+}
+
 const AutomotivePage = () => {
   return (
     <>

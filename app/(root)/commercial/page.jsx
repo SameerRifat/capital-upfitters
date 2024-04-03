@@ -5,6 +5,10 @@ import PagesLayout from '@/layouts/PagesLayout'
 
 export const revalidate = 30 // revalidate at most every 30 seconds
 
+export const metadata = {
+  title: "Capital Upfitters: Commercial Industries",
+}
+
 const CommercialPage = () => {
   const commercialeHeroData = [
     {

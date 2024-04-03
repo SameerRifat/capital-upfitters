@@ -26,6 +26,7 @@ const ProjectCard = ({ img, title, slug, brandSlug, id, gallery=false, onClick }
                     fill
                     quality={100}
                     priority={true}
+                    sizes="(max-width: 550px) 100vw, (max-width: 99px) 50vw, 33vw"
                     className={css.card_img}
                 />
             </div>

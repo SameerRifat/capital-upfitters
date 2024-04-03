@@ -29,6 +29,7 @@ const Cards = ({visibleCards, services=false, search}) => {
                                         fill
                                         quality={100}
                                         priority={true}
+                                        sizes="(max-width: 400px) 100vw, (max-width: 750px) 50vw, 33vw"
                                         className={css.card_img}
                                     />
                                 </div>

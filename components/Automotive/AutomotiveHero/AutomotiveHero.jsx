@@ -76,6 +76,7 @@ const AutomotiveHero = ({ heroData, commercial = false }) => {
                                             fill
                                             quality={100}
                                             priority={true}
+                                            sizes="(max-width: 500px) 60vw, (max-width: 1250px) 50vw, 30vw"
                                             className={css.card_img}
                                         />
                                     </div>
@@ -114,6 +115,7 @@ const AutomotiveHero = ({ heroData, commercial = false }) => {
                                             fill
                                             quality={100}
                                             priority={true}
+                                            sizes="(max-width: 500px) 60vw, (max-width: 1250px) 50vw, 30vw"
                                             className={css.card_img}
                                         />
                                     </div>
@@ -157,6 +159,7 @@ const AutomotiveHero = ({ heroData, commercial = false }) => {
                                             fill
                                             quality={100}
                                             priority={true}
+                                            sizes="(max-width: 500px) 60vw, (max-width: 1250px) 50vw, 30vw"
                                             className={css.card_img}
                                         />
                                     </div>
