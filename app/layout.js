@@ -40,7 +40,7 @@ export const metadata = {
       },
     ],
     type: "website",
-    url: "https://capital-upfitters-gray.vercel.app/",
+    // url: "https://capital-upfitters-gray.vercel.app/",
   },
 };
 
