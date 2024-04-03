@@ -2,6 +2,10 @@
     border-radius: var(--radius-lg);
     cursor: pointer;
     position: relative;
+
+    @media (max-width: 500px) {
+        border-radius: var(--radius-md);
+    }
 }
 
 .card:hover {
@@ -52,6 +56,15 @@
 
     @media (max-width: 500px) {
         padding-top: calc(330 / 720 * 100%);
+        border-radius: var(--radius-md);
+
+        .card_img {
+            border-radius: var(--radius-md);
+        }
+    }
+
+    @media (max-width: 400px) {
+        padding-top: calc(350 / 720 * 100%);
     }
 }
 
@@ -127,7 +140,8 @@
     @media (max-width: 520px) {
         padding-top: 0.7rem;
         padding-left: 1rem;
-        p{
+
+        p {
             -webkit-line-clamp: 2;
         }
 
