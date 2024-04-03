@@ -5,6 +5,7 @@ import css from './portfolioProjects.module.scss'
 // import ProjectCard fro../../Shared/ProjectCard/ProjectCardard';
 import Breadcrumb from '@/components/Shared/BreadCrumbs/BreadCrumb';
 import ProjectCard from '@/components/Shared/ProjectCard/ProjectCard';
+import GetStarted from '@/components/Shared/GetStarted/GetStarted';
 
 const PortfolioProjects = ({ projects }) => {
     // const project = projectsData.find((p) => p.slug === params.slug);
@@ -46,6 +47,10 @@ const PortfolioProjects = ({ projects }) => {
             ) : (
                 <p className={css.no_project}>No Project Found</p>
             )}
+
+            <div style={{ marginTop: '5rem' }}>
+                <GetStarted />
+            </div>
 
         </div>
     )

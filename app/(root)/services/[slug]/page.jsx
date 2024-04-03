@@ -65,7 +65,7 @@ const page = async ({ params }) => {
   try {
     data = await getServicesData(params.slug);
 
-    if (params.slug == 'paint-protection-film') {
+    if (params.slug == 'paint-protection-film-clear-bra') {
       specificPageData = await getpaintProtectionData(data._id)
       specifications = await getSpecifications(data._id)
     } else if (params.slug == 'window-tint') {
@@ -81,7 +81,7 @@ const page = async ({ params }) => {
   return (
     <>
       {specificPageData && specificPageData.length > 0 ? (
-        params.slug == 'paint-protection-film' ? (
+        params.slug == 'paint-protection-film-clear-bra' ? (
           <PagesLayout pageClass='service_details'>
             <PaintProtectionFilm data={specificPageData} specifications={specifications} slug={params.slug} showPortfolio={data.showPortfolio} />
             {/* Paint Protections */}

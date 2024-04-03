@@ -13,6 +13,7 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ProjectCard from '@/components/Shared/ProjectCard/ProjectCard';
+import GetStarted from '@/components/Shared/GetStarted/GetStarted';
 
 const PortfolioGallery = ({ data }) => {
     const { brand, portfolio, details, techniques, gallery, brandSlug } = data
@@ -85,6 +86,11 @@ const PortfolioGallery = ({ data }) => {
                     )}
                 </div> */}
                 <PortfolioDetails data={data} />
+
+                <div style={{ marginTop: '5rem' }}>
+                    <GetStarted />
+                </div>
+
             </div>
             <Slides open={open} setOpen={setOpen} gallery={gallery} />
         </>

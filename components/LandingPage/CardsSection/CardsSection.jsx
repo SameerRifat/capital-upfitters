@@ -7,7 +7,8 @@ const CardsSection = () => {
     return (
         <div className={css.cards}>
             <Card
-                img='/automotive.png'
+                img1='/automotive.png'
+                img2='/automotive2.png'
                 title="EXPLORE AUTOMOTIVE"
                 desc={
                     <span>
@@ -23,7 +24,8 @@ const CardsSection = () => {
                 route='/automotive'
             />
             <Card
-                img='/other-industries/Equipment-rental.jpg'
+                img1='/Equipment-rental.jpg'
+                img2='/other-industries/Equipment-rental.jpg'
                 title="Other Industries"
                 desc={
                     <span>

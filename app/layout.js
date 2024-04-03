@@ -33,10 +33,10 @@ export const metadata = {
     description: "Where your journey to overcoming automotive and commercial challenges begins. Transform your vehicles and structures with our proven solutions, and experience peace of mind knowing you're prepared for anything. Let Capital Upfitters be the hero in your story of success and longevity.",
     images: [
       {
-        url: "/cu-logo.svg",
+        url: "https://capital-upfitters-gray.vercel.app//automotive.png",
         width: 800,
         height: 600,
-        alt: "Capital Upfitters",
+        alt: "Capital Upfitters"
       },
     ],
     type: "website",

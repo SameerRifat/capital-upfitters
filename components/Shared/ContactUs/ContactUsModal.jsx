@@ -60,11 +60,15 @@ const ContactUsModal = ({ open, setOpen }) => {
                         GET IN TOUCH
                     </h3>
                     <p className={cx("typoCaption", css.description)}>
-                        Lorem ipsum dolor sit amet {" "}
+                        Based in Leander, Texas, our team of skilled
+                        technicians are dedicated to providing
+                        amazing service for all your truck
+                        customization needs
+                        {/* Lorem ipsum dolor sit amet {" "}
                         <br />
                         consec tetur adipisicing elit. Sunt {" "}
                         <br />
-                        molestias facilis praesentium.
+                        molestias facilis praesentium. */}
                     </p>
                     <ul className={css.links}>
                         {contactInfo.map((item, index) => (
@@ -96,14 +100,14 @@ const ContactUsModal = ({ open, setOpen }) => {
                     </div>
                 </div>
                 <div className={css.content_right}><iframe
-                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1549.2123765160654!2d-77.1099308!3d39.0512334!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7cc2ec94dd327%3A0x4a6cc2fbd0961fb1!2sCapital%20Auto%20Upfitters%20%26%20Protective%20Coatings!5e0!3m2!1sen!2s!4v1711469197399!5m2!1sen!2s"
-                        width="100%"
-                        height="100%"
-                        style={{ border: 0, borderRadius: '12px' }}
-                        allowFullScreen=""
-                        loading="lazy"
-                        referrerPolicy="no-referrer-when-downgrade">
-                    </iframe>
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1549.2123765160654!2d-77.1099308!3d39.0512334!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7cc2ec94dd327%3A0x4a6cc2fbd0961fb1!2sCapital%20Auto%20Upfitters%20%26%20Protective%20Coatings!5e0!3m2!1sen!2s!4v1711469197399!5m2!1sen!2s"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0, borderRadius: '12px' }}
+                    allowFullScreen=""
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade">
+                </iframe>
                 </div>
             </div>
         </Modal>

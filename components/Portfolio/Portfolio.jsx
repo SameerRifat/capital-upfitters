@@ -12,6 +12,7 @@ import { customStyles2, generateCustomStyles } from '@/components/Shared/react-s
 import Breadcrumb from '@/components/Shared/BreadCrumbs/BreadCrumb';
 import { useEffect } from 'react';
 import Pagination from '@/components/Shared/Pagination/Pagination';
+import GetStarted from '@/components/Shared/GetStarted/GetStarted';
 
 const Portfolio = ({ data }) => {
     const categoryOptionns = [
@@ -78,6 +79,9 @@ const Portfolio = ({ data }) => {
                     totalPages={selectedPortfolio !== '' ? Math.ceil(visiblePortfolios.length / itemsPerPage) : Math.ceil(data.length / itemsPerPage)}
                     setCurrentPage={setCurrentPage}
                 />
+                <div style={{marginTop: '5rem'}}>
+                    <GetStarted />
+                </div>
             </div>
         </ScrollToTop>
     )
