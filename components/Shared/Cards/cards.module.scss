@@ -88,7 +88,8 @@
 .card:nth-child(1),
 .card:nth-child(4) {
     grid-column: span 2;
-    .card_img_container{
+
+    .card_img_container {
         padding-top: 0;
     }
 }
@@ -140,6 +141,15 @@
 @media (max-width: 400px) {
     .cards {
         grid-template-columns: 1fr;
+
+        .card:nth-child(1),
+        .card:nth-child(4) {
+            grid-column: span 1;
+
+            .card_img_container {
+                padding-top: calc(1400 / 1920 * 100%);
+            }
+        }
     }
 }
 
