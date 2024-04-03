@@ -35,7 +35,7 @@ export async function generateMetadata() {
         }
       }),
       type: "website",
-      url: `https://capitalupfitters.com/portfolio`,
+      url: `https://capital-upfitters-gray.vercel.app/portfolio`,
     },
   };
 }

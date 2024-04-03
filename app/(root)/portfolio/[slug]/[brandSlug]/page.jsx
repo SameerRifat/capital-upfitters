@@ -39,7 +39,7 @@ export async function generateMetadata({params}) {
         };
       }) || [],
       type: "website",
-      url: `https://capitalupfitters.com/portfolio/${params.slug}/${params.brandSlug}`,
+      url: `https://capital-upfitters-gray.vercel.app/portfolio/${params.slug}/${params.brandSlug}`,
     },
   };
 }

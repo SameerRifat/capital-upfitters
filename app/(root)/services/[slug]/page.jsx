@@ -32,7 +32,7 @@ export async function generateMetadata({ params }) {
           },
         ],
         type: "website",
-        url: "https://capitalupfitters.com/services",
+        url: "https://capital-upfitters-gray.vercel.app/services",
       },
     };
   }
@@ -55,7 +55,7 @@ export async function generateMetadata({ params }) {
         }
       ],
       type: "website",
-      url: `https://capitalupfitters.com/services/${params.slug}`
+      url: `https://capital-upfitters-gray.vercel.app/services/${params.slug}`
     },
   };
 }

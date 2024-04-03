@@ -42,7 +42,7 @@ export async function generateMetadata({params}) {
         return null;
       }).filter(Boolean),
       type: "website",
-      url: `https://capitalupfitters.com/portfolio/${params.slug}`,
+      url: `https://capital-upfitters-gray.vercel.app/portfolio/${params.slug}`,
     },
   };
 }
