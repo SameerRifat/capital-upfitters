@@ -3,29 +3,22 @@ import React from 'react'
 import css from './cardsSection.module.scss'
 import Card from './Card/Card'
 
-const CardsSection = () => {
+const CardsSection = ({ cards }) => {
     return (
         <div className={css.cards}>
-            <Card
-                img1='/automotive.png'
-                img2='/automotive2.png'
-                title="EXPLORE AUTOMOTIVE"
-                desc={
-                    <span>
-                        Auto & Truck Accessories to fit your needs. As well as a comprehensive range of
-                        <br />
-                        advanced automotive treatments, including Patriot Liner, Waxoyl, Eco Clear, and PPF,
-                        <br />
-                        designed to enhance both the appearance and performance of your vehicle.
-                        <br />
-                        With us, you're fully covered.
-                    </span>
-                }
-                route='/automotive'
-            />
-            <Card
-                img1='/Equipment-rental.jpg'
-                img2='/other-industries/Equipment-rental.jpg'
+            {cards.length > 0 && cards.map((item, index) => {
+                return (
+                    <Card
+                        key={index}
+                        img={item.cardImage}
+                        title={item.cardTitle}
+                        desc={item.cardDescription}
+                        route={item.route}
+                    />
+                )
+            })}
+            {/* <Card
+                img='/other-industries/Equipment-rental.jpg'
                 title="Other Industries"
                 desc={
                     <span>
@@ -41,7 +34,7 @@ const CardsSection = () => {
                     </span>
                 }
                 route='/commercial'
-            />
+            /> */}
         </div>
     )
 }

@@ -7,13 +7,14 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { servicesSchema } from '@/lib/validations/formValidations';
 import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css'
-import { services } from './data';
+// import { services } from './data';
 import Iconify from "@/components/iconify/iconify";
 import { submitFormToTelegram } from '@/lib/utils/onSubmitTelegram';
 import { toast } from 'react-hot-toast';
 import { sendEmail } from '@/lib/actions/sendEmail';
 
-const SelectYourServicesForm = ({ initialValues, onPrevStep, formData, onFormSubmit }) => {
+const SelectYourServicesForm = ({ services, initialValues, onPrevStep, formData, onFormSubmit }) => {
+  console.log('services: ', services)
   const [images, setImages] = useState([]);
   const imageChangeEvent = (e, setFieldValue) => {
     const files = Array.from(e.target.files);
@@ -101,7 +102,7 @@ const SelectYourServicesForm = ({ initialValues, onPrevStep, formData, onFormSub
           </div>
           <div className={css.services_container}>
             <div className={css.services}>
-              {services.map((item, ind) => (
+              {services.length > 0 && services.map((item, ind) => (
                 <div key={ind} className={css.service} data-tooltip-id={`tooltip-${ind}`}>
                   <input
                     type="checkbox"
@@ -185,13 +186,16 @@ const TooltipContent = ({ title, desc }) => {
         {title}
       </span>
       <div className={cx(css.tooltip_desc)}>
-        {desc.map((item, ind) => (
+        <p className={cx("typoCaption")}>
+          {desc}
+        </p>
+        {/* {desc.map((item, ind) => (
           <>
             <p className={cx("typoCaption")}>
               {item}
             </p>
           </>
-        ))}
+        ))} */}
       </div>
     </div>
   )

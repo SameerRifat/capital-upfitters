@@ -36,7 +36,9 @@
 .hero_desc{
     text-align: center;
     color: var(--text);
-    line-height: 1.7;
+    line-height: 1.8;
+    // border: 2px solid red;
+    max-width: 70%;
 }
 @media (max-width: 1200px) {
     .hero_title{
@@ -45,6 +47,7 @@
     }
     .hero_desc{
         line-height: 1.6;
+        max-width: 100%;
         br{
             display: none;
         }

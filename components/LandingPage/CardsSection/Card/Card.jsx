@@ -6,28 +6,21 @@ import css from './card.module.scss'
 import cx from 'classnames'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
+import { urlFor } from '@/lib/client'
 
-const Card = ({ img1, img2, title, desc, route }) => {
+const Card = ({ img, title, desc, route }) => {
     const router = useRouter();
 
     return (
         <div onClick={() => router.push(`${route}`)} className={cx("border_gradient", css.card)}>
             <div className={css.card_img_container}>
                 <Image
-                    src={img1}
+                    src={urlFor(img).url()}
                     alt='image'
                     fill
                     quality={100}
                     priority={true}
                     className={cx(css.card_img, css.card_img1)}
-                />
-                <Image
-                    src={img2}
-                    alt='image'
-                    fill
-                    quality={100}
-                    priority={true}
-                    className={cx(css.card_img, css.card_img2)}
                 />
             </div>
             <div className={css.card_text}>

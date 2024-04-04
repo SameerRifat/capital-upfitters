@@ -1,9 +1,11 @@
+import { orderRankField, orderRankOrdering } from '@sanity/orderable-document-list';
 import { defineField, defineType } from 'sanity'
 
 const service = defineType({
     name: 'service',
     title: 'Services',
     type: 'document',
+    orderings: [orderRankOrdering],
     fields: [
         defineField({
             name: 'serviceTitle',
@@ -29,18 +31,6 @@ const service = defineType({
             },
             validation: Rule => Rule.required(),
         }),
-        // {
-        //     name: 'gallery',
-        //     type: 'array',
-        //     of: [
-        //         { type: 'image', options: { hotspot: true } },
-        //         { type: 'file', title: 'Video', accept: 'video/*' }, // Allow video uploads
-        //     ],
-        //     options: {
-        //         layout: 'grid',
-        //         hotspot: true,
-        //     },
-        // },
         defineField({
             name: 'smallDescription',
             title: 'Small Description',
@@ -61,11 +51,20 @@ const service = defineType({
             description: 'Toggle to hide the service portfolio.',
             initialValue: () => true,
         }),
+        // defineField({
+        //     name: 'priority',
+        //     title: 'Priority',
+        //     type: 'number',
+        //     validation: Rule => Rule.required(),
+        //     initialValue: 0,
+        //     description: 'Lower values indicate higher priority, meaning the service will be shown earlier in the list.',
+        // }),
+        orderRankField({ type: "service" }),
     ],
     preview: {
         select: {
             title: 'serviceTitle',
-            image: 'serviceImage'
+            image: 'serviceImage',
         },
         prepare(selection) {
             const { image, title } = selection

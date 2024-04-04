@@ -1,12 +1,15 @@
 // ./deskStructure.js
 
-export const myStructure = (S) =>
+import { orderableDocumentListDeskItem } from "@sanity/orderable-document-list";
+
+export const myStructure = (S, context) =>
     S.list()
         .title('Content')
         .items([
-            S.listItem()
-                .title('Services')
-                .child(S.documentTypeList('service').title('Services')),
+            // S.listItem()
+            //     .title('Services')
+            //     .child(S.documentTypeList('service').title('Services')),
+            orderableDocumentListDeskItem({type: 'service', S, context}),
             S.listItem()
                 .title('Paint Protection Service Package')
                 .child(S.documentTypeList('paintProtectionService').title('Paint Protection Service Package')),
@@ -26,7 +29,7 @@ export const myStructure = (S) =>
             S.divider(),
             // We also need to remove the new singletons from the main list
             ...S.documentTypeListItems().filter(
-                (listItem) => !['siteStats', 'portfolio', 'portfolioVehicles', 'service', 'paintProtectionService', 'windowTintService', 'vehicleType', 'aboutUs'].includes(listItem.getId())
+                (listItem) => !['siteStats', 'service', 'portfolio', 'portfolioVehicles', 'paintProtectionService', 'windowTintService', 'vehicleType', 'aboutUs', 'homePage', 'automotiveHero'].includes(listItem.getId())
             ),
 
             S.divider(),
@@ -46,9 +49,12 @@ export const myStructure = (S) =>
                             S.listItem()
                                 .title('About Us')
                                 .child(S.document().schemaType('aboutUs').documentId('aboutUs')),
-                            // S.listItem()
-                            //     .title('Main Navigation')
-                            //     .child(S.document().schemaType('navigation').documentId('navigation')),
+                            S.listItem()
+                                .title('Home')
+                                .child(S.document().schemaType('homePage').documentId('homePage')),
+                            S.listItem()
+                                .title('Automotive')
+                                .child(S.document().schemaType('automotiveHero').documentId('automotiveHero')),
                         ])
                 ),
         ])

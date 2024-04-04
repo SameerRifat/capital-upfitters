@@ -34,28 +34,29 @@
     height: 100%;
     border-radius: var(--radius-lg);
     transition: scale 0.8s ease-in-out;
-}
-
-.card_img2 {
-    display: none;
+    object-fit: cover;
 }
 
 .card_img_container {
-    @media (max-width: 700px) {
+    @media (max-width: 900px) {
         padding-top: calc(300 / 720 * 100%);
+    }
 
-        .card_img1 {
-            display: none;
-        }
+    @media (max-width: 700px) {
+        padding-top: calc(350 / 720 * 100%);
 
-        .card_img2 {
-            display: block;
-            object-fit: cover;
-        }
+        // .card_img1 {
+        //     display: none;
+        // }
+
+        // .card_img2 {
+        //     display: block;
+        //     object-fit: cover;
+        // }
     }
 
     @media (max-width: 500px) {
-        padding-top: calc(330 / 720 * 100%);
+        padding-top: calc(450 / 720 * 100%);
         border-radius: var(--radius-md);
 
         .card_img {
@@ -64,7 +65,7 @@
     }
 
     @media (max-width: 400px) {
-        padding-top: calc(350 / 720 * 100%);
+        padding-top: calc(500 / 720 * 100%);
     }
 }
 
@@ -93,20 +94,26 @@
         line-height: 1.6;
         color: var(--text);
         margin-top: 1rem;
+        max-width: 50%;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        text-overflow: ellipsis;
     }
 
     @media (max-width: 1100px) {
         padding-top: 1rem;
+        >p{
+            max-width: 70%;
+        }
     }
 
     @media (max-width: 900px) {
         >p {
             margin-top: 0.3rem;
-            overflow: hidden;
-            display: -webkit-box;
             -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            text-overflow: ellipsis;
+            max-width: 100%;
 
             span br {
                 display: none;
@@ -141,9 +148,9 @@
         padding-top: 0.7rem;
         padding-left: 1rem;
 
-        p {
-            -webkit-line-clamp: 2;
-        }
+        // p {
+        //     -webkit-line-clamp: 2;
+        // }
 
         // >p {
         //     font-size: 10px;

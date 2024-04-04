@@ -10,11 +10,32 @@ import React from 'react'
 export const revalidate = 30
 
 export async function generateMetadata({ params }) {
-  let data
+  let data;
+
   try {
     data = await getServicesData(params.slug);
+
+    return {
+      title: data?.serviceTitle || "Service Details",
+      description: data?.smallDescription?.slice(0, 150) || "Explore our services",
+      keywords: [data?.serviceTitle, 'service Details'],
+      openGraph: {
+        title: data?.serviceTitle || "Service Details",
+        description: data?.smallDescription?.slice(0, 150) || "Explore our services",
+        images: [
+          {
+            url: urlFor(data?.serviceImage)?.url() || "/cu-logo.svg",
+            width: 800,
+            height: 600,
+            alt: data?.serviceTitle || "Service Details",
+          }
+        ],
+        type: "website",
+        url: `https://capital-upfitters-gray.vercel.app/services/${params.slug}`
+      },
+    };
   } catch (error) {
-    // throw new Error("Error occured");
+    console.error('Error generating metadata:', error);
     // Return a default metadata object
     return {
       title: "Service Details",
@@ -33,32 +54,61 @@ export async function generateMetadata({ params }) {
         ],
         type: "website",
         url: "https://capital-upfitters-gray.vercel.app/services",
-      },
-    };
+      }
+    }
   }
-  return {
-    title: data?.serviceTitle,
-    description: data?.smallDescription.slice(0, 150),
-    keywords: [
-      `${data?.serviceTitle}`,
-      'service Details'
-    ],
-    openGraph: {
-      title: data?.serviceTitle,
-      description: data?.smallDescription.slice(0, 150),
-      images: [
-        {
-          url: urlFor(data?.serviceImage).url(),
-          width: 800,
-          height: 600,
-          alt: `${data?.serviceTitle}`,
-        }
-      ],
-      type: "website",
-      url: `https://capital-upfitters-gray.vercel.app/services/${params.slug}`
-    },
-  };
 }
+
+// export async function generateMetadata({ params }) {
+//   let data
+//   try {
+//     data = await getServicesData(params.slug);
+//   } catch (error) {
+//     // throw new Error("Error occured");
+//     // Return a default metadata object
+//     return {
+//       title: "Service Details",
+//       description: "Explore our services",
+//       keywords: ["services"],
+//       openGraph: {
+//         title: "Service Details",
+//         description: "Explore our services",
+//         images: [
+//           {
+//             url: "/cu-logo.svg",
+//             width: 800,
+//             height: 600,
+//             alt: "Service Details",
+//           },
+//         ],
+//         type: "website",
+//         url: "https://capital-upfitters-gray.vercel.app/services",
+//       },
+//     };
+//   }
+//   return {
+//     title: data?.serviceTitle,
+//     description: data?.smallDescription.slice(0, 150),
+//     keywords: [
+//       `${data?.serviceTitle}`,
+//       'service Details'
+//     ],
+//     openGraph: {
+//       title: data?.serviceTitle,
+//       description: data?.smallDescription.slice(0, 150),
+//       images: [
+//         {
+//           url: urlFor(data?.serviceImage).url(),
+//           width: 800,
+//           height: 600,
+//           alt: `${data?.serviceTitle}`,
+//         }
+//       ],
+//       type: "website",
+//       url: `https://capital-upfitters-gray.vercel.app/services/${params.slug}`
+//     },
+//   };
+// }
 
 const page = async ({ params }) => {
   let data, specificPageData, vehicleTypes, specifications;

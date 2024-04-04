@@ -4,7 +4,7 @@ import { client } from "@/lib/client";
 
 export async function getAllServices() {
     try {
-        const query = `*[_type == 'service' && isPublished] | order(_createdAt desc){
+        const query = `*[_type == 'service' && isPublished] | order(orderRank){
             serviceTitle,
             serviceImage,
             smallDescription,

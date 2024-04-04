@@ -9,7 +9,7 @@ import SelectYourServicesForm from './Forms/SelectYourServicesForm';
 import { contactDetailInitialValues, servicesInitialValues, vehicleInformationInitialValues } from '@/lib/validations/formValidations';
 import Success from './Forms/Success';
 
-const QuoteRequest = () => {
+const QuoteRequest = ({services}) => {
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({
     contactDetails: contactDetailInitialValues,
@@ -30,6 +30,10 @@ const QuoteRequest = () => {
   // const handleSubmit = async () => {
   //   console.log("Submitting form data:", formData);
   // };
+
+  const processedServices = services.map((item) => {
+    return { value: item.serviceTitle, label: item.serviceTitle, tooltipDesc: item.smallDescription }
+  })
 
   return (
     <div className={css.quote_container}>
@@ -67,6 +71,7 @@ const QuoteRequest = () => {
           formData={formData}
           onPrevStep={() => handlePrevStep(2)}
           onFormSubmit={() => setCurrentStep(4)}
+          services={processedServices}
         />
       )}
 
@@ -74,7 +79,7 @@ const QuoteRequest = () => {
         <Success />
       )}
       <p className={cx("typoCaption", css.form_caption)}>
-        Please fill out the required information below and we will reach out to help schedule your service. Make sure to provide all neceserry detailr to erceive the proper quote. If you need amidiate accistance please give us a call at: 301-304-1419 Quote will be send from our internal ShopMonkey system. Pleas echekc your spam folder if quote is not received.
+        Please fill out the required information below and we will reach out to help schedule your service. Make sure to provide all neceserry detailr to erceive the proper quote. If you need amidiate accistance please give us a call at: 301-304-1419 Quote will be send from our internal ShopMonkey system. Please check your spam folder if quote is not received.
       </p>
     </div>
   );
