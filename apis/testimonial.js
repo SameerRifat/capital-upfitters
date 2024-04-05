@@ -34,3 +34,19 @@ export async function getCompanyLogos() {
         throw new Error("Failed to fetch company logos");
     }
 }
+export async function getAccessoriesLogos() {
+    try {
+        const query = `*[_type == 'accessoriesLogos']{
+            _id,
+            companyName,
+            image,
+          }
+          `
+
+        const data = await client.fetch(query, { cache: 'no-cache' });
+        return data;
+    } catch (error) {
+        console.log(error);
+        throw new Error("Failed to fetch company logos");
+    }
+}

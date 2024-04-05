@@ -2,17 +2,14 @@
 
 import React, { useState } from 'react'
 import css from './portfolio.module.scss'
-import cx from 'classnames'
-import Iconify from '@/components/iconify/iconify';
 import SectionHeading from '@/components/Shared/SectionHeading/SectionHeading'
 import Cards from '@/components/Shared/Cards/Cards'
-import { projectsData } from '@/mock/portfolio'
 import Select from 'react-select'
-import { customStyles2, generateCustomStyles } from '@/components/Shared/react-select-custom-styles';
-import Breadcrumb from '@/components/Shared/BreadCrumbs/BreadCrumb';
+import { generateCustomStyles } from '@/components/Shared/react-select-custom-styles';
 import { useEffect } from 'react';
 import Pagination from '@/components/Shared/Pagination/Pagination';
 import GetStarted from '@/components/Shared/GetStarted/GetStarted';
+import PaginationScrollToTop from '../Shared/PaginationScrollToTop';
 
 const Portfolio = ({ data }) => {
     const categoryOptionns = [
@@ -49,7 +46,7 @@ const Portfolio = ({ data }) => {
 
 
     return (
-        <ScrollToTop currentPage={currentPage}>
+        <PaginationScrollToTop currentPage={currentPage}>
             <div className={css.portfolio_container}>
                 <SectionHeading>Our Portfolio</SectionHeading>
                 <div className={css.filters}>
@@ -83,21 +80,8 @@ const Portfolio = ({ data }) => {
                     <GetStarted />
                 </div>
             </div>
-        </ScrollToTop>
+        </PaginationScrollToTop>
     )
 }
 
 export default Portfolio
-
-function ScrollToTop({ children, currentPage }) {
-
-    useEffect(() => {
-        window.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: 'smooth',
-        });
-    }, [currentPage]);
-
-    return children || null;
-}

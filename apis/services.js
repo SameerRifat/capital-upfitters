@@ -109,3 +109,20 @@ export async function getSpecifications(id) {
         throw new Error("Failed to fetch specifications");
     }
 }
+
+export async function getAccessoriesData() {
+    try {
+        const query = `*[_type == 'accessories'] |order(orderRank){
+            _id,
+            accessoryName,
+            accessoryImage,
+            details
+          }`
+
+        const data = await client.fetch(query, { cache: 'no-cache' });
+        return data;
+    } catch (error) {
+        console.log(error);
+        throw new Error("Failed to fetch accessories");
+    }
+}

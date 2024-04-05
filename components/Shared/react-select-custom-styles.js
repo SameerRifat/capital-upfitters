@@ -54,5 +54,9 @@ export const generateCustomStyles = (width) => ({
         backgroundColor: '#1d1d1d',
       },
     }),
+    input: (provided) => ({
+      ...provided,
+      color: 'var(--white)', // Change 'red' to the color you want for the input text
+    }),
   });
   

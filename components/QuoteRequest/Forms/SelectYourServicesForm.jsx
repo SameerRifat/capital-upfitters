@@ -189,13 +189,6 @@ const TooltipContent = ({ title, desc }) => {
         <p className={cx("typoCaption")}>
           {desc}
         </p>
-        {/* {desc.map((item, ind) => (
-          <>
-            <p className={cx("typoCaption")}>
-              {item}
-            </p>
-          </>
-        ))} */}
       </div>
     </div>
   )

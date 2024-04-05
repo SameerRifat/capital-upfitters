@@ -8,6 +8,7 @@ import Pagination from '@/components/Shared/Pagination/Pagination';
 import { useRouter } from 'next/navigation';
 import SectionHeading from '@/components/Shared/SectionHeading/SectionHeading';
 import Cards from '@/components/Shared/Cards/Cards';
+import PaginationScrollToTop from '../Shared/PaginationScrollToTop';
 
 const Services = ({ servicesData }) => {
     const router = useRouter();
@@ -38,7 +39,7 @@ const Services = ({ servicesData }) => {
 
     return (
         <>
-            <ScrollToTop currentPage={currentPage}>
+            <PaginationScrollToTop currentPage={currentPage}>
                 <section className={css.services_container}>
                     <SectionHeading>Our Services</SectionHeading>
                     <div className={css.search_wrapper}>
@@ -58,22 +59,9 @@ const Services = ({ servicesData }) => {
                     />
                 </section>
                 <GetStarted />
-            </ScrollToTop>
+            </PaginationScrollToTop>
         </>
     );
 };
 
 export default Services;
-
-function ScrollToTop({ children, currentPage }) {
-
-    useEffect(() => {
-        window.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: 'smooth',
-        });
-    }, [currentPage]);
-
-    return children || null;
-}

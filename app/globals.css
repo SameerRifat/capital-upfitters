@@ -200,7 +200,7 @@ ul {
   margin-top: 35rem;
 }
 
-.right_ellipse_bg.services {
+.right_ellipse_bg.services, .right_ellipse_bg.accessories {
   margin-top: 40rem;
 }
 
@@ -278,6 +278,9 @@ ul {
 
 .left_ellipse_bg.portfolio_slug {
   margin-top: 30rem;
+}
+.left_ellipse_bg.accessories {
+  margin-top: 90%;
 }
 
 

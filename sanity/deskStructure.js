@@ -9,7 +9,7 @@ export const myStructure = (S, context) =>
             // S.listItem()
             //     .title('Services')
             //     .child(S.documentTypeList('service').title('Services')),
-            orderableDocumentListDeskItem({type: 'service', S, context}),
+            orderableDocumentListDeskItem({type: 'service', title: 'Services', S, context}),
             S.listItem()
                 .title('Paint Protection Service Package')
                 .child(S.documentTypeList('paintProtectionService').title('Paint Protection Service Package')),
@@ -19,6 +19,7 @@ export const myStructure = (S, context) =>
             S.listItem()
                 .title('Vehicle Type')
                 .child(S.documentTypeList('vehicleType').title('Vehicle Types for Window Tint Service')),
+            orderableDocumentListDeskItem({type: 'accessories', title: 'Accessories', S, context}),
             S.divider(),
             S.listItem()
                 .title('Portfolio')
@@ -29,7 +30,7 @@ export const myStructure = (S, context) =>
             S.divider(),
             // We also need to remove the new singletons from the main list
             ...S.documentTypeListItems().filter(
-                (listItem) => !['siteStats', 'service', 'portfolio', 'portfolioVehicles', 'paintProtectionService', 'windowTintService', 'vehicleType', 'aboutUs', 'homePage', 'automotiveHero'].includes(listItem.getId())
+                (listItem) => !['siteStats', 'service', 'portfolio', 'portfolioVehicles', 'paintProtectionService', 'windowTintService', 'vehicleType', 'aboutUs', 'homePage', 'automotiveHero', 'accessories'].includes(listItem.getId())
             ),
 
             S.divider(),

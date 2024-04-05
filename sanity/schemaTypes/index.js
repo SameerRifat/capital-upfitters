@@ -1,5 +1,7 @@
 // import paintProtectoionService from "./paintProtectionService";
 import aboutUs from "./aboutUs";
+import accessories from "./accessories";
+import accessoriesLogos from "./accessoriesLogos";
 import automotiveHero from "./automotiveHero";
 import companyLogo from "./companyLogo";
 import homePage from "./homePage";
@@ -27,5 +29,7 @@ export const schemaTypes = [
     siteStats,
     aboutUs,
     homePage,
-    automotiveHero
+    automotiveHero,
+    accessories,
+    accessoriesLogos
 ]

@@ -1,8 +1,8 @@
 import { defineField, defineType } from 'sanity'
 
-const companyLogo = defineType({
-    name: 'companyLogo',
-    title: 'Company Logos',
+const accessoriesLogos = defineType({
+    name: 'accessoriesLogos',
+    title: 'Accessories Logos',
     type: 'document',
     fields: [
         defineField({
@@ -37,4 +37,4 @@ const companyLogo = defineType({
 })
 
 
-export default companyLogo
+export default accessoriesLogos
