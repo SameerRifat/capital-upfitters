@@ -1,9 +1,11 @@
 import { defineField, defineType } from 'sanity'
+import { orderRankField, orderRankOrdering } from '@sanity/orderable-document-list';
 
 const portfolio = defineType({
     name: 'portfolio',
     title: 'Service Portfolio',
     type: 'document',
+    orderings: [orderRankOrdering],
     fields: [
         defineField({
             name: 'service',
@@ -21,11 +23,13 @@ const portfolio = defineType({
             },
             validation: Rule => Rule.required(),
         }),
+        orderRankField({ type: "portfolio" }),
     ],
     preview: {
         select: {
             serviceTitle: 'service.serviceTitle',
-            image: 'service.serviceImage'
+            // image: 'service.serviceImage'
+            image: 'portfolioImage'
         },
         prepare(selection) {
             const { serviceTitle, image } = selection

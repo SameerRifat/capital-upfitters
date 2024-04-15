@@ -4,7 +4,21 @@ export const revalidate = 30
 
 export async function getAllPortfolios() {
     try {
-        const query = `*[_type == 'portfolio'] | order(_createdAt desc){
+        const query = `*[_type == 'portfolio'] | order(orderRank){
+            service->{serviceTitle, 'slug': slug.current, _id},
+            portfolioImage
+          }`
+
+        const data = await client.fetch(query, { cache: 'no-cache' });
+        return data;
+    } catch (error) {
+        console.log(error);
+        throw new Error("Failed to fetch portfolios");
+    }
+}
+export async function getAllCommercialPortfolios(){
+    try {
+        const query = `*[_type == 'commercialPortfolio'] | order(orderRank){
             service->{serviceTitle, 'slug': slug.current, _id},
             portfolioImage
           }`

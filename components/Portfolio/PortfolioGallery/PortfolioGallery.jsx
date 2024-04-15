@@ -4,7 +4,7 @@ import React from 'react'
 import css from './portfolioGallery.module.scss'
 import cx from 'classnames'
 // import ProjectCard from '../../Shared/ProjectCard/ProjectCard';
-import SectionHeading from '@/components/Shared/SectionHeading/SectionHeading';
+import { SectionHeadingLarge } from '@/components/Shared/SectionHeading/SectionHeading';
 import Breadcrumb from '@/components/Shared/BreadCrumbs/BreadCrumb';
 import Slides from './Slides';
 import PortfolioDetails from './PortfolioDetails/PortfolioDetails';
@@ -20,8 +20,8 @@ const PortfolioGallery = ({ data }) => {
     const [open, setOpen] = React.useState(false);
 
     const items = [
-        { label: 'Portfolio', url: '/portfolio' },
-        { label: `${portfolio.serviceTitle}`, url: `/portfolio/${portfolio.slug}` },
+        { label: 'Portfolio', url: '/automotive/portfolio' },
+        { label: `${portfolio.serviceTitle}`, url: `/automotive/portfolio/${portfolio.slug}` },
         { label: `${brand}`, url: '#' },
     ];
 
@@ -53,7 +53,7 @@ const PortfolioGallery = ({ data }) => {
         <>
             <div className={css.gallery_container}>
                 <Breadcrumb items={items} />
-                <SectionHeading>{brand}</SectionHeading>
+                <SectionHeadingLarge>{brand}</SectionHeadingLarge>
                 <div className={css.slider_container}>
                     <Slider {...settings} className={css.slider}>
                         {gallery.map((item, ind) => {

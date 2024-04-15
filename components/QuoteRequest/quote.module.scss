@@ -66,6 +66,29 @@
         }
     }
 }
+.progress_bar_wrapper.commercial {
+    .progress_bar.active_step1{
+        width: 52px;
+    }
+    .progress_bar.active_step2{
+        width: 100%;
+    }
+    @media (max-width: 900px) {
+        .progress_bar.active_step1{
+            width: 45px;
+        }
+    }
+    @media (max-width: 500px) {
+        .progress_bar.active_step1{
+            width: 40px;
+        }
+    }
+    @media (max-width: 400px) {
+        .progress_bar.active_step2{
+            width: 56%;
+        }
+    }
+}
 
 .form_caption {
     margin-top: 2rem;

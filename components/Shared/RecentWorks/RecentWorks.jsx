@@ -24,7 +24,7 @@ const RecentWorks = ({ portfoliosData }) => {
             <div className={css.recent_works}>
                 {portfoliosData.slice(0, 3).map((item) => {
                     return (
-                        <div className={`${css.card}`} key={item.service._id} onClick={() => router.push(`/portfolio/${item.service.slug}`)}>
+                        <div className={`${css.card}`} key={item.service._id} onClick={() => router.push(`/automotive/portfolio/${item.service.slug}`)}>
                             <div className={css.card_img_container}>
                                 <Image
                                     src={urlFor(item.portfolioImage).url()}
@@ -43,7 +43,7 @@ const RecentWorks = ({ portfoliosData }) => {
                 })}
             </div>
             <div className={css.see_more}>
-                <Link href='/portfolio'>See more</Link>
+                <Link href='/automotive/portfolio'>See more</Link>
             </div>
         </div>
     )

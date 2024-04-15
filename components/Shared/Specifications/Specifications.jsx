@@ -91,7 +91,7 @@ const Specifications = ({ specifications }) => {
                                                     <div className={css.specification_text}>
                                                         <p className={cx("typoH5", "text_gradient", css.title)}>{item.title}</p>
                                                         <p className={cx("typoCaption", css.desc)}>
-                                                            {item.smallDescription}
+                                                            {item.description}
                                                         </p>
                                                     </div>
                                                 </div>

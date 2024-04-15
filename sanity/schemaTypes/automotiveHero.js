@@ -7,10 +7,10 @@ const automotiveHero = defineType({
     __experimental_actions: [/*'create',*/ 'update', /*'delete',*/ 'publish'],
     fields: [
         defineField({
-            name: 'titleLines',
-            title: 'Title Lines',
-            type: 'array',
-            of: [{ type: 'string' }],
+            name: 'title',
+            title: 'Title',
+            type: 'string',
+            // of: [{ type: 'string' }],
             validation: Rule => Rule.required(),
         }),
         defineField({

@@ -2,12 +2,12 @@ import React, { useEffect, useRef } from 'react';
 import styles from './MobileSidebar.module.scss';
 import cx from 'classnames'
 import { Icon } from "@iconify/react";
-import { NavLinks } from '@/constants';
+// import { automotiveNavLinks } from '@/constants';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import OutsideClickHandler from 'react-outside-click-handler';
 
-const MobileSidebar = ({ openSidebar, setOpenSidebar }) => {
+const MobileSidebar = ({ openSidebar, setOpenSidebar, navlinks }) => {
     const pathname = usePathname();
     const sidebarRef = useRef(null);
 
@@ -35,8 +35,9 @@ const MobileSidebar = ({ openSidebar, setOpenSidebar }) => {
                         </div>
                     </div>
                     <div className={styles.mobile_navlinks}>
-                        {NavLinks.map((navlink) => {
-                            const isActive = pathname === navlink.route;
+                        {navlinks.map((navlink) => {
+                            // const isActive = pathname === navlink.route;
+                            const isActive = pathname === navlink.route || pathname.includes(navlink.route.split('/')[2]);
                             return (
                                 <Link
                                     key={navlink.label}

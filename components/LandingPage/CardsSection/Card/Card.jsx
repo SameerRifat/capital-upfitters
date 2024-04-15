@@ -7,12 +7,24 @@ import cx from 'classnames'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { urlFor } from '@/lib/client'
+import { useActiveIndustryContext } from '@/context/ActiveIndustriesProvider'
 
 const Card = ({ img, title, desc, route }) => {
     const router = useRouter();
+    const { activeIndustry, setActiveIndustry } = useActiveIndustryContext();
+    const handleClick = (route) => {
+        router.push(`${route}`)
+        if (route === '/commercial') {
+            setActiveIndustry('commercial')
+            window.localStorage.setItem("activeIndustry", "commercial");
+        } else {
+            setActiveIndustry('automotive')
+            window.localStorage.setItem("activeIndustry", "automotive");
+        }
+    }
 
     return (
-        <div onClick={() => router.push(`${route}`)} className={cx("border_gradient", css.card)}>
+        <div onClick={() => handleClick(route)} className={cx("border_gradient", css.card)}>
             <div className={css.card_img_container}>
                 <Image
                     src={urlFor(img).url()}

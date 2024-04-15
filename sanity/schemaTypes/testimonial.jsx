@@ -33,17 +33,27 @@ const testimonial = defineType({
             type: 'text',
             validation: Rule => Rule.required()
         }),
+        defineField({
+            name: 'isCommercial',
+            title: 'For Commercial',
+            type: 'boolean',
+            description: 'Toggle to add the current testimonial to commercial',
+            initialValue: () => false,
+        }),
     ],
     preview: {
         select: {
             title: 'name',
             subtitle: 'about',
-            media: 'avatar'
+            media: 'avatar',
+            isCommercial: 'isCommercial'
         },
         prepare(selection) {
+            const { title, subtitle, isCommercial } = selection
+            const customizedTitle = `${title} ${isCommercial ? '(commercial)' : '(automotive)'}`
             return {
-                title: selection.title,
-                subtitle: selection.subtitle,
+                title: customizedTitle,
+                subtitle: subtitle,
                 media: () => <Icon icon="fluent:person-feedback-20-regular" />
             };
         },

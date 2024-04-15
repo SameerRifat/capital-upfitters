@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import css from './portfolio.module.scss'
-import SectionHeading from '@/components/Shared/SectionHeading/SectionHeading'
+import { SectionHeadingLarge } from '@/components/Shared/SectionHeading/SectionHeading';
 import Cards from '@/components/Shared/Cards/Cards'
 import Select from 'react-select'
 import { generateCustomStyles } from '@/components/Shared/react-select-custom-styles';
@@ -11,7 +11,7 @@ import Pagination from '@/components/Shared/Pagination/Pagination';
 import GetStarted from '@/components/Shared/GetStarted/GetStarted';
 import PaginationScrollToTop from '../Shared/PaginationScrollToTop';
 
-const Portfolio = ({ data }) => {
+const Portfolio = ({ data, commercial=false }) => {
     const categoryOptionns = [
         { value: "", label: "All Projects" },
         ...data.map((item) => ({ value: item.service.serviceTitle, label: item.service.serviceTitle }))
@@ -48,7 +48,7 @@ const Portfolio = ({ data }) => {
     return (
         <PaginationScrollToTop currentPage={currentPage}>
             <div className={css.portfolio_container}>
-                <SectionHeading>Our Portfolio</SectionHeading>
+                <SectionHeadingLarge>Our Portfolio</SectionHeadingLarge>
                 <div className={css.filters}>
                     <div className={css.input_wrapper}>
                         <Select
@@ -70,7 +70,7 @@ const Portfolio = ({ data }) => {
                     <Iconify icon="bitcoin-icons:search-outline" color="#fff" width={20} />
                 </div> */}
                 </div>
-                <Cards search={selectedPortfolio} visibleCards={visiblePortfolios} />
+                <Cards search={selectedPortfolio} visibleCards={visiblePortfolios} commercial={commercial}/>
                 <Pagination
                     currentPage={currentPage}
                     totalPages={selectedPortfolio !== '' ? Math.ceil(visiblePortfolios.length / itemsPerPage) : Math.ceil(data.length / itemsPerPage)}

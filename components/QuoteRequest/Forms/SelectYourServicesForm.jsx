@@ -13,8 +13,7 @@ import { submitFormToTelegram } from '@/lib/utils/onSubmitTelegram';
 import { toast } from 'react-hot-toast';
 import { sendEmail } from '@/lib/actions/sendEmail';
 
-const SelectYourServicesForm = ({ services, initialValues, onPrevStep, formData, onFormSubmit }) => {
-  console.log('services: ', services)
+const SelectYourServicesForm = ({ services, initialValues, onPrevStep, formData, onFormSubmit, commercial=false }) => {
   const [images, setImages] = useState([]);
   const imageChangeEvent = (e, setFieldValue) => {
     const files = Array.from(e.target.files);
@@ -63,13 +62,13 @@ const SelectYourServicesForm = ({ services, initialValues, onPrevStep, formData,
   const onSubmit = async (values, { setSubmitting, resetForm }) => {
     const dataToSubmit = {
       contactDetails: formData.contactDetails,
-      vehicleInformation: formData.vehicleInformation,
+      ...(!commercial && {vehicleInformation: formData.vehicleInformation}),
       servicesInformation: values
     };
 
     try {
-      const textResponse = await submitFormToTelegram(dataToSubmit);
-      const { data, error } = await sendEmail(dataToSubmit);
+      const textResponse = await submitFormToTelegram(dataToSubmit, commercial);
+      const { data, error } = await sendEmail(dataToSubmit, commercial);
 
       if (!textResponse.error && !error) {
         resetForm();

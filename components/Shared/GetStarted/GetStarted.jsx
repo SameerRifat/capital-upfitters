@@ -18,7 +18,7 @@ const GetStarted = () => {
             </p>
           </div>
           <div className={css.get_started_right}>
-            <Link href="/quote-request" className={cx("primary_btn", css.get_started_btn)}>
+            <Link href="/automotive/quote-request" className={cx("primary_btn", css.get_started_btn)}>
               Get Started
             </Link>
           </div>

@@ -39,7 +39,7 @@ const Footer = () => {
                 </div>
                 <div className={styles.footer_row2}>
                     <p className={styles.copy_right}>
-                        @2024 Capital Upfitters. All rights reserved. | Privacy policy | Terms and Conditions
+                        @2024 Capital Upfitters. All rights reserved. | <Link href='automotive/privacy-policy'>Privacy policy</Link> | Terms and Conditions
                     </p>
                     <div className={styles.social_links}>
                         {socialLinks.map((link, index) => (

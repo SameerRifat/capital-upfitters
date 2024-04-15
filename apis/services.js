@@ -7,10 +7,13 @@ export async function getAllServices() {
         const query = `*[_type == 'service' && isPublished] | order(orderRank){
             serviceTitle,
             serviceImage,
-            smallDescription,
+            serviceImages,
+            description,
+            tooltipDescription,
             'slug': slug.current,
             _id,
-            isPublished
+            isPublished,
+            showPortfolio
         }`
 
         const data = await client.fetch(query, { cache: 'no-cache' });
@@ -20,16 +23,36 @@ export async function getAllServices() {
         throw new Error("Failed to fetch services");
     }
 }
-export async function getServicesData(slug) {
+export async function getServiceDetails(slug) {
     try {
         const query = `*[_type == 'service' && slug.current == '${slug}'][0]{
             serviceTitle,
-            serviceImage,
-            smallDescription,
+            serviceImages,
+            description,
+            details,
+            assets {
+                assetsTitle,
+                assetsDescription,
+                "assetsURLs": assetsDocuments[].asset->url,
+            },
+            tooltipDescription,
             'slug': slug.current,
             _id,
+            isPublished,
             showPortfolio
         }`
+        // const query = `*[_type == 'service' && slug.current == '${slug}'][0]{
+        //     serviceTitle,
+        //     serviceImage,
+        //     serviceImages,
+        //     description,
+        //     details,
+        //     assets,
+        //     tooltipDescription,
+        //     'slug': slug.current,
+        //     _id,
+        //     isPublished
+        // }`
 
         const data = await client.fetch(query, { cache: 'no-cache' });
         return data;
@@ -97,7 +120,7 @@ export async function getSpecifications(id) {
             _id,
             title,
             service->{serviceTitle, _id},
-            smallDescription,
+            description,
             image,
             detail,
           }`
@@ -124,5 +147,21 @@ export async function getAccessoriesData() {
     } catch (error) {
         console.log(error);
         throw new Error("Failed to fetch accessories");
+    }
+}
+
+export async function getAccessoriesCatalogs() {
+    try {
+        const query = `*[_type == 'accessoriesCatalogs']{
+            _id,
+            image,
+            link
+          }`
+
+        const data = await client.fetch(query, { cache: 'no-cache' });
+        return data;
+    } catch (error) {
+        console.log(error);
+        throw new Error("Failed to fetch accessories catalogs");
     }
 }

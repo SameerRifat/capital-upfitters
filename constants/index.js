@@ -1,26 +1,48 @@
-export const NavLinks = [
+export const automotiveNavLinks = [
     {
         label: "Automotive",
         route: "/automotive",
     },
     {
         label: "Our Services",
-        route: "/services",
+        route: "/automotive/services",
     },
+    // {
+    //     label: "Other Industries",
+    //     route: "/commercial",
+    // },
+    {
+        label: "Quote",
+        route: "/automotive/quote-request",
+    },
+    {
+        label: "Portfolio",
+        route: "/automotive/portfolio",
+    },
+    {
+        label: "About Us",
+        route: "/automotive/about-us",
+    },
+];
+export const commercialNavLinks = [
     {
         label: "Other Industries",
         route: "/commercial",
     },
     {
+        label: "Our Services",
+        route: "/commercial/services",
+    },
+    {
         label: "Quote",
-        route: "/quote-request",
+        route: "/commercial/quote-request",
     },
     {
         label: "Portfolio",
-        route: "/portfolio",
+        route: "/commercial/portfolio",
     },
     {
         label: "About Us",
-        route: "/about-us",
+        route: "/commercial/about-us",
     },
 ];

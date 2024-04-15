@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import css from './automotiveHero.module.scss'
 import cx from 'classnames'
 import Link from 'next/link'
@@ -33,12 +33,13 @@ const AutomotiveHero = ({ heroData, servicesData, commercial = false }) => {
             <section className={css.hero}>
                 <div className={css.hero_left}>
                     <h2 className={cx("typoH2", "text_gradient", css.title)}>
-                        {heroData.titleLines.map((item, index) => (
-                            <>
+                        {heroData.title}
+                        {/* {heroData.titleLines.map((item, index) => (
+                            <Fragment key={index}>
                                 {item}
                                 <br />
-                            </>
-                        ))}
+                            </Fragment>
+                        ))} */}
                     </h2>
                     <p className={cx("typoBody1", css.desc)}>
                         {heroData.description}
@@ -57,7 +58,7 @@ const AutomotiveHero = ({ heroData, servicesData, commercial = false }) => {
                     <div className={css.row1}>
                         <div
                             className={`${css.card} ${css.card1}`}
-                            onClick={() => { commercial ? null : router.push(`/services/${servicesData[visibleCards[0]].slug}`) }}
+                            onClick={() => {router.push(`/${commercial ? 'commercial' : 'automotive'}/services/${servicesData[visibleCards[0]].slug}`) }}
                         >
                             <AnimatePresence>
                                 <motion.div
@@ -73,8 +74,8 @@ const AutomotiveHero = ({ heroData, servicesData, commercial = false }) => {
                                         className={css.card_img_container}
                                     >
                                         <Image
-                                            // src={urlFor(servicesData[visibleCards[0]].serviceImage).url()}
-                                            src={commercial ? servicesData[visibleCards[0]].serviceImage : urlFor(servicesData[visibleCards[0]].serviceImage).url()}
+                                            src={urlFor(servicesData[visibleCards[0]].serviceImages[0]).url()}
+                                            // src={commercial ? servicesData[visibleCards[0]].serviceImages[0] : urlFor(servicesData[visibleCards[0]].serviceImages[0]).url()}
                                             alt='image'
                                             fill
                                             quality={100}
@@ -88,7 +89,7 @@ const AutomotiveHero = ({ heroData, servicesData, commercial = false }) => {
                                     >
                                         <h3 className={cx("typoH3", css.card_title)}>{servicesData[visibleCards[0]].serviceTitle}</h3>
                                         <p className={cx("typoCaption", css.card_caption)}>
-                                            {servicesData[visibleCards[0]].smallDescription}
+                                            {servicesData[visibleCards[0]].description}
                                         </p>
                                     </div>
                                 </motion.div>
@@ -96,7 +97,7 @@ const AutomotiveHero = ({ heroData, servicesData, commercial = false }) => {
                         </div>
                         <div
                             className={`${css.card} ${css.card2}`}
-                            onClick={() => { commercial ? null : router.push(`/services/${servicesData[visibleCards[1]].slug}`) }}
+                            onClick={() => {router.push(`/${commercial ? 'commercial' : 'automotive'}/services/${servicesData[visibleCards[1]].slug}`) }}
                         >
                             <AnimatePresence>
                                 <motion.div
@@ -112,8 +113,8 @@ const AutomotiveHero = ({ heroData, servicesData, commercial = false }) => {
                                         className={css.card_img_container}
                                     >
                                         <Image
-                                            // src={urlFor(servicesData[visibleCards[1]].serviceImage).url()}
-                                            src={commercial ? servicesData[visibleCards[1]].serviceImage : urlFor(servicesData[visibleCards[1]].serviceImage).url()}
+                                            src={urlFor(servicesData[visibleCards[1]].serviceImages[0]).url()}
+                                            // src={commercial ? servicesData[visibleCards[1]].serviceImages[0] : urlFor(servicesData[visibleCards[1]].serviceImages[0]).url()}
                                             alt='image'
                                             fill
                                             quality={100}
@@ -127,7 +128,7 @@ const AutomotiveHero = ({ heroData, servicesData, commercial = false }) => {
                                     >
                                         <h3 className={cx("typoH3", css.card_title)}>{servicesData[visibleCards[1]].serviceTitle}</h3>
                                         <p className={cx("typoCaption", css.card_caption)}>
-                                            {servicesData[visibleCards[1]].smallDescription}
+                                            {servicesData[visibleCards[1]].description}
                                         </p>
                                     </div>
                                 </motion.div>
@@ -137,7 +138,7 @@ const AutomotiveHero = ({ heroData, servicesData, commercial = false }) => {
                     <div className={css.row2}>
                         <div
                             className={`${css.card} ${css.card3}`}
-                            onClick={() => { commercial ? null : router.push(`/services/${servicesData[visibleCards[2]].slug}`) }}
+                            onClick={() => {router.push(`/${commercial ? 'commercial' : 'automotive'}/services/${servicesData[visibleCards[2]].slug}`) }}
                         >
                             <AnimatePresence>
                                 <motion.div
@@ -156,8 +157,8 @@ const AutomotiveHero = ({ heroData, servicesData, commercial = false }) => {
                                         className={css.card_img_container}
                                     >
                                         <Image
-                                            // src={urlFor(servicesData[visibleCards[2]].serviceImage).url()}
-                                            src={commercial ? servicesData[visibleCards[2]].serviceImage : urlFor(servicesData[visibleCards[2]].serviceImage).url()}
+                                            src={urlFor(servicesData[visibleCards[2]].serviceImages[0]).url()}
+                                            // src={commercial ? servicesData[visibleCards[2]].serviceImages[0] : urlFor(servicesData[visibleCards[2]].serviceImages[0]).url()}
                                             alt='image'
                                             fill
                                             quality={100}
@@ -171,14 +172,14 @@ const AutomotiveHero = ({ heroData, servicesData, commercial = false }) => {
                                     >
                                         <h3 className={cx("typoH3", css.card_title)}>{servicesData[visibleCards[2]].serviceTitle}</h3>
                                         <p className={cx("typoCaption", css.card_caption)}>
-                                            {servicesData[visibleCards[2]].smallDescription}
+                                            {servicesData[visibleCards[2]].description}
                                         </p>
                                     </div>
                                 </motion.div>
                             </AnimatePresence>
                         </div>
                         <div className={cx("border_gradient", css.card, css.card4)}>
-                            <div className={css.explore_more_btn} onClick={() => { commercial ? router.push('#') : router.push('/services') }}>
+                            <div className={css.explore_more_btn} onClick={() => { commercial ? router.push('/commercial/services') : router.push('/automotive/services') }}>
                                 Explore All
                                 <br />
                                 Services

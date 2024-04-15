@@ -13,7 +13,7 @@ const ProjectCard = ({ img, title, slug, brandSlug, id, gallery=false, onClick }
         if (gallery) {
             onClick();
         } else {
-            router.push(`/portfolio/${slug}/${brandSlug}`)
+            router.push(`/automotive/portfolio/${slug}/${brandSlug}`)
         }
     }
     const imageUrl = img && img.asset ? urlFor(img).url() : '';

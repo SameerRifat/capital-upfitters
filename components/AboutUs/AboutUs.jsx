@@ -4,11 +4,11 @@ import cx from 'classnames';
 import Iconify from '@/components/iconify/iconify';
 import Testimonials from '../Shared/Testimonials/Testimonials';
 import GetStarted from '../Shared/GetStarted/GetStarted';
-import SectionHeading from '../Shared/SectionHeading/SectionHeading';
 import { getTestimonials } from '@/apis/testimonial';
 import { getAboutUsData } from '@/apis/settings';
 import Image from 'next/image';
 import { urlFor } from '@/lib/client';
+import { SectionHeadingLarge } from '@/components/Shared/SectionHeading/SectionHeading';
 
 const iconData = [
     { icon: 'ph:medal-fill', text: 'Quality' },
@@ -38,7 +38,7 @@ const AboutUs = async () => {
         <>
             <div className={css.about_us_container}>
                 <div className={css.about_us}>
-                    <SectionHeading>About Us</SectionHeading>
+                    <SectionHeadingLarge>About Us</SectionHeadingLarge>
                     <div className={css.image_container}>
                         <Image
                             src={urlFor(aboutUsData?.image).url()}

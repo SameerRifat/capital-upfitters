@@ -22,18 +22,98 @@ const service = defineType({
                 maxLength: 96,
             },
         }),
+        // defineField({
+        //     name: 'serviceImage',
+        //     title: 'Service image',
+        //     type: 'image',
+        //     options: {
+        //         hotspot: true,
+        //     },
+        //     validation: Rule => Rule.required(),
+        // }),
         defineField({
-            name: 'serviceImage',
-            title: 'Service image',
-            type: 'image',
+            name: 'serviceImages',
+            type: 'array',
+            of: [
+                { type: 'image', options: { hotspot: true } }
+            ],
             options: {
+                layout: 'grid',
                 hotspot: true,
             },
+            validation: Rule =>
+                Rule.required().min(1).error('Minimum of 1 image required'),
+        }),
+        defineField({
+            name: 'description',
+            title: 'Service description',
+            type: 'text',
             validation: Rule => Rule.required(),
         }),
         defineField({
-            name: 'smallDescription',
-            title: 'Small Description',
+            name: 'details',
+            title: 'Service Details',
+            type: 'array',
+            of: [
+                {
+                    type: 'object',
+                    fields: [
+                        defineField({
+                            name: 'detailTitle',
+                            title: 'Detail Title',
+                            type: 'string',
+                            validation: Rule => Rule.required()
+                        }),
+                        defineField({
+                            name: 'detailDescription',
+                            title: 'Detail Description',
+                            type: 'text',
+                            validation: Rule => Rule.required()
+                        }),
+                        defineField({
+                            name: 'icon',
+                            title: 'Icon Image',
+                            type: 'image',
+                            options: {
+                                hotspot: true,
+                            },
+                            validation: Rule => Rule.required(),
+                        }),
+                    ],
+                },
+            ],
+            // validation: Rule => Rule.required(),
+        }),
+        defineField({
+            name: 'assets',
+            title: 'Assets',
+            type: 'object',
+            fields: [
+                defineField({
+                    name: 'assetsTitle',
+                    title: 'Asset Title',
+                    type: 'string',
+                    validation: Rule => Rule.required()
+                }),
+                defineField({
+                    name: 'assetsDescription',
+                    title: 'Asset Description',
+                    type: 'text',
+                    validation: Rule => Rule.required()
+                }),
+                defineField({
+                    name: 'assetsDocuments',
+                    title: 'Asset Documents',
+                    type: 'array',
+                    of: [
+                        { type: 'file' }
+                    ],
+                }),
+            ],
+        }),
+        defineField({
+            name: 'tooltipDescription',
+            title: 'Tooltip Description',
             type: 'text',
             validation: Rule => Rule.required(),
         }),
@@ -51,26 +131,18 @@ const service = defineType({
             description: 'Toggle to hide the service portfolio.',
             initialValue: () => true,
         }),
-        // defineField({
-        //     name: 'priority',
-        //     title: 'Priority',
-        //     type: 'number',
-        //     validation: Rule => Rule.required(),
-        //     initialValue: 0,
-        //     description: 'Lower values indicate higher priority, meaning the service will be shown earlier in the list.',
-        // }),
         orderRankField({ type: "service" }),
     ],
     preview: {
         select: {
             title: 'serviceTitle',
-            image: 'serviceImage',
+            images: 'serviceImages',
         },
         prepare(selection) {
-            const { image, title } = selection
+            const { images, title } = selection
 
             return {
-                media: image,
+                media: images[0],
                 title,
             }
         },

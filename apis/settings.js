@@ -19,7 +19,22 @@ export async function getHomeData() {
 export async function getAutomotiveHeroData() {
     try {
         const query = `*[_type == 'automotiveHero'][0]{
-            titleLines,
+            title,
+            description
+          }
+          `
+
+        const data = await client.fetch(query, { cache: 'no-cache' });
+        return data;
+    } catch (error) {
+        console.log(error);
+        throw new Error("Failed to fetch data");
+    }
+}
+export async function getCommercialHeroData() {
+    try {
+        const query = `*[_type == 'commercialHero'][0]{
+            title,
             description
           }
           `
@@ -48,6 +63,23 @@ export async function getStats() {
         throw new Error("Failed to fetch stats");
     }
 }
+export async function getCommercialStats() {
+    try {
+        const query = `*[_type == 'commercialStats'][0]{
+            _id,
+            customers,
+            services,
+            years,
+          }
+          `
+
+        const data = await client.fetch(query, { cache: 'no-cache' });
+        return data;
+    } catch (error) {
+        console.log(error);
+        throw new Error("Failed to fetch stats");
+    }
+}
 export async function getAboutUsData() {
     try {
         const query = `*[_type == 'aboutUs'][0]{
@@ -56,6 +88,21 @@ export async function getAboutUsData() {
             description2,
             image
           }
+          `
+
+        const data = await client.fetch(query, { cache: 'no-cache' });
+        return data;
+    } catch (error) {
+        console.log(error);
+        throw new Error("Failed to fetch data");
+    }
+}
+export async function getPrivacyPolicyData() {
+    try {
+        const query = `*[_type == 'privacyPolicy'][0]{
+            title,
+            details
+        }
           `
 
         const data = await client.fetch(query, { cache: 'no-cache' });

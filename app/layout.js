@@ -4,6 +4,7 @@ import '@/styles/typography.scss'
 import Footer from "@/components/Shared/Footer/Footer";
 import ScrollToTop from "@/components/Shared/ScrollToTop";
 import { Toaster } from 'react-hot-toast'
+import ActiveIdustryProvider from "@/context/ActiveIndustriesProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -49,8 +50,12 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <div className="top_ellipse_bg" />
+        <div className="left_ellipse_bg" />
+        <div className="right_ellipse_bg" />
         <ScrollToTop>
-          {children}
+          <ActiveIdustryProvider>
+            {children}
+          </ActiveIdustryProvider>
         </ScrollToTop>
         <Footer />
         <Toaster

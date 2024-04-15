@@ -19,8 +19,8 @@ const specification = defineType({
             to: { type: 'service' },
         }),
         defineField({
-            name: 'smallDescription',
-            title: 'Small Description',
+            name: 'description',
+            title: 'Description',
             type: 'text',
             validation: Rule => Rule.required(),
         }),

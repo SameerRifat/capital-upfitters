@@ -5,9 +5,9 @@ import Iconify from "@/components/iconify/iconify";
 
 const FooterLinks = () => {
     const links = [
-        { title: 'Portfolio', href: '/portfolio' },
-        { title: 'About', href: '/about-us' },
-        { title: 'Our Services', href: '/services' },
+        { title: 'Portfolio', href: '/automotive/portfolio' },
+        { title: 'About', href: '/automotive/about-us' },
+        { title: 'Our Services', href: '/automotive' },
     ]
     const contactInfo = [
         {

@@ -12,7 +12,7 @@ for (let year = 2025; year >= 1980; year--) {
   years.push({ value: year.toString(), label: year.toString() });
 }
 
-const VehicleInformationForm = ({ initialValues, onNextStep, onPrevStep }) => {
+const VehicleInformationForm = ({ initialValues, onNextStep, onPrevStep, customizedMakeData, customizedModelsData }) => {
   const onSubmit = (values, { setSubmitting }) => {
     // console.log(values);
     setSubmitting(false);
@@ -27,11 +27,11 @@ const VehicleInformationForm = ({ initialValues, onNextStep, onPrevStep }) => {
       validateOnChange={true}
       validateOnBlur={true}
     >
-      {({ isSubmitting, setFieldValue, values}) => (
+      {({ isSubmitting, setFieldValue, values }) => (
         <Form className={css.form}>
           <div className={css.form_header}>
             <h3 className={cx("typoH3", "text_gradient")}>
-              Fill out contact details
+              Vehicle Information
             </h3>
             <button type="submit" disabled={isSubmitting}>Next</button>
           </div>
@@ -60,9 +60,9 @@ const VehicleInformationForm = ({ initialValues, onNextStep, onPrevStep }) => {
               >
                 {({ field }) => (
                   <Select
-                    // value={field.value ? { value: field.value, label: field.value } : null}
                     value={vehicleInformation.makeData.find(option => option.value === field.value)}
-                    options={vehicleInformation.makeData}
+                    // options={vehicleInformation.makeData}
+                    options={customizedMakeData}
                     placeholder='Choose your make'
                     isSearchable={false}
                     className="react-select-container"
@@ -86,7 +86,8 @@ const VehicleInformationForm = ({ initialValues, onNextStep, onPrevStep }) => {
                   <Select
                     {...field}
                     value={field.value ? { value: field.value, label: field.value } : null}
-                    options={values.make === '' ? [{value: '', label: 'Please first select the make'}] : vehicleInformation.modelsData[values.make] || []}
+                    // options={values.make === '' ? [{value: '', label: 'Please first select the make'}] : vehicleInformation.modelsData[values.make] || []}
+                    options={values.make === '' ? [{ value: '', label: 'Please first select the make' }] : customizedModelsData[values.make] || []}
                     placeholder='Choose model'
                     isSearchable={false}
                     className="react-select-container"

@@ -1,4 +1,4 @@
-import SectionHeading from '@/components/Shared/SectionHeading/SectionHeading'
+SectionHeadingLarge
 import { projectsData } from '@/mock/portfolio';
 import React from 'react'
 import css from './portfolioProjects.module.scss'
@@ -6,6 +6,7 @@ import css from './portfolioProjects.module.scss'
 import Breadcrumb from '@/components/Shared/BreadCrumbs/BreadCrumb';
 import ProjectCard from '@/components/Shared/ProjectCard/ProjectCard';
 import GetStarted from '@/components/Shared/GetStarted/GetStarted';
+import { SectionHeadingLarge } from '@/components/Shared/SectionHeading/SectionHeading';
 
 const PortfolioProjects = ({ projects }) => {
     // const project = projectsData.find((p) => p.slug === params.slug);
@@ -22,14 +23,14 @@ const PortfolioProjects = ({ projects }) => {
     //     });
 
     const items = [
-        { label: 'Portfolio', url: '/portfolio' },
+        { label: 'Portfolio', url: '/automotive/portfolio' },
         { label: `${projects[0].portfolio.serviceTitle}`, url: '#' },
     ];
 
     return (
         <div className={css.projects_container}>
             <Breadcrumb items={items} />
-            <SectionHeading>{projects[0].portfolio.serviceTitle}</SectionHeading>
+            <SectionHeadingLarge>{projects[0].portfolio.serviceTitle}</SectionHeadingLarge>
 
             {projects.length > 0 ? (
                 <div className={css.cards}>

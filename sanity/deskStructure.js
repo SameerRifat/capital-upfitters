@@ -20,17 +20,23 @@ export const myStructure = (S, context) =>
                 .title('Vehicle Type')
                 .child(S.documentTypeList('vehicleType').title('Vehicle Types for Window Tint Service')),
             orderableDocumentListDeskItem({type: 'accessories', title: 'Accessories', S, context}),
+            orderableDocumentListDeskItem({type: 'commercialServices', title: 'Commercial Services', S, context}),
             S.divider(),
-            S.listItem()
-                .title('Portfolio')
-                .child(S.documentTypeList('portfolio').title('Categories')),
+            orderableDocumentListDeskItem({type: 'portfolio', title: 'Automotive Portfolio', S, context}),
+            // S.listItem()
+            //     .title('Portfolio')
+            //     .child(S.documentTypeList('portfolio').title('Portfolio')),
             S.listItem()
                 .title('Portfolio Vehicles')
-                .child(S.documentTypeList('portfolioVehicles').title('Posts')),
+                .child(S.documentTypeList('portfolioVehicles').title('Automotive Portfolio Vehicles')),
+            orderableDocumentListDeskItem({type: 'commercialPortfolio', title: 'Commercial Portfolio', S, context}),
+            // S.listItem()
+            //     .title('Commercial Portfolio')
+            //     .child(S.documentTypeList('commercialPortfolio').title('Commercial Portfolio')),
             S.divider(),
             // We also need to remove the new singletons from the main list
             ...S.documentTypeListItems().filter(
-                (listItem) => !['siteStats', 'service', 'portfolio', 'portfolioVehicles', 'paintProtectionService', 'windowTintService', 'vehicleType', 'aboutUs', 'homePage', 'automotiveHero', 'accessories'].includes(listItem.getId())
+                (listItem) => !['siteStats', 'service', 'portfolio', 'portfolioVehicles', 'paintProtectionService', 'windowTintService', 'vehicleType', 'aboutUs', 'homePage', 'automotiveHero', 'accessories', 'commercialServices', 'commercialHero', 'commercialStats', 'commercialPortfolio', 'privacyPolicy'].includes(listItem.getId())
             ),
 
             S.divider(),
@@ -56,6 +62,15 @@ export const myStructure = (S, context) =>
                             S.listItem()
                                 .title('Automotive')
                                 .child(S.document().schemaType('automotiveHero').documentId('automotiveHero')),
+                            S.listItem()
+                                .title('Commercial')
+                                .child(S.document().schemaType('commercialHero').documentId('commercialHero')),
+                            S.listItem()
+                                .title('Commercial Stats')
+                                .child(S.document().schemaType('commercialStats').documentId('commercialStats')),
+                            S.listItem()
+                                .title('Privacy Policy')
+                                .child(S.document().schemaType('privacyPolicy').documentId('privacyPolicy')),
                         ])
                 ),
         ])
