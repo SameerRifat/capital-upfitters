@@ -1,5 +1,6 @@
 import { getAboutUsData } from '@/apis/settings';
 import AboutUs from '@/components/AboutUs/AboutUs'
+import { urlFor } from '@/lib/client';
 import React from 'react'
 
 export const revalidate = 30

@@ -2,6 +2,7 @@ import React from 'react'
 import cx from 'classnames'
 import Automotive from '@/components/Automotive/Automotive'
 import { getAllCommercialServices } from '@/apis/commercialServices';
+import { urlFor } from '@/lib/client';
 
 export const revalidate = 30 // revalidate at most every 30 seconds
 

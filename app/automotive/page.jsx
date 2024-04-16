@@ -1,5 +1,6 @@
 import React from 'react'
 import Automotive from '@/components/Automotive/Automotive'
+import { urlFor } from '@/lib/client';
 
 export const revalidate = 30
 
