@@ -10,6 +10,7 @@ import commercialPortfolio from "./commercialPortfolio";
 import commercialServices from "./commercialServices";
 import commercialStats from "./commercialStats";
 import companyLogo from "./companyLogo";
+import emailHeading from "./emailHeading";
 import homePage from "./homePage";
 import make from "./make";
 import models from "./models";
@@ -52,5 +53,6 @@ export const schemaTypes = [
     make,
     models,
 
-    privacyPolicy
+    privacyPolicy,
+    emailHeading
 ]

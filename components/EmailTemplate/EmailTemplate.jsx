@@ -1,3 +1,4 @@
+import { getEmailHeadingData } from "@/apis/settings";
 import {
   Body,
   Button,
@@ -14,7 +15,7 @@ import {
 } from "@react-email/components";
 import React from "react";
 
-const EmailTemplate = ({ firstName, lastName, phone, email, year, make, model, licensePlate, state, formatServices, comment, commercial=false }) => {
+const EmailTemplate = async ({ firstName, lastName, phone, email, year, make, model, licensePlate, state, formatServices, comment, commercial = false, ip = null, emailHeading }) => {
 
   return (
     <Html>
@@ -44,7 +45,7 @@ const EmailTemplate = ({ firstName, lastName, phone, email, year, make, model, l
                     textAlign: "center",
                   }}
                 >
-                  Thanks for contacting us
+                  {emailHeading || 'Thanks for contacting us'}
                 </Heading>
 
                 <Text style={paragraph}>
@@ -95,6 +96,12 @@ const EmailTemplate = ({ firstName, lastName, phone, email, year, make, model, l
                   <b>Comment: </b>
                   {comment}
                 </Text>
+                {ip && (
+                  <Text style={{ ...paragraph, marginTop: -5 }}>
+                    <b>IP Address: </b>
+                    {ip}
+                  </Text>
+                )}
               </Column>
             </Row>
           </Section>

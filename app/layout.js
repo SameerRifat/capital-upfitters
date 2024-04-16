@@ -27,7 +27,8 @@ export const metadata = {
     "Patriot Liner",
     "Automotive",
     "Auto & truck accessories",
-    "Auto customization"
+    "Auto customization",
+    "Commercial Services"
   ],
   openGraph: {
     title: "Capital Upfitters: Capital Auto Upfitters & Protective Coatings",

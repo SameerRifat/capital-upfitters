@@ -71,6 +71,9 @@ export const myStructure = (S, context) =>
                             S.listItem()
                                 .title('Privacy Policy')
                                 .child(S.document().schemaType('privacyPolicy').documentId('privacyPolicy')),
+                            S.listItem()
+                                .title('Email Heading')
+                                .child(S.document().schemaType('emailHeading').documentId('emailHeading')),
                         ])
                 ),
         ])

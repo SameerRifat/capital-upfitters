@@ -1,31 +1,52 @@
 import React from 'react'
 import cx from 'classnames'
 import Automotive from '@/components/Automotive/Automotive'
+import { getAllCommercialServices } from '@/apis/commercialServices';
 
 export const revalidate = 30 // revalidate at most every 30 seconds
 
-export const metadata = {
-  title: "Capital Upfitters: Commercial Industries",
+const defaultMetadata = {
+  title: "Commercial Services",
+  description: "Explore our Commercial Services",
+  keywords: [],
+  openGraph: {
+    title: "Commercial Services",
+    description: "Explore our Commercial Services",
+    images: [],
+    type: "website",
+  },
+};
+
+export async function generateMetadata() {
+  let data
+  try {
+    data = await getAllCommercialServices();
+  } catch (error) {
+    // throw new Error("Error occured");
+    return defaultMetadata;
+  }
+  return {
+    title: "Commercial Services",
+    description: "Explore our Commercial Services",
+    keywords: data.map((item) => item.serviceTitle),
+    openGraph: {
+      title: "Commercial Services",
+      description: "Explore our Commercial Services",
+      images: data.slice(0, 3).map((item) => {
+        return {
+          url: urlFor(item.serviceImages[0]).url(),
+          width: 800,
+          height: 600,
+          alt: `${item.serviceTitle}`,
+        }
+      }),
+      type: "website",
+      // url: `https://capital-upfitters.com/automotive/services`,
+    },
+  };
 }
 
 const CommercialPage = () => {
-  // const commercialeHeroData = [
-  //   {
-  //     serviceImage: '/other-industries/SchoolBus-Fleet.jpeg',
-  //     serviceTitle: 'Electric Power Grids Protection',
-  //     description: 'Crafted by veterans and proudly made in America, Patriot Liner carries more than 30 years of industry experience.',
-  //   },
-  //   {
-  //     serviceImage: '/other-industries/Equipment-rental.jpg',
-  //     serviceTitle: 'Rental Equipment',
-  //     description: 'We take pride in being one of the select shops in the DMV Area that can offer Receiver Hitch Solutions almost for every vehicle.',
-  //   },
-  //   {
-  //     serviceImage: '/other-industries/kohler-generator.jpg',
-  //     serviceTitle: 'Field Generators, Emergency Equipment',
-  //     description: "Anti Corrosion Clear Coat acts as an unbreakable chemical shield that prolongs the lifespan of the surface it's applied on.",
-  //   },
-  // ]
   return (
     <>
       <Automotive commercial />

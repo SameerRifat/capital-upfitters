@@ -13,7 +13,7 @@ import { submitFormToTelegram } from '@/lib/utils/onSubmitTelegram';
 import { toast } from 'react-hot-toast';
 import { sendEmail } from '@/lib/actions/sendEmail';
 
-const SelectYourServicesForm = ({ services, initialValues, onPrevStep, formData, onFormSubmit, commercial=false }) => {
+const SelectYourServicesForm = ({ services, initialValues, onPrevStep, formData, onFormSubmit, commercial = false }) => {
   const [images, setImages] = useState([]);
   const imageChangeEvent = (e, setFieldValue) => {
     const files = Array.from(e.target.files);
@@ -60,9 +60,12 @@ const SelectYourServicesForm = ({ services, initialValues, onPrevStep, formData,
   // };
 
   const onSubmit = async (values, { setSubmitting, resetForm }) => {
+    const ipResponse = await fetch('https://api64.ipify.org?format=json');
+    const { ip } = await ipResponse.json();
+    console.log('ip: ', ip)
     const dataToSubmit = {
       contactDetails: formData.contactDetails,
-      ...(!commercial && {vehicleInformation: formData.vehicleInformation}),
+      ...(!commercial && { vehicleInformation: formData.vehicleInformation }),
       servicesInformation: values
     };
 
@@ -82,6 +85,12 @@ const SelectYourServicesForm = ({ services, initialValues, onPrevStep, formData,
     } finally {
       setSubmitting(false);
     }
+    //For Admin
+    // try {
+    //   const { data, error } = await sendEmail(dataToSubmit, commercial, ip);
+    // } catch (error) {
+    //   console.log(error)
+    // }
   };
 
 
