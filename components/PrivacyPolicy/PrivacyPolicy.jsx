@@ -1,6 +1,6 @@
 import React from 'react'
 import css from './privacyPolicy.module.scss'
-import { SectionHeadingLarge } from '@/components/SectionHeading/SectionHeading'
+import { SectionHeadingLarge } from '@/components/Shared/SectionHeading/SectionHeading'
 import cx from 'classnames'
 import { PortableText } from '@portabletext/react'
 

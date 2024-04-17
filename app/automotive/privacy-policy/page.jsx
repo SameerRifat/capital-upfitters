@@ -1,5 +1,5 @@
 import { getPrivacyPolicyData } from '@/apis/settings';
-import PrivacyPolicy from '@/components/PrivacyPolicy/PrivacyPolicy';
+// import PrivacyPolicy from '@/components/PrivacyPolicy/PrivacyPolicy';
 import React from 'react'
 
 export const revalidate = 30
