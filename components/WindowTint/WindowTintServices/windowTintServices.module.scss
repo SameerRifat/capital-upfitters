@@ -16,7 +16,6 @@
 .service_img_container {
     width: 100%;
     padding-top: calc(209 / 313 * 100%);
-    // padding-top: calc(960 / 1280 * 100%);
     position: relative;
 
     .service_img {
@@ -39,7 +38,6 @@
     left: 50%;
     transform: translateX(-50%);
     white-space: nowrap;
-    // border: 2px solid white;
 
     @media (max-width: 640px) {
         font-size: 4rem;

@@ -1,6 +1,5 @@
 import { client } from "@/lib/client";
 
-// export const revalidate = 30 // revalidate at most every 30 seconds
 
 export async function getAllServices() {
     try {
@@ -41,18 +40,6 @@ export async function getServiceDetails(slug) {
             isPublished,
             showPortfolio
         }`
-        // const query = `*[_type == 'service' && slug.current == '${slug}'][0]{
-        //     serviceTitle,
-        //     serviceImage,
-        //     serviceImages,
-        //     description,
-        //     details,
-        //     assets,
-        //     tooltipDescription,
-        //     'slug': slug.current,
-        //     _id,
-        //     isPublished
-        // }`
 
         const data = await client.fetch(query, { cache: 'no-cache' });
         return data;
@@ -152,7 +139,7 @@ export async function getAccessoriesData() {
 
 export async function getAccessoriesCatalogs() {
     try {
-        const query = `*[_type == 'accessoriesCatalogs']{
+        const query = `*[_type == 'accessoriesCatalogs'] | order(orderRank){
             _id,
             image,
             link

@@ -7,7 +7,6 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { servicesSchema } from '@/lib/validations/formValidations';
 import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css'
-// import { services } from './data';
 import Iconify from "@/components/iconify/iconify";
 import { submitFormToTelegram } from '@/lib/utils/onSubmitTelegram';
 import { toast } from 'react-hot-toast';
@@ -32,37 +31,9 @@ const SelectYourServicesForm = ({ services, initialValues, onPrevStep, formData,
     });
   };
 
-  // const onSubmit = async (values, { setSubmitting, resetForm }) => {
-  //   const dataToSubmit = { contactDetails: formData.contactDetails, vehicleInformation: formData.vehicleInformation, servicesInformation: values }
-  //   const textResponse = await submitFormToTelegram(data)
-  //   if(textResponse.error){
-  //     setSubmitting(false);
-  //     toast.error("Something went wrong")
-  //   }
-  //   if (textResponse.success) {
-  //     setSubmitting(false);
-  //     resetForm();
-  //     toast.success("Data sent successfully")
-  //     onFormSubmit()
-  //   }
-  //   try {
-  //     const { data, error } = await sendEmail(dataToSubmit);
-  //     if (error) {
-  //       toast.error(error.message)
-  //     }else{
-  //       toast.success("Email sent successfully")
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //   } finally {
-  //     setSubmitting(false);
-  //   }
-  // };
-
   const onSubmit = async (values, { setSubmitting, resetForm }) => {
     const ipResponse = await fetch('https://api64.ipify.org?format=json');
     const { ip } = await ipResponse.json();
-    console.log('ip: ', ip)
     const dataToSubmit = {
       contactDetails: formData.contactDetails,
       ...(!commercial && { vehicleInformation: formData.vehicleInformation }),

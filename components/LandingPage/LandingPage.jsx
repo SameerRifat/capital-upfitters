@@ -16,7 +16,6 @@ const LandingPage = async () => {
   } catch (error) {
     homeError = <div className='error_message'>Error fetching data. Please try again later.</div>;
   }
-  // console.log('homeData: ', homeData)
   return (
     <div className={cx("container")}>
       <Header />

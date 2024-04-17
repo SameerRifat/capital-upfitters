@@ -36,8 +36,9 @@ export const myStructure = (S, context) =>
             S.divider(),
             // We also need to remove the new singletons from the main list
             ...S.documentTypeListItems().filter(
-                (listItem) => !['siteStats', 'service', 'portfolio', 'portfolioVehicles', 'paintProtectionService', 'windowTintService', 'vehicleType', 'aboutUs', 'homePage', 'automotiveHero', 'accessories', 'commercialServices', 'commercialHero', 'commercialStats', 'commercialPortfolio', 'privacyPolicy', 'footerText'].includes(listItem.getId())
+                (listItem) => !['siteStats', 'service', 'portfolio', 'portfolioVehicles', 'paintProtectionService', 'windowTintService', 'vehicleType', 'aboutUs', 'homePage', 'automotiveHero', 'accessories', 'commercialServices', 'commercialHero', 'commercialStats', 'commercialPortfolio', 'privacyPolicy', 'footerText', 'accessoriesCatalogs', 'termsAndConditions'].includes(listItem.getId())
             ),
+            orderableDocumentListDeskItem({type: 'accessoriesCatalogs', title: 'Accessories Catalogs', S, context}),
 
             S.divider(),
 
@@ -77,6 +78,9 @@ export const myStructure = (S, context) =>
                             S.listItem()
                                 .title('Footer Text')
                                 .child(S.document().schemaType('footerText').documentId('footerText')),
+                            S.listItem()
+                                .title('Terms And Conditions')
+                                .child(S.document().schemaType('termsAndConditions').documentId('termsAndConditions')),
                         ])
                 ),
         ])

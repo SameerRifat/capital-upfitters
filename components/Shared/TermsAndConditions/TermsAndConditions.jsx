@@ -1,13 +1,13 @@
 import React from 'react'
-import css from './privacyPolicy.module.scss'
-import { SectionHeadingLarge } from '@/components/SectionHeading/SectionHeading'
+import css from './termsAndConditions.module.scss'
+import { SectionHeadingLarge } from '@/components/Shared/SectionHeading/SectionHeading'
 import cx from 'classnames'
 import { PortableText } from '@portabletext/react'
 
-const PrivacyPolicy = ({ data }) => {
+const TermsAndConditions = ({ data }) => {
     const { title, details } = data
     return (
-        <div className={css.privacy_policy_container}>
+        <div className={css.terms_conditions_container}>
             <SectionHeadingLarge>
                 {title}
             </SectionHeadingLarge>
@@ -18,4 +18,4 @@ const PrivacyPolicy = ({ data }) => {
     )
 }
 
-export default PrivacyPolicy
+export default TermsAndConditions

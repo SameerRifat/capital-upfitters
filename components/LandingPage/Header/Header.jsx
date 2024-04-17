@@ -13,7 +13,6 @@ const Header = () => {
       <header className={css.header}>
         <Link href='/' className={css.logo}>
           <img
-            // src='/logo.png'
             src='/cu-logo.svg'
             alt='logo'
           />

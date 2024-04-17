@@ -23,7 +23,6 @@ const SpecificationDetailsModal = ({ open, setOpen, item }) => {
                 overlay: 'customOverlay',
                 modal: 'customModal',
                 closeButton: 'customButton',
-                // closeIcon: 'customIcon'
             }}
             closeIcon={closeIcon}
         >

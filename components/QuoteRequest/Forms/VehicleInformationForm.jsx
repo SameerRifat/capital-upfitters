@@ -4,7 +4,6 @@ import cx from 'classnames'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import Select from 'react-select'
 import { vehicleInformationSchema } from '@/lib/validations/formValidations';
-import { vehicleInformation } from './data';
 import { State } from 'country-state-city'
 
 const years = [];
@@ -60,7 +59,7 @@ const VehicleInformationForm = ({ initialValues, onNextStep, onPrevStep, customi
               >
                 {({ field }) => (
                   <Select
-                    value={vehicleInformation.makeData.find(option => option.value === field.value)}
+                    value={customizedMakeData.find(option => option.value === field.value)}
                     // options={vehicleInformation.makeData}
                     options={customizedMakeData}
                     placeholder='Choose your make'

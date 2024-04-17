@@ -1,13 +1,17 @@
+'use client'
+
 import React from 'react';
 import styles from './FooterLinks.module.scss';
 import Link from 'next/link';
 import Iconify from "@/components/iconify/iconify";
+import { useActiveIndustryContext } from '@/context/ActiveIndustriesProvider';
 
 const FooterLinks = () => {
+    const { activeIndustry, setActiveIndustry } = useActiveIndustryContext();
     const links = [
-        { title: 'Portfolio', href: '/automotive/portfolio' },
-        { title: 'About', href: '/automotive/about-us' },
-        { title: 'Our Services', href: '/automotive' },
+        { title: 'Portfolio', href: `/${activeIndustry}/portfolio` },
+        { title: 'About', href: `/${activeIndustry}/about-us` },
+        { title: 'Our Services', href: `/${activeIndustry}/services` },
     ]
     const contactInfo = [
         {
@@ -17,12 +21,12 @@ const FooterLinks = () => {
         {
             icon: "ri:mail-fill",
             title: 'CapitalUpfitters@gmail.com',
-            link: 'mailto:info@thewashers.com' // Phone call link
+            link: 'mailto:info@capitalUpfitters.com' // Phone call link
         },
         {
             icon: "ri:phone-fill",
             title: '301-304-1419',
-            link: 'tel:+971581249910' // Email link
+            link: 'tel:+3013041419' // Email link
         }
     ]
 

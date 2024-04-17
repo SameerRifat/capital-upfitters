@@ -1,6 +1,5 @@
 import { getAllMakes, getAllModels } from '@/apis/quoteRequest'
 import { getAllServices } from '@/apis/services'
-import { getEmailHeadingData } from '@/apis/settings'
 import QuoteRequest from '@/components/QuoteRequest/QuoteRequest'
 import React from 'react'
 
@@ -18,7 +17,6 @@ const page = async () => {
         data = await getAllServices();
         makeData = await getAllMakes();
         modelsData = await getAllModels();
-        // emailHeading = await getEmailHeadingData()
     } catch (error) {
         console.error('Error fetching data:', error);
         return <div className='error_message'>Error fetching services. Please try again later.</div>;

@@ -3,7 +3,6 @@
 import Image from 'next/image'
 import React from 'react'
 import css from './companyLogosSection.module.scss'
-import { logos } from './data';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";

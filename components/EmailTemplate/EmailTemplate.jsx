@@ -1,4 +1,3 @@
-import { getEmailHeadingData } from "@/apis/settings";
 import {
   Body,
   Button,

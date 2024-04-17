@@ -12,7 +12,7 @@ import { urlFor } from '@/lib/client';
 import Image from 'next/image';
 import Iconify from '@/components/iconify/iconify';
 import Link from 'next/link';
-import GetStarted from '../Shared/GetStarted/GetStarted';
+import GetStarted from '@/components/Shared/GetStarted/GetStarted';
 
 const ServiceDetails = ({ data }) => {
     const settings = {

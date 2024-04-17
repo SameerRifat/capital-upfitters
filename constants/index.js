@@ -7,10 +7,6 @@ export const automotiveNavLinks = [
         label: "Our Services",
         route: "/automotive/services",
     },
-    // {
-    //     label: "Other Industries",
-    //     route: "/commercial",
-    // },
     {
         label: "Quote",
         route: "/automotive/quote-request",

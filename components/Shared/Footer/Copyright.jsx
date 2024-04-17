@@ -10,7 +10,7 @@ const Copyright = () => {
 
     return (
         <p className={styles.copy_right}>
-            @2024 Capital Upfitters. All rights reserved. | <Link href={`/${activeIndustry}/privacy-policy`}>Privacy policy</Link> | Terms and Conditions
+            @2024 Capital Upfitters. All rights reserved. | <Link href={`/${activeIndustry}/privacy-policy`}>Privacy policy</Link> | <Link href={`/${activeIndustry}/terms-and-conditions`}>Terms and Conditions</Link>
         </p>
     )
 }

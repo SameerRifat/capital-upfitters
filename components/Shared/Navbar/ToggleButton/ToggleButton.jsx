@@ -27,7 +27,7 @@ const ToggleButton = () => {
 
     return (
         <>
-            <label className={css.label}>{activeIndustry === 'commercial' ? 'Other Industries' : 'Automotive'}</label>
+            <label className={css.label}>{activeIndustry === 'commercial' ? 'Commercial' : 'Automotive'}</label>
             <label className={css.switch} data-tooltip-id="my-tooltip" data-tooltip-content={activeIndustry === 'commercial' ? 'Switch to Automotive' : 'Switch to Other Industries'}>
                 <input type="checkbox" checked={activeIndustry === 'commercial'} onChange={handleChange} />
                 <span className={css.slider}></span>

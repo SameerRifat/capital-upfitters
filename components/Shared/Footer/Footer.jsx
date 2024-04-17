@@ -31,20 +31,12 @@ const Footer = async () => {
                     <div className={styles.company_info}>
                         <Link href='/' className={styles.logo}>
                             <img
-                                // src='/logo.png'
                                 src='/cu-logo.svg'
                                 alt='logo'
                             />
                         </Link>
                         <p>
                             {footerData.text}
-                            {/* Based in Leander, Texas, our team of skilled
-                            <br />
-                            technicians are dedicated to providing
-                            <br />
-                            amazing service for all your truck
-                            <br />
-                            customization needs */}
                         </p>
                     </div>
                     <FooterLinks />

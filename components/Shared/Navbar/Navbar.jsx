@@ -5,7 +5,6 @@ import css from './navbar.module.scss'
 import cx from 'classnames'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-// import { automotiveNavLinks } from '@/constants'
 import Iconify from "@/components/iconify/iconify";
 import MobileSidebar from './MobileSidebar/MobileSidebar'
 import ContactUsModal from '../ContactUs/ContactUsModal'
@@ -21,7 +20,6 @@ const Navbar = ({ navlinks }) => {
             <header className={css.navbar}>
                 <Link href='/' className={css.logo}>
                     <img
-                        // src='/logo.png'
                         src='/cu-logo.svg'
                         alt='logo'
                     />
@@ -29,7 +27,6 @@ const Navbar = ({ navlinks }) => {
                 <div className={css.navlinks}>
                     {navlinks.map((navlink) => {
                         const isActive = pathname === navlink.route || pathname.includes(navlink.route.split('/')[2]);
-                        // console.log('check: ', navlink.route.split('/')[2])
                         return (
                             <Link key={navlink.label} href={navlink.route} className={`${css.navlink} ${isActive && 'boder_gradient_bottom'}`}>
                                 {navlink.label} {isActive}

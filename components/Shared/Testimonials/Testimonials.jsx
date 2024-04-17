@@ -4,13 +4,11 @@ import React, { useState } from 'react'
 import css from './testimonials.module.scss'
 import cx from 'classnames'
 import Image from 'next/image'
-// import { testimonialsData } from './data'
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { CustomNextArrow, CustomPrevArrow } from '@/components/Shared/SliderCustomArrows/SliderCustomArrows'
 import { urlFor } from '@/lib/client'
-// import { CustomNextArrow, CustomPrevArrow } from './CustomArrows/CustomArrows'
 
 const Testimonials = ({testimonialsData}) => {
     const [activeIndex, setActiveIndex] = useState(0);

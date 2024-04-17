@@ -27,7 +27,6 @@ const countries = defaultCountries.filter((country) => {
 const ContactDetailsForm = ({ initialValues, onNextStep }) => {
 
   const onSubmit = (values, { setSubmitting }) => {
-    // console.log(values);
     setSubmitting(false);
     onNextStep(values);
   };

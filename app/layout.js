@@ -4,7 +4,6 @@ import '@/styles/typography.scss'
 import Footer from "@/components/Shared/Footer/Footer";
 import ScrollToTop from "@/components/Shared/ScrollToTop";
 import ActiveIdustryProvider from "@/context/ActiveIndustriesProvider";
-// import BgEllipses from "@/components/Shared/bgEllipses";
 import ToasterComp from "@/components/Shared/ToasterComp";
 import BgEllipses from "@/components/Shared/BgEllipses";
 

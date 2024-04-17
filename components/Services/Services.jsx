@@ -52,24 +52,14 @@ const Services = ({ servicesData, commercial = false }) => {
                     <div className={css.filters}>
                         <div className={css.input_wrapper}>
                             <Select
-                                // options={projectsData.map((item) => ({ value: item.category, label: item.category }))}
                                 options={categoryOptionns}
-                                isSearchable={false}
+                                isSearchable={true}
                                 styles={generateCustomStyles('170px')}
-                                placeholder="All Projects"
+                                placeholder="All Services"
                                 onChange={(option) => setSelectedService(option.value)}
                             />
                         </div>
                     </div>
-                    {/* <div className={css.search_wrapper}>
-                        <input
-                            type="text"
-                            placeholder="Browse Services"
-                            value={search}
-                            onChange={(e) => setSearch(e.target.value)}
-                        />
-                        <Iconify icon="bitcoin-icons:search-outline" color="#fff" width={20} />
-                    </div> */}
                     <Cards search={selectedService} setSearch={setSearch} visibleCards={visibleServices} services commercial={commercial} />
                     <Pagination
                         currentPage={currentPage}

@@ -1,9 +1,11 @@
 import { defineField, defineType } from 'sanity'
+import { orderRankField, orderRankOrdering } from '@sanity/orderable-document-list';
 
 const accessoriesCatalogs = defineType({
     name: 'accessoriesCatalogs',
     title: 'Accessories Catalogs',
     type: 'document',
+    orderings: [orderRankOrdering],
     fields: [
         defineField({
             name: 'Title',
@@ -25,6 +27,7 @@ const accessoriesCatalogs = defineType({
             type: 'string',
             validation: Rule => Rule.required()
         }),
+        orderRankField({ type: "accessoriesCatalogs" }),
     ],
     preview: {
         select: {

@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import styles from './MobileSidebar.module.scss';
 import cx from 'classnames'
 import { Icon } from "@iconify/react";
-// import { automotiveNavLinks } from '@/constants';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import OutsideClickHandler from 'react-outside-click-handler';
@@ -22,7 +21,6 @@ const MobileSidebar = ({ openSidebar, setOpenSidebar, navlinks }) => {
                     <div className={styles.sidebar_header}>
                         <Link href='/' className={styles.logo}>
                             <img
-                                // src='/logo.png'
                                 src='/cu-logo.svg'
                                 alt='logo'
                             />
@@ -36,13 +34,11 @@ const MobileSidebar = ({ openSidebar, setOpenSidebar, navlinks }) => {
                     </div>
                     <div className={styles.mobile_navlinks}>
                         {navlinks.map((navlink) => {
-                            // const isActive = pathname === navlink.route;
                             const isActive = pathname === navlink.route || pathname.includes(navlink.route.split('/')[2]);
                             return (
                                 <Link
                                     key={navlink.label}
                                     href={navlink.route}
-                                    // className={`${styles.navlink} ${isActive && styles.active}`}
                                     className={cx("typoSubtitle1", "text_gradient", styles.navlink)}
                                     onClick={() => setOpenSidebar(false)}
                                 >

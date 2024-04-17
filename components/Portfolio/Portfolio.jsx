@@ -9,11 +9,11 @@ import { generateCustomStyles } from '@/components/Shared/react-select-custom-st
 import { useEffect } from 'react';
 import Pagination from '@/components/Shared/Pagination/Pagination';
 import GetStarted from '@/components/Shared/GetStarted/GetStarted';
-import PaginationScrollToTop from '../Shared/PaginationScrollToTop';
+import PaginationScrollToTop from '@/components/Shared/PaginationScrollToTop';
 
 const Portfolio = ({ data, commercial=false }) => {
     const categoryOptionns = [
-        { value: "", label: "All Projects" },
+        { value: "", label: "All Portfolios" },
         ...data.map((item) => ({ value: item.service.serviceTitle, label: item.service.serviceTitle }))
     ]
     const [search, setSearch] = useState('');
@@ -37,7 +37,6 @@ const Portfolio = ({ data, commercial=false }) => {
         const endIndex = startIndex + itemsPerPage;
 
         return filteredPortfolios.slice(selectedPortfolio !== '' ? 0 : startIndex, endIndex);
-        // return filteredPortfolios
     };
 
     useEffect(() => {
@@ -52,23 +51,13 @@ const Portfolio = ({ data, commercial=false }) => {
                 <div className={css.filters}>
                     <div className={css.input_wrapper}>
                         <Select
-                            // options={projectsData.map((item) => ({ value: item.category, label: item.category }))}
                             options={categoryOptionns}
-                            isSearchable={false}
+                            isSearchable={true}
                             styles={generateCustomStyles('140px')}
-                            placeholder="All Projects"
+                            placeholder="All Portfolios"
                             onChange={(option) => setSelectedPortfolio(option.value)}
                         />
                     </div>
-                    {/* <div className={css.input_wrapper}>
-                    <input
-                        type="text"
-                        placeholder="Browse Portfolio"
-                        value={search}
-                        onChange={(e) => setSearch(e.target.value)}
-                    />
-                    <Iconify icon="bitcoin-icons:search-outline" color="#fff" width={20} />
-                </div> */}
                 </div>
                 <Cards search={selectedPortfolio} visibleCards={visiblePortfolios} commercial={commercial}/>
                 <Pagination

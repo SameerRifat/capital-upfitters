@@ -1,7 +1,6 @@
 import React from 'react'
 import GetStarted from '@/components/Shared/GetStarted/GetStarted'
-import Specifications from '../Shared/Specifications/Specifications'
-// import RecentWorks from '../Shared/RecentWorks/RecentWorks'
+import Specifications from '@/components/Shared/Specifications/Specifications'
 import RecentWorks from '@/components/Shared/RecentWorks/RecentWorks'
 import WindowTintServices from './WindowTintServices/WindowTintServices'
 import { fetchPortfolioData } from '@/lib/utils/portfolioUtils'

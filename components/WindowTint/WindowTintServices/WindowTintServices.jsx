@@ -5,11 +5,18 @@ import css from './windowTintServices.module.scss'
 import cx from 'classnames'
 import Image from 'next/image'
 import Select from 'react-select'
-import { windowTintServiceOptions, } from '@/mock/services'
 import ServiceBenefits from '@/components/Shared/ServiceBenefits/ServiceBenefits'
 import { generateCustomStyles } from '@/components/Shared/react-select-custom-styles'
 import { urlFor } from '@/lib/client'
 import { motion } from "framer-motion"
+
+export const windowTintServiceOptions = {
+    tintType: [
+        { value: "carbon", label: "Carbon" },
+        { value: "ceramic", label: "Ceramic" },
+        { value: "ceramic+", label: "Ceramic+" },
+    ]
+}
 
 const WindowTintServices = ({ data, vehicleTypes, }) => {
     const vehicleTypesOptions = vehicleTypes.map((item) => {

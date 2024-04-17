@@ -112,10 +112,39 @@ export async function getPrivacyPolicyData() {
         throw new Error("Failed to fetch data");
     }
 }
+export async function getTermsAndConditionsData() {
+    try {
+        const query = `*[_type == 'termsAndConditions'][0]{
+            title,
+            details
+        }
+          `
+
+        const data = await client.fetch(query, { cache: 'no-cache' });
+        return data;
+    } catch (error) {
+        console.log(error);
+        throw new Error("Failed to fetch data");
+    }
+}
 export async function getFooterText() {
     try {
         const query = `*[_type == 'footerText'][0]{
             text
+        }
+          `
+
+        const data = await client.fetch(query, { cache: 'no-cache' });
+        return data;
+    } catch (error) {
+        console.log(error);
+        throw new Error("Failed to fetch data");
+    }
+}
+export async function getEmailHeadingData() {
+    try {
+        const query = `*[_type == 'emailHeading'][0]{
+            heading
         }
           `
 

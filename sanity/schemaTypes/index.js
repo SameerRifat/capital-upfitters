@@ -22,6 +22,7 @@ import privacyPolicy from "./privacyPolicy";
 import service from "./service";
 import specification from "./specification";
 import siteStats from "./stats";
+import termsAndConditions from "./termsAndConditions";
 // import stats from "./stats";
 import testimonial from "./testimonial";
 import vehicleType from "./vehicleType";
@@ -56,5 +57,6 @@ export const schemaTypes = [
 
     privacyPolicy,
     emailHeading,
-    footerText
+    footerText,
+    termsAndConditions
 ]

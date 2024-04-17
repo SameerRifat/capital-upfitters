@@ -28,9 +28,6 @@ const QuoteRequest = ({ services, customizedMakeData, customizedModelsData }) =>
   const handlePrevStep = () => {
     setCurrentStep((prevStep) => prevStep - 1);
   };
-  // const handleSubmit = async () => {
-  //   console.log("Submitting form data:", formData);
-  // };
 
   const processedServices = services.map((item) => {
     return { value: item.serviceTitle, label: item.serviceTitle, tooltipDesc: item.tooltipDescription }

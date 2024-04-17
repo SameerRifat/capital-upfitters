@@ -3,7 +3,6 @@
 import React from 'react'
 import css from './portfolioGallery.module.scss'
 import cx from 'classnames'
-// import ProjectCard from '../../Shared/ProjectCard/ProjectCard';
 import { SectionHeadingLarge } from '@/components/Shared/SectionHeading/SectionHeading';
 import Breadcrumb from '@/components/Shared/BreadCrumbs/BreadCrumb';
 import Slides from './Slides';

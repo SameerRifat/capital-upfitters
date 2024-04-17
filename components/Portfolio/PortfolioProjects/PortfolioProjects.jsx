@@ -1,27 +1,12 @@
 SectionHeadingLarge
-import { projectsData } from '@/mock/portfolio';
 import React from 'react'
 import css from './portfolioProjects.module.scss'
-// import ProjectCard fro../../Shared/ProjectCard/ProjectCardard';
 import Breadcrumb from '@/components/Shared/BreadCrumbs/BreadCrumb';
 import ProjectCard from '@/components/Shared/ProjectCard/ProjectCard';
 import GetStarted from '@/components/Shared/GetStarted/GetStarted';
 import { SectionHeadingLarge } from '@/components/Shared/SectionHeading/SectionHeading';
 
 const PortfolioProjects = ({ projects }) => {
-    // const project = projectsData.find((p) => p.slug === params.slug);
-    // const filteredCars =
-    //     project?.cars.filter((car) => {
-    //         const carNameLowerCase = car.brand.toLowerCase();
-    //         const searchLowerCase = searchProject.toLowerCase();
-    //         const selectLowerCase = selectProject.toLowerCase();
-
-    //         return (
-    //             carNameLowerCase.includes(searchLowerCase) &&
-    //             (selectLowerCase === "" || carNameLowerCase.includes(selectLowerCase))
-    //         );
-    //     });
-
     const items = [
         { label: 'Portfolio', url: '/automotive/portfolio' },
         { label: `${projects[0].portfolio.serviceTitle}`, url: '#' },

@@ -1,7 +1,6 @@
 import { getPortfolioByBrand } from '@/apis/portfolio';
 import PortfolioGallery from '@/components/Portfolio/PortfolioGallery/PortfolioGallery'
 import { urlFor } from '@/lib/client';
-import { projectsData } from '@/mock/portfolio';
 import React from 'react'
 
 export const revalidate = 30 

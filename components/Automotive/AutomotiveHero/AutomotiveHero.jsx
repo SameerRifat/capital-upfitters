@@ -34,12 +34,6 @@ const AutomotiveHero = ({ heroData, servicesData, commercial = false }) => {
                 <div className={css.hero_left}>
                     <h2 className={cx("typoH2", "text_gradient", css.title)}>
                         {heroData.title}
-                        {/* {heroData.titleLines.map((item, index) => (
-                            <Fragment key={index}>
-                                {item}
-                                <br />
-                            </Fragment>
-                        ))} */}
                     </h2>
                     <p className={cx("typoBody1", css.desc)}>
                         {heroData.description}
@@ -66,7 +60,6 @@ const AutomotiveHero = ({ heroData, servicesData, commercial = false }) => {
                                     initial={{ x: -100, opacity: 0 }}
                                     animate={{ x: 0, y: 0, opacity: 1 }}
                                     transition={{ duration: 0.3 }}
-                                    // exit={{ x: 100, opacity: 0, transition: { duration: 0.3 } }}
                                     exit={{ x: 100, opacity: 0 }}
                                     className={css.card_content}
                                 >
@@ -75,7 +68,6 @@ const AutomotiveHero = ({ heroData, servicesData, commercial = false }) => {
                                     >
                                         <Image
                                             src={urlFor(servicesData[visibleCards[0]].serviceImages[0]).url()}
-                                            // src={commercial ? servicesData[visibleCards[0]].serviceImages[0] : urlFor(servicesData[visibleCards[0]].serviceImages[0]).url()}
                                             alt='image'
                                             fill
                                             quality={100}
@@ -105,7 +97,6 @@ const AutomotiveHero = ({ heroData, servicesData, commercial = false }) => {
                                     initial={{ x: -100, opacity: 0 }}
                                     animate={{ x: 0, y: 0, opacity: 1 }}
                                     transition={{ duration: 0.3, delay: 0.15 }}
-                                    // exit={{ x: 100, opacity: 0, transition: { duration: 0.3 } }}
                                     exit={{ x: 100, opacity: 0 }}
                                     className={css.card_content}
                                 >
@@ -114,7 +105,6 @@ const AutomotiveHero = ({ heroData, servicesData, commercial = false }) => {
                                     >
                                         <Image
                                             src={urlFor(servicesData[visibleCards[1]].serviceImages[0]).url()}
-                                            // src={commercial ? servicesData[visibleCards[1]].serviceImages[0] : urlFor(servicesData[visibleCards[1]].serviceImages[0]).url()}
                                             alt='image'
                                             fill
                                             quality={100}
@@ -143,13 +133,9 @@ const AutomotiveHero = ({ heroData, servicesData, commercial = false }) => {
                             <AnimatePresence>
                                 <motion.div
                                     key={visibleCards[2]}
-                                    // animate={{ x: [-100, 0], opacity: [0, 1] }} 
-                                    // transition={{ duration: 0.5 }}
-                                    // exit={{ x: 100, opacity: 0, transition: { duration: 0.5 } }}
                                     initial={{ x: -100, opacity: 0 }}
                                     animate={{ x: 0, opacity: 1 }}
                                     transition={{ duration: 0.3, delay: 0.3 }}
-                                    // exit={{ x: 100, opacity: 0, transition: { duration: 0.3 } }}
                                     exit={{ x: 100, opacity: 0 }}
                                     className={css.card_content}
                                 >
@@ -158,7 +144,6 @@ const AutomotiveHero = ({ heroData, servicesData, commercial = false }) => {
                                     >
                                         <Image
                                             src={urlFor(servicesData[visibleCards[2]].serviceImages[0]).url()}
-                                            // src={commercial ? servicesData[visibleCards[2]].serviceImages[0] : urlFor(servicesData[visibleCards[2]].serviceImages[0]).url()}
                                             alt='image'
                                             fill
                                             quality={100}

@@ -35,26 +35,6 @@ const Slides = ({ open, setOpen, gallery }) => {
     }));
 
     return (
-        // <Lightbox
-        //     open={open}
-        //     close={() => setOpen(false)}
-        //     slides={[
-        //         {
-        //             type: "video",
-        //             width: 1280,
-        //             height: 720,
-        //             poster: "/recent-works1.png",
-        //             sources: [
-        //                 {
-        //                     src: "/video.mov",
-        //                     type: "video/mp4",
-        //                 },
-        //             ],
-        //         },
-        //         ...slides
-        //     ]}
-        //     plugins={[Video, Zoom]}
-        // />
         <Lightbox
             open={open}
             close={() => setOpen(false)}

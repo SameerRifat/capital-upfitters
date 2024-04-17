@@ -11,24 +11,6 @@ import Image from 'next/image';
 import { urlFor } from '@/lib/client';
 import SpecificationDetailsModal from './SpecificationDetailsModal/SpecificationDetailsModal';
 
-// const specificationsData = [
-//     {
-//         imgSrc: '/specification1.png',
-//         title: 'STEK DYNO shield',
-//         description: 'Ultra glossy hydrophobic, self healing and puncture resistant clear bra'
-//     },
-//     {
-//         imgSrc: '/specification1.png',
-//         title: 'STEK DYNO might',
-//         description: 'Ultra glossy hydrophobic, self healing and puncture resistant clear bra Ultra glossy hydrophobic, self healing and puncture resistant clear bra'
-//     },
-//     {
-//         imgSrc: '/specification1.png',
-//         title: 'STEK DYNO matte',
-//         description: 'Ultra glossy hydrophobic, self healing and puncture resistant clear bra'
-//     },
-// ]
-
 const Specifications = ({ specifications }) => {
     const [open, setOpen] = useState(false);
     const [item, setItem] = useState(null);

@@ -50,7 +50,6 @@ const ContactUsModal = ({ open, setOpen }) => {
                 overlay: 'customOverlay',
                 modal: 'customModal',
                 closeButton: 'customButton',
-                // closeIcon: 'customIcon'
             }}
             closeIcon={closeIcon}
         >
@@ -61,9 +60,6 @@ const ContactUsModal = ({ open, setOpen }) => {
                         GET IN TOUCH
                     </h3>
                     <ContactUsText />
-                    {/* <p className={cx("typoCaption", css.description)}>
-                        {footerData.text}
-                    </p> */}
                     <ul className={css.links}>
                         {contactInfo.map((item, index) => (
                             <li key={index} className={css.link}>
