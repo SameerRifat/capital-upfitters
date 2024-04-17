@@ -4,7 +4,7 @@ import Automotive from '@/components/Automotive/Automotive'
 import { getAllCommercialServices } from '@/apis/commercialServices';
 import { urlFor } from '@/lib/client';
 
-export const revalidate = 30 // revalidate at most every 30 seconds
+export const revalidate = 30 
 
 const defaultMetadata = {
   title: "Commercial Services",

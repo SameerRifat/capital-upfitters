@@ -36,7 +36,7 @@ export const myStructure = (S, context) =>
             S.divider(),
             // We also need to remove the new singletons from the main list
             ...S.documentTypeListItems().filter(
-                (listItem) => !['siteStats', 'service', 'portfolio', 'portfolioVehicles', 'paintProtectionService', 'windowTintService', 'vehicleType', 'aboutUs', 'homePage', 'automotiveHero', 'accessories', 'commercialServices', 'commercialHero', 'commercialStats', 'commercialPortfolio', 'privacyPolicy'].includes(listItem.getId())
+                (listItem) => !['siteStats', 'service', 'portfolio', 'portfolioVehicles', 'paintProtectionService', 'windowTintService', 'vehicleType', 'aboutUs', 'homePage', 'automotiveHero', 'accessories', 'commercialServices', 'commercialHero', 'commercialStats', 'commercialPortfolio', 'privacyPolicy', 'footerText'].includes(listItem.getId())
             ),
 
             S.divider(),
@@ -51,7 +51,7 @@ export const myStructure = (S, context) =>
                         // Each will pull one of our new singletons
                         .items([
                             S.listItem()
-                                .title('Stats')
+                                .title('Automotive Stats')
                                 .child(S.document().schemaType('siteStats').documentId('siteStats')),
                             S.listItem()
                                 .title('About Us')
@@ -74,6 +74,9 @@ export const myStructure = (S, context) =>
                             S.listItem()
                                 .title('Email Heading')
                                 .child(S.document().schemaType('emailHeading').documentId('emailHeading')),
+                            S.listItem()
+                                .title('Footer Text')
+                                .child(S.document().schemaType('footerText').documentId('footerText')),
                         ])
                 ),
         ])

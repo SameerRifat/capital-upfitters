@@ -1,24 +1,24 @@
 import { defineField, defineType } from 'sanity'
 
-const emailHeading = defineType({
-    name: 'emailHeading',
-    title: 'Email Heading',
+const footerText = defineType({
+    name: 'footerText',
+    title: 'Footer Text',
     type: 'document',
     __experimental_actions: [/*'create',*/ 'update', /*'delete',*/ 'publish'],
     fields: [
         defineField({
-            name: 'heading',
-            title: 'Heading',
-            type: 'string',
+            name: 'text',
+            title: 'Footer Text',
+            type: 'text',
             validation: Rule => Rule.required()
         }),
     ],
     preview: {
         prepare: () => ({
-            title: 'Email Heading',
+            title: 'Footer',
         }),
     },
 })
 
 
-export default emailHeading
+export default footerText

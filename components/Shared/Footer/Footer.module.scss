@@ -24,9 +24,9 @@
     >p {
         margin-top: 1rem;
         font-size: 14px;
-        white-space: nowrap;
         line-height: 1.7;
         color: var(--text);
+        max-width: 250px;
     }
 
     @media (max-width: 330px) {

@@ -9,6 +9,7 @@ import './customStyles.css'
 import { Icon } from '@iconify/react';
 import Iconify from '@/components/iconify/iconify';
 import Link from 'next/link';
+import ContactUsText from './ContactUsText';
 
 const contactInfo = [
     {
@@ -59,17 +60,10 @@ const ContactUsModal = ({ open, setOpen }) => {
                     <h3 className={cx("typoH3", "text_gradient", css.heading)}>
                         GET IN TOUCH
                     </h3>
-                    <p className={cx("typoCaption", css.description)}>
-                        Based in Leander, Texas, our team of skilled
-                        technicians are dedicated to providing
-                        amazing service for all your truck
-                        customization needs
-                        {/* Lorem ipsum dolor sit amet {" "}
-                        <br />
-                        consec tetur adipisicing elit. Sunt {" "}
-                        <br />
-                        molestias facilis praesentium. */}
-                    </p>
+                    <ContactUsText />
+                    {/* <p className={cx("typoCaption", css.description)}>
+                        {footerData.text}
+                    </p> */}
                     <ul className={css.links}>
                         {contactInfo.map((item, index) => (
                             <li key={index} className={css.link}>

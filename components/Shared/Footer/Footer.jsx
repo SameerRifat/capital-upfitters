@@ -1,11 +1,22 @@
 import React from 'react'
 import styles from './Footer.module.scss'
 import Link from 'next/link'
-import Image from 'next/image'
 import FooterLinks from './FooterLinks/FooterLinks'
 import Iconify from "@/components/iconify/iconify";
+import { getFooterText } from '@/apis/settings'
+import Copyright from './Copyright'
 
-const Footer = () => {
+export const revalidate = 30
+
+const Footer = async () => {
+
+    let footerData
+    let footerError = null
+    try {
+        footerData = await getFooterText();
+    } catch (error) {
+        footerError = <div className='error_message'>Error fetching footer text</div>;
+    }
     const socialLinks = [
         { icon: "ri:linkedin-box-fill", href: '/www.linkedin.com' },
         { icon: "ri:twitter-x-fill", href: '/www.twitter.com' },
@@ -26,21 +37,20 @@ const Footer = () => {
                             />
                         </Link>
                         <p>
-                            Based in Leander, Texas, our team of skilled
+                            {footerData.text}
+                            {/* Based in Leander, Texas, our team of skilled
                             <br />
                             technicians are dedicated to providing
                             <br />
                             amazing service for all your truck
                             <br />
-                            customization needs
+                            customization needs */}
                         </p>
                     </div>
                     <FooterLinks />
                 </div>
                 <div className={styles.footer_row2}>
-                    <p className={styles.copy_right}>
-                        @2024 Capital Upfitters. All rights reserved. | <Link href='automotive/privacy-policy'>Privacy policy</Link> | Terms and Conditions
-                    </p>
+                    <Copyright />
                     <div className={styles.social_links}>
                         {socialLinks.map((link, index) => (
                             <Link href={link.href} key={index} className={styles.social_link} target='_blank'>

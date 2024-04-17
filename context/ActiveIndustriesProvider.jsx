@@ -11,12 +11,8 @@ const ActiveIdustryProvider = ({children}) => {
   useEffect(() => {
     const storedIndustry = window.localStorage.getItem("activeIndustry");
     if (storedIndustry) {
-      if (storedIndustry === "automotive") {
-        setActiveIndustry("automotive");
-      } else{
-        setActiveIndustry("commercial");
-      }
-    } 
+      setActiveIndustry(storedIndustry);
+    }
   }, []);
 
   return (

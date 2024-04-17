@@ -112,10 +112,10 @@ export async function getPrivacyPolicyData() {
         throw new Error("Failed to fetch data");
     }
 }
-export async function getEmailHeadingData() {
+export async function getFooterText() {
     try {
-        const query = `*[_type == 'emailHeading'][0]{
-            heading
+        const query = `*[_type == 'footerText'][0]{
+            text
         }
           `
 

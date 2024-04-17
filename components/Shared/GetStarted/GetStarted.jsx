@@ -3,7 +3,7 @@ import css from "./getStarted.module.scss";
 import cx from "classnames";
 import Link from "next/link";
 
-const GetStarted = () => {
+const GetStarted = ({commercial=false}) => {
   return (
     <div className={css.wrapper}>
       <div className={cx(css.get_started_container)}>
@@ -18,7 +18,7 @@ const GetStarted = () => {
             </p>
           </div>
           <div className={css.get_started_right}>
-            <Link href="/automotive/quote-request" className={cx("primary_btn", css.get_started_btn)}>
+            <Link href={`/${commercial ? 'commercial' : 'automotive'}/quote-request`} className={cx("primary_btn", css.get_started_btn)}>
               Get Started
             </Link>
           </div>

@@ -3,8 +3,9 @@ import "./globals.css";
 import '@/styles/typography.scss'
 import Footer from "@/components/Shared/Footer/Footer";
 import ScrollToTop from "@/components/Shared/ScrollToTop";
-import { Toaster } from 'react-hot-toast'
 import ActiveIdustryProvider from "@/context/ActiveIndustriesProvider";
+import BgEllipses from "@/components/Shared/bgEllipses";
+import ToasterComp from "@/components/Shared/ToasterComp";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -50,33 +51,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="top_ellipse_bg" />
-        <div className="left_ellipse_bg" />
-        <div className="right_ellipse_bg" />
+        <BgEllipses />
         <ScrollToTop>
           <ActiveIdustryProvider>
             {children}
+            <Footer />
           </ActiveIdustryProvider>
         </ScrollToTop>
-        <Footer />
-        <Toaster
-          position="top-right"
-          toastOptions={{
-            success: {
-              style: {
-                background: 'var(--background-color2)',
-                color: 'var(--white)',
-                border: '1px solid var(--primary-color)'
-              },
-            },
-            error: {
-              style: {
-                background: 'var(--background-color2)',
-                color: 'var(--white)',
-              }
-            }
-          }}
-        />
+        <ToasterComp />
       </body>
     </html>
   );

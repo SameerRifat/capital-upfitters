@@ -5,6 +5,8 @@ import HeroSection from './HeroSection/HeroSection'
 import CardsSection from './CardsSection/CardsSection'
 import { getHomeData } from '@/apis/settings'
 
+export const revalidate = 30
+
 const LandingPage = async () => {
   let homeData
   let homeError = null

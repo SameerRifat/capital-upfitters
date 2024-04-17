@@ -118,3 +118,17 @@
         }
     }
 }
+
+.skeleton {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Adjust the gap between lines as needed */
+    margin-top: 1rem;
+}
+
+.line {
+    height: 10px; /* Adjust the height of each line as needed */
+    width: 100%;
+    background-color: rgb(30, 30, 51); /* Use a light gray color for the lines */
+    border-radius: 4px; /* Add some border radius for a smoother look */
+}

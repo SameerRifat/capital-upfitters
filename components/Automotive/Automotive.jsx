@@ -30,7 +30,7 @@ const Automotive = async ({ commercial = false }) => {
           <CompanyLogosSection logosData={logosData} />
           {testimonialsData.length > 0 && <Testimonials testimonialsData={testimonialsData} />}
           <StatsSection statsData={statsData} />
-          <GetStarted />
+          <GetStarted commercial={commercial}/>
         </div>
       );
     } catch (error) {
@@ -46,14 +46,13 @@ const Automotive = async ({ commercial = false }) => {
         getCompanyLogos(),
         getStats()
       ]);
-
       return (
         <div className={css.automotive_container}>
           <AutomotiveHero heroData={automotiveHero} servicesData={servicesData} commercial={commercial && true} />
           <CompanyLogosSection logosData={logosData} />
           {testimonialsData.length > 0 && <Testimonials testimonialsData={testimonialsData} />}
           <StatsSection statsData={statsData} />
-          <GetStarted />
+          <GetStarted/>
         </div>
       );
     } catch (error) {

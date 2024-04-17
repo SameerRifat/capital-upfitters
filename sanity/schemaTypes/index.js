@@ -11,6 +11,7 @@ import commercialServices from "./commercialServices";
 import commercialStats from "./commercialStats";
 import companyLogo from "./companyLogo";
 import emailHeading from "./emailHeading";
+import footerText from "./footerText";
 import homePage from "./homePage";
 import make from "./make";
 import models from "./models";
@@ -54,5 +55,6 @@ export const schemaTypes = [
     models,
 
     privacyPolicy,
-    emailHeading
+    emailHeading,
+    footerText
 ]
