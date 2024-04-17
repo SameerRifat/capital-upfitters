@@ -19,21 +19,21 @@ const contactInfo = [
     {
         icon: "ri:mail-fill",
         title: 'CapitalUpfitters@gmail.com',
-        link: 'mailto:info@CapitalUpfitters.com' // Phone call link
+        link: 'mailto:info@CapitalUpfitters.com' 
     },
     {
         icon: "ri:phone-fill",
         title: '301-304-1419',
-        link: 'tel:+971581249910' // Email link
+        link: 'tel:+971581249910' 
     }
 ]
 
 const socialLinks = [
     { icon: "ri:linkedin-box-fill", href: '/www.linkedin.com' },
     { icon: "ri:twitter-x-fill", href: '/www.twitter.com' },
-    { icon: "ri:facebook-circle-fill", href: '/www.facebook.com' },
+    { icon: "ri:facebook-circle-fill", href: "https://www.facebook.com/CapitalUpfitters" },
     { icon: "ri:youtube-fill", href: '/www.youtube.com' },
-    { icon: "ri:instagram-fill", href: '/www.instagram.com' },
+    { icon: "ri:instagram-fill", href: 'https://www.instagram.com/capitalupfitters/?igshid=MzRlODBiNWFlZA%3D%3D' },
 ];
 
 const ContactUsModal = ({ open, setOpen }) => {
