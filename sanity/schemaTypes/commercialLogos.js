@@ -2,7 +2,7 @@ import { defineField, defineType } from 'sanity'
 
 const commercialLogos = defineType({
     name: 'commercialLogos',
-    title: 'Commercial Logos',
+    title: 'Commercial Customers',
     type: 'document',
     fields: [
         defineField({

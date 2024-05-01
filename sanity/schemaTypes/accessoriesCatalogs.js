@@ -3,7 +3,7 @@ import { orderRankField, orderRankOrdering } from '@sanity/orderable-document-li
 
 const accessoriesCatalogs = defineType({
     name: 'accessoriesCatalogs',
-    title: 'Accessories Catalogs',
+    title: 'Automotive Catalogs',
     type: 'document',
     orderings: [orderRankOrdering],
     fields: [

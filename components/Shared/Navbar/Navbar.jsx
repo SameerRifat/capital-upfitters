@@ -29,7 +29,7 @@ const Navbar = ({ navlinks }) => {
                         const isActive = pathname === navlink.route || pathname.includes(navlink.route.split('/')[2]);
                         return (
                             <Link key={navlink.label} href={navlink.route} className={`${css.navlink} ${isActive && 'boder_gradient_bottom'}`}>
-                                {navlink.label} {isActive}
+                                {navlink.label}
                             </Link>
                         )
                     })}

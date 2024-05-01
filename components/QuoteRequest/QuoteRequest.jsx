@@ -23,8 +23,6 @@ const QuoteRequest = ({ services, customizedMakeData, customizedModelsData }) =>
     setCurrentStep(step);
   };
 
-
-
   const handlePrevStep = () => {
     setCurrentStep((prevStep) => prevStep - 1);
   };

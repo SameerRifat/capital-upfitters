@@ -5,6 +5,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import Select from 'react-select'
 import { vehicleInformationSchema } from '@/lib/validations/formValidations';
 import { State } from 'country-state-city'
+import { generateCustomStyles2 } from '@/components/Shared/react-select-custom-styles';
 
 const years = [];
 for (let year = 2025; year >= 1980; year--) {
@@ -63,9 +64,10 @@ const VehicleInformationForm = ({ initialValues, onNextStep, onPrevStep, customi
                     // options={vehicleInformation.makeData}
                     options={customizedMakeData}
                     placeholder='Choose your make'
-                    isSearchable={false}
+                    // isSearchable={false}
                     className="react-select-container"
                     classNamePrefix="react-select"
+                    styles={generateCustomStyles2()}
                     onChange={(option) => setFieldValue('make', option.value)}
                   />
                 )}

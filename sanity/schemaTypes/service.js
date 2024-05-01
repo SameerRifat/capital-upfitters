@@ -3,7 +3,7 @@ import { defineField, defineType } from 'sanity'
 
 const service = defineType({
     name: 'service',
-    title: 'Services',
+    title: 'Automotive Services',
     type: 'document',
     orderings: [orderRankOrdering],
     fields: [

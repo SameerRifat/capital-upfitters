@@ -3,7 +3,7 @@ import { defineField, defineType } from 'sanity'
 
 const vehicleType = defineType({
     name: 'vehicleType',
-    title: 'Vehicle Type',
+    title: 'Window Tint Vehicle Type',
     type: 'document',
     fields: [
         defineField({

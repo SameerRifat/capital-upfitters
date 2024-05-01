@@ -2,7 +2,7 @@ import { defineField, defineType } from 'sanity'
 
 const paintProtectoionService = defineType({
     name: 'paintProtectionService',
-    title: 'Paint Protection Service Package',
+    title: 'PPF Packages',
     type: 'document',
     fields: [
         defineField({

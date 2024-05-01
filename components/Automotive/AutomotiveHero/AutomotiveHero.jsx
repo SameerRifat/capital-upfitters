@@ -9,8 +9,10 @@ import { useRouter } from 'next/navigation'
 import ContactUsModal from '@/components/Shared/ContactUs/ContactUsModal'
 import { urlFor } from '@/lib/client'
 import { AnimatePresence, motion } from "framer-motion"
+import { useActiveIndustryContext } from '@/context/ActiveIndustriesProvider'
 
 const AutomotiveHero = ({ heroData, servicesData, commercial = false }) => {
+    const { activeIndustry, setActiveIndustry } = useActiveIndustryContext();
     const router = useRouter();
     const [open, setOpen] = useState(false);
 
@@ -39,7 +41,7 @@ const AutomotiveHero = ({ heroData, servicesData, commercial = false }) => {
                         {heroData.description}
                     </p>
                     <div className={css.hero_left_btns}>
-                        <Link href="/quote-request" className={cx("primary_btn")}>
+                        <Link href={`/${activeIndustry}/quote-request`} className={cx("primary_btn")}>
                             Get Quote
                         </Link>
                         <div className={cx("primary_btn", css.outiline_btn)} onClick={() => setOpen(true)}>

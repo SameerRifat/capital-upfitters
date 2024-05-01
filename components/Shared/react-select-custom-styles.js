@@ -56,7 +56,14 @@ export const generateCustomStyles = (width) => ({
     }),
     input: (provided) => ({
       ...provided,
-      color: 'var(--white)', // Change 'red' to the color you want for the input text
+      color: 'var(--white)',
+    }),
+  });
+export const generateCustomStyles2 = () => ({
+    input: (provided) => ({
+      ...provided,
+      color: 'var(--white)',
+      fontSize: '14px',
     }),
   });
   
